@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FYPAllocationTest", "FYPAllocationTest\FYPAllocationTest.csproj", "{F4D64240-D8D8-4270-92F8-E6BD04FBD5EC}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "fypallocation", "..\..\..\source\repos\fypallocation\fypallocation.sqlproj", "{AA88ABE3-7FC4-4D11-954F-7341282A5FAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4D64240-D8D8-4270-92F8-E6BD04FBD5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4D64240-D8D8-4270-92F8-E6BD04FBD5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4D64240-D8D8-4270-92F8-E6BD04FBD5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4D64240-D8D8-4270-92F8-E6BD04FBD5EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA88ABE3-7FC4-4D11-954F-7341282A5FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA88ABE3-7FC4-4D11-954F-7341282A5FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA88ABE3-7FC4-4D11-954F-7341282A5FAF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AA88ABE3-7FC4-4D11-954F-7341282A5FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA88ABE3-7FC4-4D11-954F-7341282A5FAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA88ABE3-7FC4-4D11-954F-7341282A5FAF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3D45440-4336-4231-A7C3-12D16365FD54}
+	EndGlobalSection
+EndGlobal

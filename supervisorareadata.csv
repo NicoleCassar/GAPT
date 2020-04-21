@@ -1,0 +1,36 @@
+area_id,supervisor_id,title,description,available
+1,123456M,Apps & Educational Games for Children with Disabilities,N/A,True
+2,123456M,Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled,N/A,True
+3,123456M,Improving Human Productivity through Prediction and Automation,N/A,True
+4,123456M,Voice Recognition and Mixed Input Application,N/A,True
+5,123480M,Bioinformatics (Computational Biology),N/A,True
+6,123480M,Bioinformatics (Data Science, Statistics, Machine Learning),N/A,True
+7,123482M,ERP, Designing Solutions for Workplace Environment,N/A,True
+8,123482M,Digital Health, Persuasive Technology, Pervasive Computing,N/A,True
+9,123482M,Data Science – Pervasive Computing – Mobile Applications – AAPS,N/A,True
+11,123460M,Data Mining and Distributed Computing,N/A,True
+12,123460M,ICT in Smart Wheelchairs,N/A,True
+13,123465M,Computer Security and Communications Issues in Automobiles,N/A,True
+14,123476M,Human-Computer Interaction in Software Testing,N/A,True
+15,123464M,AI and Machine Learning,N/A,True
+16,123464M,Natural Language Processing,N/A,True
+17,123464M,Bioinformatics (DNA & Protein Sequence Classification, Medical Imaging),N/A,True
+18,123464M,Machine Vision,N/A,True
+19,123464M,Space Science,N/A,True
+20,123464M,Search and Optimisation,N/A,True
+21,123472M,Blockchain and/or Cryptocurrency and/or Smart Contracts,N/A,True
+22,123462M,High-Level Description Languages for IoT Programming,N/A,True
+23,123462M,Automated Portal Creation Tools,N/A,True
+24,123474M,Autonommous Drone Navigation,N/A,True
+25,123468M,Database Data Modelling,N/A,True
+26,123468M,Database Setup, Tuning and Administration,N/A,True
+27,123468M,Digital Forensics,N/A,True
+28,123468M,Data Mining & Data Warehousing: With Massive Datasets,N/A,True
+29,123468M,Scalability Issues over Distributed Data,N/A,True
+30,123471M,Voynich Word Prediction,N/A,True
+31,123463M,Real Time Systems,N/A,True
+32,123475M,Hospital Admission Pattern Analysis, Bed Resource Requirements Forecasting, Allocation & Management,N/A,True
+33,123475M,Traffic Congestion Problems in Malta,N/A,True
+34,123475M,Digital Footprint Analytics,N/A,True
+35,123475M,Smart Sensor for EEG Acquisition and Epileptic Seizure Detection,N/A,True
+36,123475M,Machine Learning Methods for Handling Missing Data in Medical Questionnaires,N/A,True

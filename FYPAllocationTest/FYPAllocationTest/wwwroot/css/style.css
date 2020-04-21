@@ -1,0 +1,19 @@
+﻿/*Button*/
+.btncustom {
+    background-color: #ba0c2f;
+    border: 1px solid #ba0c2f;
+    border-radius: 100px;
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+}
+
+.position {
+    display: flex;
+    justify-content: center;
+}
+
+

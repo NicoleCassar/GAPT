@@ -1,0 +1,37 @@
+﻿@model FYPAllocationTest.ViewModels.StudentViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <nav class="navbar bg-light ">
+        <span class="navbar-brand  h1">FYP Allocation Portal</span>
+    </nav>
+    <div class="text-center ">
+
+        @using (Html.BeginForm("Export_Tutors", "Home", FormMethod.Post))
+        {
+            <input type="submit" id="btnSubmit" value="Export Tutors" />
+        }
+        <br />
+        @using (Html.BeginForm("Export_Students", "Home", FormMethod.Post))
+        {
+            <input type="submit" id="btnSubmit" value="Export Students" />
+        }
+        <br />
+        @using (Html.BeginForm("FYPAlloc", "Home", FormMethod.Post))
+        {
+            <input class="btncustom btn-primary" type="submit" id="btnSubmit" value="Perform Allocation" />
+        }
+        <br />
+        <a asp-controller="Home" asp-action="FormA" class="btncustom btn-primary">Student Form</a>
+        <a asp-controller="Home" asp-action="StaffForm" class="btncustom btn-primary">Supervisor Form</a>
+
+    </div>
+</body>
+</html>
+
+
+
