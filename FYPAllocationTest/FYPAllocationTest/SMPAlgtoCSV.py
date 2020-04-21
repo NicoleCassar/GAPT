@@ -94,16 +94,25 @@ def awarded_to(candidate): #Check Tutor Availability
                     audit.write("%s Preference %s NOT AVAILABLE \n" %(student[x][i], i-1))
                 
 
-def assign(stud, tut): #Assigning tutor to student
-    for i in range(0, len(student)):
-        if student[i][0] == stud:
-            audit.write("\n%s: Checking tutor availbility \n" %(student[i][1]))
-            student[i][8] = tut
-            audit.write("%s Preference 1 AVAILABLE \n" %(student[i][2]))
-    for k in range(0, len(tutor)): #Marking the allocated tutor as no longer free
-        if tutor[k][0] == tut:
-            tutor[k][2] -= 1
-            tutor[k][3] = False
+def assign(stud, tut, is_First): #Assigning tutor to student
+    if is_First:
+        for i in range(0, len(student)):
+            if student[i][0] == stud:
+                audit.write("\n%s: Checking tutor availbility \n" %(student[i][1]))
+                student[i][8] = tut
+                audit.write("%s Preference 1 AVAILABLE \n" %(student[i][2]))
+        for k in range(0, len(tutor)): #Marking the allocated tutor as no longer free
+            if tutor[k][1] == tut:
+                tutor[k][2] -= 1
+                tutor[k][3] = False
+    if not is_First:
+        for i in range(0, len(student)):
+            if student[i][0] == stud:
+                student[i][8] = tut
+        for k in range(0, len(tutor)): #Marking the allocated tutor as no longer free
+            if tutor[k][1] == tut:
+                tutor[k][2] -= 1
+                tutor[k][3] = False
 
 def main():        
     for x in range(0, len(student)):
@@ -112,9 +121,9 @@ def main():
         areaforFYP = get_name_of_preferred_tutor(stud) #if not get first preference tutor.
         if area_is_assigned(areaforFYP): #if their first preference is assigned:
             assignedArea = awarded_to(stud)#Check availabilities
-            assign(stud, assignedArea) #Assign the student with the resultant area
+            assign(stud, assignedArea, False) #Assign the student with the resultant area
         else:
-            assign(stud, areaforFYP)#if the tutor is still available, simply assign.
+            assign(stud, areaforFYP, True)#if the tutor is still available, simply assign.
 
 def end(): #Basic print implementation for test data
     print("Resolution:\n")
