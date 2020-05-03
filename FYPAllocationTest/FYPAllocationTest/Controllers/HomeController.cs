@@ -53,7 +53,7 @@ namespace FYPAllocationTest.Controllers
        public FileResult Export_Tutors()
         {
             List<String> columnData = new List<String>();
-            string connectionstring = "Server=MSI-CSF;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string connectionstring = "Server=MSSQLSERVER2;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();
@@ -85,7 +85,7 @@ namespace FYPAllocationTest.Controllers
         public FileResult Export_Students()
         {
             List<String>columnData = new List<String>();
-            string connectionstring = "Server=MSI-CSF;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string connectionstring = "Server=MSSQLSERVER2;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();
