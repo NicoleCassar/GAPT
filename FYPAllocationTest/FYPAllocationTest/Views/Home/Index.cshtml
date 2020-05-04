@@ -11,23 +11,23 @@
     </nav>
     <div class="text-center ">
 
-        @using (Html.BeginForm("Export_Tutors", "Home", FormMethod.Post))
+        @using (Html.BeginForm("Export_Supervisors", "Allocation", FormMethod.Post))
         {
-            <input type="submit" id="btnSubmit" value="Export Tutors" />
+            <input type="submit" id="btnSubmit" value="Export Supervisors" />
         }
         <br />
-        @using (Html.BeginForm("Export_Students", "Home", FormMethod.Post))
+        @using (Html.BeginForm("Export_Students", "Allocation", FormMethod.Post))
         {
             <input type="submit" id="btnSubmit" value="Export Students" />
         }
         <br />
-        @using (Html.BeginForm("FYPAlloc", "Home", FormMethod.Post))
+        @using (Html.BeginForm("FYPAlloc", "Allocation", FormMethod.Post))
         {
             <input class="btncustom btn-primary" type="submit" id="btnSubmit" value="Perform Allocation" />
         }
         <br />
-        <a asp-controller="Home" asp-action="FormA" class="btncustom btn-primary">Student Form</a>
-        <a asp-controller="Home" asp-action="StaffForm" class="btncustom btn-primary">Supervisor Form</a>
+        <a asp-controller="Allocation" asp-action="FormA" class="btncustom btn-primary">Student Form</a>
+        <a asp-controller="Allocation" asp-action="StaffForm" class="btncustom btn-primary">Supervisor Form</a>
 
     </div>
 </body>
