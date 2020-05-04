@@ -5,9 +5,9 @@ area_id,supervisor_id,title,description,available,area_quota
 4,123456M,Voice Recognition and Mixed Input Application,N/A,True,1
 5,123480M,Bioinformatics (Computational Biology),N/A,True,3
 6,123480M,Bioinformatics (Data Science, Statistics, Machine Learning),N/A,True,2
-7,123482M,ERP, Designing Solutions for Workplace Environment,N/A,True,2
+7,123482M,ERP Designing Solutions for Workplace Environment,N/A,True,2
 8,123482M,Digital Health, Persuasive Technology, Pervasive Computing,N/A,True,4
-9,123482M,Data Science – Pervasive Computing – Mobile Applications – AAPS,N/A,True,6
+9,123482M,Data Science â€“ Pervasive Computing â€“ Mobile Applications â€“ AAPS,N/A,True,6
 10,123460M,Data Mining and Distributed Computing,N/A,True,5
 11,123460M,ICT in Smart Wheelchairs,N/A,True,4
 12,123465M,Computer Security and Communications Issues in Automobiles,N/A,True,2
