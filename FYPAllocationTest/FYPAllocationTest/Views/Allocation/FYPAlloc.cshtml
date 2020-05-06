@@ -3,10 +3,22 @@
     ViewData["Title"] = "FYP Allocation";
 }
 
-<h1>FYPAlloc</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1>FYPAlloc</h1>
 
-@foreach(var item in Model)
-{
-    <p>@item</p>
-}
+    @foreach (var item in Model)
+    {
+        <p>@item</p>
+    }
+
+    <a asp-controller="Allocation" asp-action="Export_Log" class="btncustom btn-primary mt-2">Download complete allocation log</a>
+
+
+</body>
+</html>
 

@@ -18,21 +18,13 @@ namespace FYPAllocationTest.Controllers
     public class AllocationController : Controller
     {
         private readonly IStudentRepository _studentRepository;
+        string item;
 
         public AllocationController(IStudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
         }
 
-        public IActionResult FormA()
-        {
-            return View();
-        }
-
-        public IActionResult StaffForm()
-        {
-            return View();
-        }
 
         [HttpPost]
         public FileResult Export_Supervisors()
@@ -114,6 +106,13 @@ namespace FYPAllocationTest.Controllers
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
+        public FileResult Export_Log()
+        {
+            byte[] fileBytes = System.IO.File.ReadAllBytes(@"Allocation_Log.txt");
+            string fileName = "Allocation_Log.txt";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
 
         public ActionResult FYPAlloc()
         {
@@ -145,6 +144,12 @@ namespace FYPAllocationTest.Controllers
                 return View(result);
             }
         }
+
+        public ActionResult SetItem(string item)
+        {
+            return View();
+        }
+
 
 
 

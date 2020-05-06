@@ -119,7 +119,7 @@ def reason_for_result(ar): ##For logging purposes
 def allocated_to(stud): #Check supervisor Availability
      for i in range(0, len(student)):
          if student[i][0] == stud: #new student gets their second preference and so on..
-            audit.write("\n%s: Checking FYP availbility \n" %(student[i][1]))
+            audit.write("\n%s: Checking FYP availability \n" %(student[i][1]))
             audit.write("Preference 1: %s with %s NOT AVAILABLE \n" %(student[i][2], get_supervisor(student[i][2])))
             reason_for_result(student[i][2]);
             for j in range(3, 7):

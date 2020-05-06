@@ -9,26 +9,14 @@
     <nav class="navbar bg-light ">
         <span class="navbar-brand  h1">FYP Allocation Portal</span>
     </nav>
-    <div class="text-center ">
-
-        @using (Html.BeginForm("Export_Supervisors", "Allocation", FormMethod.Post))
-        {
-            <input type="submit" id="btnSubmit" value="Export Supervisors" />
-        }
+    <div class="text-center mr-2 ">
+        <a asp-controller="Allocation" asp-action="Export_Supervisors" class="btncustom btn-primary mt-2">Export Supervisors</a>
+        <a asp-controller="Allocation" asp-action="Export_Students" class="btncustom btn-primary mt-2">Export Students</a>
         <br />
-        @using (Html.BeginForm("Export_Students", "Allocation", FormMethod.Post))
-        {
-            <input type="submit" id="btnSubmit" value="Export Students" />
-        }
+        <a asp-controller="Forms" asp-action="FormA" class="btncustom btn-primary mt-2">Student Form</a>
+        <a asp-controller="Forms" asp-action="StaffForm" class="btncustom btn-primary mt-2">Supervisor Form</a>
         <br />
-        @using (Html.BeginForm("FYPAlloc", "Allocation", FormMethod.Post))
-        {
-            <input class="btncustom btn-primary" type="submit" id="btnSubmit" value="Perform Allocation" />
-        }
-        <br />
-        <a asp-controller="Allocation" asp-action="FormA" class="btncustom btn-primary">Student Form</a>
-        <a asp-controller="Allocation" asp-action="StaffForm" class="btncustom btn-primary">Supervisor Form</a>
-
+        <a asp-controller="Allocation" asp-action="FYPAlloc" class="btncustom btn-primary mt-2">Perform Allocation</a>
     </div>
 </body>
 </html>

@@ -28,7 +28,11 @@ namespace FYPAllocationTest
         {
             //These environments are specified via the ASPNETCORE_ENVIRONMENT variable (see Properties/launchSettngs.json)
             if (_env.IsDevelopment())
+            {
                 services.AddTransient<IStudentRepository, StudentRepository>();
+                services.AddTransient<ISupervisorRepository, SupervisorRepository>();
+                services.AddTransient<IAreaRepository, AreaRepository>();
+            }
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
             );
