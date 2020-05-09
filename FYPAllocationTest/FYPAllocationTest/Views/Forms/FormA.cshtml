@@ -7,6 +7,9 @@
 <html>
 <head>
     <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/js/Filter.js"></script>
+
 </head>
 
 <body>
@@ -24,166 +27,95 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="select1">Preference 1</label>
-            <select class="form-control" id="select10">
-                <option value="" disabled selected>Supervisor/s</option>
-                @foreach (var item in Model.supervisor)
-                {
-                    <option>@item.name&nbsp;@item.surname</option>
-                }
-            </select>
+            <label for="select6">Preference 1</label>
+            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
+            {
+                @id = "pref1",
+                @class = "form-control"
+            })
+            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
+            {
+                @id = "area1",
+                @class = "form-control"
+            })
 
-            <select class="form-control" id="select1">
-                <option value="" disabled selected>Select an area</option>
-                @foreach (var item in Model.area)
-                {
-                    <option>@item.title</option>
-                }
-
-            </select>
         </div>
         <div class="form-group">
-            <label for="select2">Preference 2</label>
-            <select class="form-control" id="select10">
-                <option value="" disabled selected>Supervisor/s</option>
-                @foreach (var item in Model.supervisor)
-                {
-                    <option>@item.name&nbsp;@item.surname</option>
-                }
-            </select>
+            <label for="select6">Preference 2</label>
+            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
+            {
+                @id = "pref2",
+                @class = "form-control"
+            })
+            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
+            {
+                @id = "area2",
+                @class = "form-control"
+            })
 
-            <select class="form-control" id="select1">
-                <option value="" disabled selected>Select an area</option>
-                @foreach (var item in Model.area)
-                {
-                    <option>@item.title</option>
-                }
-
-            </select>
         </div>
         <div class="form-group">
-            <label for="select3">Preference 3</label>
-            <select class="form-control" id="select10">
-                <option value="" disabled selected>Supervisor/s</option>
-                @foreach (var item in Model.supervisor)
-                {
-                    <option>@item.name&nbsp;@item.surname</option>
-                }
-            </select>
+            <label for="select6">Preference 3</label>
+            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
+            {
+                @id = "pref3",
+                @class = "form-control"
+            })
+            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
+            {
+                @id = "area3",
+                @class = "form-control"
+            })
 
-            <select class="form-control" id="select1">
-                <option value="" disabled selected>Select an area</option>
-                @foreach (var item in Model.area)
-                {
-                    <option>@item.title</option>
-                }
-
-            </select>
         </div>
         <div class="form-group">
-            <label for="select4">Preference 4</label>
-            <select class="form-control" id="select10">
-                <option value="" disabled selected>Supervisor/s</option>
-                @foreach (var item in Model.supervisor)
-                {
-                    <option>@item.name&nbsp;@item.surname</option>
-                }
-            </select>
+            <label for="select6">Preference 4</label>
+            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
+            {
+                @id = "pref4",
+                @class = "form-control"
+            })
+            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
+            {
+                @id = "area4",
+                @class = "form-control"
+            })
 
-            <select class="form-control" id="select1">
-                <option value="" disabled selected>Select an area</option>
-                @foreach (var item in Model.area)
-                {
-                    <option>@item.title</option>
-                }
-
-            </select>
         </div>
         <div class="form-group">
-            <label for="select5">Preference 5</label>
-            <select class="form-control" id="select10">
-                <option value="" disabled selected>Supervisor/s</option>
-                @foreach (var item in Model.supervisor)
-                {
-                    <option>@item.name&nbsp;@item.surname</option>
-                }
-            </select>
-            <select class="form-control" id="select1">
-                <option value="" disabled selected>Select an area</option>
-                @foreach (var item in Model.area)
-                {
-                    <option>@item.title</option>
-                }
-
-            </select>
-
+            <label for="select6">Preference 5</label>
+            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
+            {
+                @id = "pref5",
+                @class = "form-control"
+            })
+            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
+            {
+                @id = "area5",
+                @class = "form-control"
+            })
 
         </div>
         <div class="form-group">
             <label for="select6">Preference 6</label>
-            @{
-                var u = "hello";
-                <select onchange="GetSelectedText()" class="form-control" id="pref6">
-                    <option value="" disabled selected>Supervisor/s</option>
+            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
+            {
+                @id = "pref6",
+                @class = "form-control"
+            })
+            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
+            {
+                @id = "area6",
+                @class = "form-control"
+            })
 
-                    @foreach (var item in Model.supervisor)
-                    {
-                        <option>@item.name&nbsp;@item.surname</option>
-                    }
-                </select> //Pass selected value from view to controller
-                //return the value and store it in a variable
-                u = ViewBag.Item;
-
-                <select disabled class="form-control" id="area6">
-                    <option value="" disabled selected>Select an area</option>
-                    @foreach (var item in Model.area)
-                    {
-                        if (item.supervisor_id == u)
-                        {
-                            <option>@item.title</option>
-                        }
-                    }
-
-                </select>
-                <p >@u</p>
-
-            }
         </div>
         <div class="position">
             <button type="submit" class="btncustom btn-primary">Submit</button>
         </div>
     </form>
 
-    <p id="result">Hello</p>
-
-    <script>
-    //Get id from name and use that id in the area loop
-        function GetSelectedText() {
-            var e = document.getElementById("pref6");
-            var res = e.options[e.selectedIndex].text
-            document.getElementById("result").innerHTML = res;
-            document.getElementById("area6").removeAttribute("disabled");
-            jQuery.ajax({
-            type: "POST",
-            url: "@Url.Action("SetItem")",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({ result: res}),
-            success: function (data) {
-                alert(data);
-            },
-            failure: function (errMsg) {
-                alert(errMsg);
-            }
-            });
-            
-
-        }
-
-    </script>
-
-    
-
+   
 </body>
 
 </html>
