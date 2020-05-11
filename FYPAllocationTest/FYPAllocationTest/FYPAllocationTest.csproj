@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\uom.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bootstrap" Version="4.4.1" />
+    <PackageReference Include="Foolproof" Version="0.9.4518" />
     <PackageReference Include="IronPython" Version="2.7.9" />
     <PackageReference Include="IronPython.StdLib" Version="2.7.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.2" />

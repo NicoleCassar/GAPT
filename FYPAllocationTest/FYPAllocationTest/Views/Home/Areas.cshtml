@@ -1,0 +1,35 @@
+﻿@model FYPAllocationTest.ViewModels.Supervisor_AreaViewModel
+@{
+    ViewData["Title"] = "Available FYP Areas";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1>Available FYP Areas</h1>
+
+    @foreach (var supervisors in Model.supervisor)
+    {
+        @foreach (var areas in Model.area)
+        {
+
+            if (areas.supervisor_id == supervisors.supervisor_id)
+            {
+                <div class="card-body">
+                    <h3>@areas.title</h3>
+                    <h5>With @supervisors.name @supervisors.surname</h5>
+                    <p>@areas.description</p>
+
+
+                </div>
+            }
+
+
+        }
+    }
+</body>
+</html>
+

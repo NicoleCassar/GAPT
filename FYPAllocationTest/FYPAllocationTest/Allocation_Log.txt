@@ -1,6 +1,12 @@
 
+Link Vella: Checking FYP availbility 
+Preference 1: Data Mining and Distributed Computing with Michel Camilleri AVAILABLE 
+
 Tom Olson: Checking FYP availbility 
 Preference 1: Improving Human Productivity through Prediction and Automation with Peter Xuereb AVAILABLE 
+
+Jimmy Vella: Checking FYP availbility 
+Preference 1: ERP Designing Solutions for Workplace Environment with Conrad Attard AVAILABLE 
 
 Ursula Borg: Checking FYP availability 
 Preference 1: Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled with Peter Xuereb NOT AVAILABLE 

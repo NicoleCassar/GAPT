@@ -1,6 +1,6 @@
 ﻿@model List<string>
 @{
-    ViewData["Title"] = "FYP Allocation";
+    ViewData["Title"] = "FYP Allocation Results";
 }
 
 <!DOCTYPE html>
@@ -15,8 +15,9 @@
     {
         <p>@item</p>
     }
-
-    <a asp-controller="Allocation" asp-action="Export_Log" class="btncustom btn-primary mt-2">Download complete allocation log</a>
+    <div class="text-center position">
+        <a asp-controller="Allocation" asp-action="Export_Log" class="btncustom">Download complete allocation log</a>
+    </div>
 
 
 </body>

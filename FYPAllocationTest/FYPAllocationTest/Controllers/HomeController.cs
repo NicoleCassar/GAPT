@@ -18,13 +18,15 @@ namespace FYPAllocationTest.Controllers
     public class HomeController : Controller
     {
         private readonly IStudentRepository _studentRepository;
+        private readonly ISupervisorRepository _supervisorRepository;
+        private readonly IAreaRepository _areaRepository;
 
-        public HomeController(IStudentRepository studentRepository)
+        public HomeController(IStudentRepository studentRepository, ISupervisorRepository supervisorRepository, IAreaRepository areaRepository)
         {
             _studentRepository = studentRepository;
+            _supervisorRepository = supervisorRepository;
+            _areaRepository = areaRepository;
         }
-
-        
 
         public IActionResult Index()
         {
@@ -37,6 +39,14 @@ namespace FYPAllocationTest.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Areas()
+        {
+            var model = new Supervisor_AreaViewModel();
+            model.supervisor = _supervisorRepository.GetAllData().OrderByDescending(p => p.supervisor_id);
+            model.area = _areaRepository.GetAllData().OrderByDescending(p => p.area_id);
+            return View(model);
         }
 
 

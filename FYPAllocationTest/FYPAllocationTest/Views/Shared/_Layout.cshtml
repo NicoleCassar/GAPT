@@ -8,6 +8,29 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand navbar-custom">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a asp-controller="Home" asp-action="Index" class="navbar-brand">FYP Allocation System</a>
+        <div class="navbar-collapse collapse" id="navbarCustom">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Current Students </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a asp-controller="Home" asp-action="Areas" class="dropdown-item">FYP Areas<span class="sr-only">(current)</span></a>
+                        <a asp-controller="Form" asp-action="FormA" class="dropdown-item">FYP Submission<span class="sr-only">(current)</span></a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Staff </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a asp-controller="Form" asp-action="StaffForm" class="dropdown-item">Submit FYP Area Proposal<span class="sr-only">(current)</span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <main role="main" class="container">
         @RenderBody()
     </main>
@@ -17,6 +40,6 @@
     <script src="~/lib/jquery/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
-</body >
+
+</body>
 </html >

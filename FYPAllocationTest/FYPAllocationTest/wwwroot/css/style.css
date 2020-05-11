@@ -11,8 +11,118 @@
     text-align: center;
 }
 
+.btncustom:hover {
+    background-color: white;
+    border: 1px solid #ba0c2f;
+    border-radius: 100px;
+    text-decoration: none;
+    color: #ba0c2f;
+    text-align: center;
+}
+
 .position {
     padding:20px;
 }
+
+
+.Fyp-navbar {
+    background-color: #ba0c2f !important;
+}
+
+
+
+.nav-txt {
+    color: #ba0c2f;
+    font-size: 16px;
+    font-family: Arial;
+}
+
+.inline{
+    display:flex;
+}
+
+.navbar-custom {
+    background-color: #ba0c2f;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: white;
+    font-size: 16px;
+    font-family: Arial;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-custom {
+    background-color: #ba0c2f;
+    margin-bottom:2%;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+/* for dropdown only - change the color of droodown */
+.navbar-custom .dropdown-menu {
+    background-color: #ba0c2f;
+}
+
+.navbar-custom .dropdown-item {
+    color: #ffffff;
+}
+
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+    color: #ba0c2f;
+    background-color:white;
+}
+
+.navbar-custom .navbar-brand{
+    color: white;
+    font-size:16px;
+    font-family:Arial;
+
+}
+
+img{
+    width: 260px;
+    height:89px
+}
+
+.navbar-custom-home {
+}
+
+.navbar-custom-home .navbar-text{
+    color: #ba0c2f;
+}
+
+.navbar-custom-home .navbar-nav .nav-link {
+    color: #ba0c2f;
+    font-size: 16px;
+    font-family: Arial;
+}
+
+
+
+
+
+
+
 
 

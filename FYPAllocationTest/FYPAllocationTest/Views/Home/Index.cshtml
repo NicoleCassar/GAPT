@@ -6,18 +6,23 @@
 </head>
 
 <body>
-    <nav class="navbar bg-light ">
-        <span class="navbar-brand  h1">FYP Allocation Portal</span>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom-home">
+        <a class="navbar-brand" href="#"><img src="~/css/uom.png"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a asp-controller="Allocation" asp-action="Export_Supervisors" class="nav-item nav-link">Export Supervisors</a>
+                <a asp-controller="Allocation" asp-action="Export_Students" class="nav-item nav-link">Export Students</a>
+                <a asp-controller="Forms" asp-action="FormA" class="nav-item nav-link">Student Form</a>
+                <a asp-controller="Forms" asp-action="StaffForm" class="nav-item nav-link">Supervisor Form</a>
+                <a asp-controller="Allocation" asp-action="FYPAlloc"class="nav-item nav-link">Perform Allocation</a>
+
+            </div>
+        </div>
     </nav>
-    <div class="text-center mr-2 ">
-        <a asp-controller="Allocation" asp-action="Export_Supervisors" class="btncustom btn-primary mt-2">Export Supervisors</a>
-        <a asp-controller="Allocation" asp-action="Export_Students" class="btncustom btn-primary mt-2">Export Students</a>
-        <br />
-        <a asp-controller="Forms" asp-action="FormA" class="btncustom btn-primary mt-2">Student Form</a>
-        <a asp-controller="Forms" asp-action="StaffForm" class="btncustom btn-primary mt-2">Supervisor Form</a>
-        <br />
-        <a asp-controller="Allocation" asp-action="FYPAlloc" class="btncustom btn-primary mt-2">Perform Allocation</a>
-    </div>
+
 </body>
 </html>
 

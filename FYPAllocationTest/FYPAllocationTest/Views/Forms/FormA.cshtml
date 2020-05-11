@@ -1,4 +1,4 @@
-﻿@model FYPAllocationTest.ViewModels.Supervisor_AreaViewModel
+﻿@model FYPAllocationTest.ViewModels.AddStudent
 
 @{
     ViewData["Title"] = "FormA";
@@ -15,103 +15,90 @@
 <body>
 
     <h1 class="align-content-center">Form A: Student Submission</h1>
-    <form>
+    <form asp-action="FormA" method="post" role="form" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="row">
-            <div class="col">
-                <label for="input1">Name and Surname</label>
-                <input type="text" class="form-control" id="input1" placeholder="Full name">
+            <div class="form-group">
+                <div class="col">
+                    <label asp-for="name">Name and Surname</label>
+                    <input asp-for="name" type="text" class="form-control" id="input1" placeholder="Full name">
+                </div>
             </div>
-            <div class="col">
-                <label for="input2">ID Number</label>
-                <input type="text" class="form-control" id="input2" placeholder="######Z">
+            <div class="form-group">
+                <div class="col">
+                    <label asp-for="id">ID Number</label>
+                    <input asp-for="id" type="text" class="form-control" id="input2" placeholder="######Z">
+                </div>
             </div>
+        </div> @*Complete Validation*@
+        <div class="form-group">
+            <label asp-for="sup1">Preference 1</label>
+            <select asp-for="sup1" class="form-control" id="pref1" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="sup1" class="text-danger"></span>
+            <select asp-for="pref1" class="form-control" id="area1" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref1" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label for="select6">Preference 1</label>
-            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
-            {
-                @id = "pref1",
-                @class = "form-control"
-            })
-            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
-            {
-                @id = "area1",
-                @class = "form-control"
-            })
-
+            <label asp-for="sup2">Preference 2</label>
+            <select asp-for="sup2" class="form-control" id="pref2" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="sup2" class="text-danger"></span>
+            <select asp-for="pref2" class="form-control" id="area2" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref2" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label for="select6">Preference 2</label>
-            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
-            {
-                @id = "pref2",
-                @class = "form-control"
-            })
-            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
-            {
-                @id = "area2",
-                @class = "form-control"
-            })
-
+            <label asp-for="sup3">Preference 3</label>
+            <select asp-for="sup3" class="form-control" id="pref3" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="sup3" class="text-danger"></span>
+            <select asp-for="pref3" class="form-control" id="area3" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref3" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label for="select6">Preference 3</label>
-            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
-            {
-                @id = "pref3",
-                @class = "form-control"
-            })
-            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
-            {
-                @id = "area3",
-                @class = "form-control"
-            })
-
+            <label asp-for="sup4">Preference 4</label>
+            <select asp-for="sup4" class="form-control" id="pref4" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="sup4" class="text-danger"></span>
+            <select asp-for="pref4" class="form-control" id="area4" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref4" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label for="select6">Preference 4</label>
-            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
-            {
-                @id = "pref4",
-                @class = "form-control"
-            })
-            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
-            {
-                @id = "area4",
-                @class = "form-control"
-            })
-
+            <label asp-for="sup5">Preference 5</label>
+            <select asp-for="sup5" class="form-control" id="pref5" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="sup5" class="text-danger"></span>
+            <select asp-for="pref5" class="form-control" id="area5" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref5" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label for="select6">Preference 5</label>
-            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
-            {
-                @id = "pref5",
-                @class = "form-control"
-            })
-            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
-            {
-                @id = "area5",
-                @class = "form-control"
-            })
-
+            <label asp-for="sup6">Preference 6</label>
+            <select asp-for="sup6" class="form-control" id="pref6" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>           
+            <span asp-validation-for="sup6" class="text-danger"></span>
+            <select asp-for="pref6" class="form-control" id="area6" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref6" class="text-danger"></span>
         </div>
-        <div class="form-group">
-            <label for="select6">Preference 6</label>
-            @Html.DropDownList("supervisors", ViewBag.supervisors as List<SelectListItem>, "Supervisor/s", new
-            {
-                @id = "pref6",
-                @class = "form-control"
-            })
-            @Html.DropDownList("area", new SelectList(string.Empty), "Select an area", new
-            {
-                @id = "area6",
-                @class = "form-control"
-            })
-
-        </div>
-        <div class="position">
-            <button type="submit" class="btncustom btn-primary">Submit</button>
+        <div class="text-center position">
+            <button type="submit" class="btncustom">Submit</button>
         </div>
     </form>
 

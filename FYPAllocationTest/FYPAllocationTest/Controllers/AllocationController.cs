@@ -18,7 +18,6 @@ namespace FYPAllocationTest.Controllers
     public class AllocationController : Controller
     {
         private readonly IStudentRepository _studentRepository;
-        string item;
 
         public AllocationController(IStudentRepository studentRepository)
         {
@@ -26,7 +25,6 @@ namespace FYPAllocationTest.Controllers
         }
 
 
-        [HttpPost]
         public FileResult Export_Supervisors()
         {
             List<String> columnData = new List<String>();
@@ -77,7 +75,7 @@ namespace FYPAllocationTest.Controllers
                     "ON area.supervisor_id = sup.supervisor_id " +
                     "INNER JOIN student stud " +
                     "ON pref.student_id = stud.student_id " +
-                    "ORDER BY stud.average_mark DESC, pref.student_id, pref.preference_id ;";
+                    "ORDER BY stud.average_mark DESC, stud.student_id, pref.preference_id, pref.time_submitted ;";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -116,6 +114,8 @@ namespace FYPAllocationTest.Controllers
 
         public ActionResult FYPAlloc()
         {
+            Stopwatch sw = new Stopwatch(); //Setting Benchmark for analysis
+            sw.Start(); //Start timer
             Export_Supervisors();
             Export_Students();
             ScriptEngine engine = Python.CreateEngine();
@@ -133,6 +133,8 @@ namespace FYPAllocationTest.Controllers
                 }
                 var result = res.ToList();
                 ViewBag.Message = result;
+                sw.Stop(); //Stop benchmarking
+                Console.WriteLine("\nTime was: " + sw.ElapsedMilliseconds/1000 + " seconds"); //Output Benchmarked time
                 return View(result);
             }
             else
