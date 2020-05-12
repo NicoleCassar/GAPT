@@ -18,10 +18,12 @@ namespace FYPAllocationTest.Controllers
     public class AllocationController : Controller
     {
         private readonly IStudentRepository _studentRepository;
+        private readonly IAllocationRepository _allocationRepository;
 
-        public AllocationController(IStudentRepository studentRepository)
+        public AllocationController(IStudentRepository studentRepository, IAllocationRepository allocationRepository)
         {
             _studentRepository = studentRepository;
+            _allocationRepository = allocationRepository;
         }
 
 
@@ -123,7 +125,13 @@ namespace FYPAllocationTest.Controllers
             if (System.IO.File.Exists("SMPResult.csv"))
             {
                 StreamReader sr = new StreamReader("SMPResult.csv");
+                List<string> stud_name = new List<string>();
+                List<string> stud_id = new List<string>();
+                List<string> area = new List<string>();
+                List<string> sup_name = new List<string>();
+                List<string> sup_id = new List<string>();
                 List<string> res = new List<string>();
+                List<string> output = new List<string>();
                 string line;
                 // Read and display lines from the file until the end of 
                 // the file is reached.
@@ -131,11 +139,22 @@ namespace FYPAllocationTest.Controllers
                 {
                     res.Add(line);
                 }
-                var result = res.ToList();
-                ViewBag.Message = result;
+                var result = res.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+                for (int i = 0; i <= result.Count()-1; i++)
+                {
+                    var cell = result[i].Split(',');
+                    stud_name.Add(cell[0]);
+                    stud_id.Add(cell[1]);
+                    area.Add(cell[2]);
+                    sup_name.Add(cell[3]);
+                    sup_id.Add(cell[4]);
+                    output.Add(cell[0] + " is assigned to " + cell[2] + " with " + cell[3]);
+                    SaveAlloc(i+1, stud_id[i], sup_id[i]);
+                }
+                ViewBag.Message = output.ToList();
                 sw.Stop(); //Stop benchmarking
                 Console.WriteLine("\nTime was: " + sw.ElapsedMilliseconds/1000 + " seconds"); //Output Benchmarked time
-                return View(result);
+                return View(output);
             }
             else
             {
@@ -145,6 +164,18 @@ namespace FYPAllocationTest.Controllers
                 // ViewBag.Message = result;
                 return View(result);
             }
+        }
+
+
+        public void SaveAlloc(int alloc_id, string stud_id, string supervisor_id)
+        {
+            Allocation alloc = new Allocation()
+            {
+                allocation_id = alloc_id,
+                student_id = stud_id,
+                supervisor_id = supervisor_id
+            };
+            _allocationRepository.Create(alloc);
         }
 
         public ActionResult SetItem(string item)

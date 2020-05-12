@@ -33,6 +33,7 @@ namespace FYPAllocationTest
                 services.AddTransient<ISupervisorRepository, SupervisorRepository>();
                 services.AddTransient<IAreaRepository, AreaRepository>();
                 services.AddTransient<IPreferenceRepository, PreferenceRepository>();
+                services.AddTransient<IAllocationRepository, AllocationRepository>();
             }
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))

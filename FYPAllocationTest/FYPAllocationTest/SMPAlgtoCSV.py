@@ -86,12 +86,19 @@ def get_supervisor(ar): #Retrieving supervisor linked to area by FK
                 if area[i][2] == supervisor[j][1]:
                     return supervisor[j][0]
 
-def get_supervisor_quota(ar):
+def get_supervisor_quota(ar): #Retrieve supervisor quota
     for i in range(0, len(area)):
         if area[i][0] == ar:
             for j in range(0, len(supervisor)):
                 if area[i][2] == supervisor[j][1]:
                     return supervisor[j][4]
+
+def get_supervisor_id(ar): #Retrieve ID bound to supervisor for area
+    for i in range(0, len(area)):
+        if area[i][0] == ar:
+            for j in range(0, len(supervisor)):
+                if area[i][2] == supervisor[j][1]:
+                    return supervisor[j][1]
 
 
 
@@ -187,15 +194,17 @@ def end(): #Basic print implementation for test data
     print("Resolution:\n")
     for i in range(0, len(student)):
         stud = student[i][1]
+        stud_id = student[i][0]
         area = student[i][8] #add tutor name with final output
         sup = get_supervisor(area)
+        sup_id = get_supervisor_id(area)
 
         print(stud + " is assigned to " + area + " with " + sup )
-        returntoweb(stud, area, sup)
+        returntoweb(stud, stud_id, area, sup, sup_id)
     
 
-def returntoweb(stud, area, sup): #Returning allocation to Web App.
-    writer.writerow([stud + " is assigned to " + area + " with " + sup])
+def returntoweb(stud, stud_id, area, sup, sup_id): #Returning allocation to Web App.
+    writer.writerow([stud , stud_id, area, sup, sup_id ])
     
         
    

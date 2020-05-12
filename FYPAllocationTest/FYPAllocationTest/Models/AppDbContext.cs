@@ -17,5 +17,6 @@ namespace FYPAllocationTest.Models
         public DbSet<Supervisor> supervisor { get; set; }
         public DbSet<Area> supervisor_area { get; set; }
         public DbSet<Preference> student_preference { get; set; }
+        public DbSet<Allocation> allocation { get; set; }
     }
 }
