@@ -11,6 +11,5 @@ namespace FYPAllocationTest.ViewModels
         public IEnumerable<Supervisor> supervisor { get; set; }
         public IEnumerable<Area> area { get; set; }
 
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -36,5 +37,6 @@ namespace FYPAllocationTest.ViewModels
         public string sup6 { get; set; }
         [Required(ErrorMessage = "Missing Area for sixth preference")]
         public string pref6 { get; set; }
+        
     }
 }

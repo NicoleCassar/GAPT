@@ -144,7 +144,7 @@ def assign(stud, ar, is_First): #Assigning supervisor to student
     if is_First:
         for i in range(0, len(student)):
             if student[i][0] == stud:
-                audit.write("\n%s: Checking FYP availbility \n" %(student[i][1]))
+                audit.write("\n%s: Checking FYP availability \n" %(student[i][1]))
                 student[i][8] = ar
                 audit.write("Preference 1: %s with %s AVAILABLE \n" %(student[i][2], get_supervisor(student[i][2])))
         for k in range(0, len(area)): #Marking the allocated area or supervisor as no longer free

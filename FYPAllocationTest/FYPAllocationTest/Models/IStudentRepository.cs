@@ -8,5 +8,7 @@ namespace FYPAllocationTest.Models
     public interface IStudentRepository
     {
         public IEnumerable<Student> GetAllData();
+
+        bool Import(Student student);
     }
 }

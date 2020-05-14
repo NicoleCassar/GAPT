@@ -124,11 +124,8 @@ namespace FYPAllocationTest.Controllers
             engine.ExecuteFile(@"SMPAlgtoCSV.py");
             if (System.IO.File.Exists("SMPResult.csv"))
             {
-                StreamReader sr = new StreamReader("SMPResult.csv");
-                List<string> stud_name = new List<string>();
+                StreamReader sr = new StreamReader("SMPResult.csv");              
                 List<string> stud_id = new List<string>();
-                List<string> area = new List<string>();
-                List<string> sup_name = new List<string>();
                 List<string> sup_id = new List<string>();
                 List<string> res = new List<string>();
                 List<string> output = new List<string>();
@@ -143,10 +140,7 @@ namespace FYPAllocationTest.Controllers
                 for (int i = 0; i <= result.Count()-1; i++)
                 {
                     var cell = result[i].Split(',');
-                    stud_name.Add(cell[0]);
                     stud_id.Add(cell[1]);
-                    area.Add(cell[2]);
-                    sup_name.Add(cell[3]);
                     sup_id.Add(cell[4]);
                     output.Add(cell[0] + " is assigned to " + cell[2] + " with " + cell[3]);
                     SaveAlloc(i+1, stud_id[i], sup_id[i]);
@@ -177,13 +171,6 @@ namespace FYPAllocationTest.Controllers
             };
             _allocationRepository.Create(alloc);
         }
-
-        public ActionResult SetItem(string item)
-        {
-            return View();
-        }
-
-
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

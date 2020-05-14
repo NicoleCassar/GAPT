@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +19,22 @@ namespace FYPAllocationTest.Models
         public IEnumerable<Student> GetAllData()
         {
             return _appDbContext.student;
+        }
+
+        public bool Import(Student student)
+        {
+            try
+            {
+                _appDbContext.student.Add(student);
+                _appDbContext.SaveChanges();
+                return true;
+            }
+            catch(DbUpdateException)
+            {
+                return false;
+            }
+           
+            
         }
     }
 }

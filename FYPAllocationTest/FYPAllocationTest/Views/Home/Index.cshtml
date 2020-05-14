@@ -3,25 +3,34 @@
 <html>
 <head>
     <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
+    <p id="success" class="alert-success">@ViewBag.success</p>
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom-home">
-        <a class="navbar-brand" href="#"><img src="~/css/uom.png"/></a>
+        <a class="navbar-brand" href="#"><img src="~/images/uom.png" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
+                <a asp-controller="Imports" asp-action="Import" class="nav-item nav-link">Import Students or Supervisors</a>
                 <a asp-controller="Allocation" asp-action="Export_Supervisors" class="nav-item nav-link">Export Supervisors</a>
                 <a asp-controller="Allocation" asp-action="Export_Students" class="nav-item nav-link">Export Students</a>
                 <a asp-controller="Forms" asp-action="FormA" class="nav-item nav-link">Student Form</a>
                 <a asp-controller="Forms" asp-action="StaffForm" class="nav-item nav-link">Supervisor Form</a>
-                <a asp-controller="Allocation" asp-action="FYPAlloc"class="nav-item nav-link">Perform Allocation</a>
+                <a asp-controller="Allocation" asp-action="FYPAlloc" class="nav-item nav-link">Perform Allocation</a>
 
             </div>
         </div>
     </nav>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#success').delay(3000).fadeOut();
+        });
+    </script>
 
 </body>
 </html>
