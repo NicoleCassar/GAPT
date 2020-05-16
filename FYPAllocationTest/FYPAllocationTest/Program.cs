@@ -31,7 +31,7 @@ namespace FYPAllocationTest
                     logger.LogError(ex, "An error occured at the seeding stage");
                 }
 
-                host.Run(); //The problem was here!!!!!!!!!!!!!!!
+                host.Run();
             }
         }
         public static IHostBuilder CreateHostBuilder(string[] args) =>

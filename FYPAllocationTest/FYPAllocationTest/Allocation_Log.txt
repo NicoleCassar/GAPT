@@ -1,11 +1,11 @@
 
-Link Vella: Checking FYP availbility 
+Link Vella: Checking FYP availability 
 Preference 1: Data Mining and Distributed Computing with Michel Camilleri AVAILABLE 
 
-Tom Olson: Checking FYP availbility 
+Tom Olson: Checking FYP availability 
 Preference 1: Improving Human Productivity through Prediction and Automation with Peter Xuereb AVAILABLE 
 
-Jimmy Vella: Checking FYP availbility 
+Jimmy Vella: Checking FYP availability 
 Preference 1: ERP Designing Solutions for Workplace Environment with Conrad Attard AVAILABLE 
 
 Ursula Borg: Checking FYP availability 
@@ -13,7 +13,7 @@ Preference 1: Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Ag
 Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
 Preference 2: Autonommous Drone Navigation with Matthew Montebello AVAILABLE 
 
-Joe Borg: Checking FYP availbility 
+Joe Borg: Checking FYP availability 
 Preference 1: Computer Security and Communications Issues in Automobiles with Clyde Meli AVAILABLE 
 
 Ian Grech: Checking FYP availability 
@@ -21,5 +21,5 @@ Preference 1: Improving Human Productivity through Prediction and Automation wit
 Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
 Preference 2: Bioinformatics (Computational Biology) with Joseph Bonello AVAILABLE 
 
-Jane Said: Checking FYP availbility 
+Jane Said: Checking FYP availability 
 Preference 1: ERP Designing Solutions for Workplace Environment with Conrad Attard AVAILABLE 
