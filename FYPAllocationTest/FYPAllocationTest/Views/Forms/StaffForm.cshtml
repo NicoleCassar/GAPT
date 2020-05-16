@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@model FYPAllocationTest.ViewModels.AddArea
+
+@{
+    ViewData["Title"] = "Supervisor Form";
+}
+<!DOCTYPE html>
 <html>
 <head>
     <link href="~/css/style.css" rel="stylesheet" type="text/css" />
@@ -6,38 +11,47 @@
 
 <body>
     <h1 class="align-content-center">FYP: Staff Submission</h1>
-    <form>
+    <form asp-action="StaffForm" method="post" role="form" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
-            <label for="input1">Title/Area</label>
-            <input type="text" class="form-control" id="input1" placeholder="Enter area">
+            <label asp-for="area">Title/Area</label>
+            <input asp-for="area" type="text" class="form-control" id="area" placeholder="Enter area">
         </div>
         <div class="form-group">
-            <label for="input2">Supervisor</label>
-            <input type="text" class="form-control" id="input2" placeholder="Enter name">
+            <label asp-for="name">Supervisor</label>
+            <input asp-for="name" type="text" class="form-control" id="name" placeholder="Enter full name">
         </div>
         <div class="form-group">
-            <label for="input3">Co-Supervisor (if applicable)</label>
-            <input type="text" class="form-control" id="input3" placeholder="Enter name">
+            <label asp-for="id">Supervisor ID</label>
+            <input asp-for="id" type="text" class="form-control" id="id" placeholder="Enter Supervisor ID">
+        </div> @*Complete Validation*@
+        <div class="form-group">
+            <label asp-for="cosupname">Co-Supervisor (if applicable)</label>
+            <input asp-for="cosupname" type="text" class="form-control" id="cosupname" placeholder="Enter name">
         </div>
         <div class="form-group">
-            <label for="textarea1">Main subject Area/s (keywords/tags: not more than 5)</label>
-            <textarea class="form-control" id="textarea1" rows="3"></textarea>
+            <label asp-for="areakw">Main subject Area/s (keywords/tags: not more than 5)</label>
+            <textarea asp-for="areakw" class="form-control" id="areakw" rows="3"></textarea>
         </div>
         <div class="form-group">
-            <label for="textarea2">Brief Project Description inc. References (word limit approx. 300 words)</label>
-            <textarea class="form-control" id="textarea2" rows="3"></textarea>
+            <label asp-for="desc">Brief Project Description inc. References (word limit approx. 300 words)</label>
+            <textarea asp-for="desc" class="form-control" id="desc" rows="3"></textarea>
         </div>
         <div class="form-group">
-            <label for="textarea3">Resources Required (if student needs to buy them)</label>
-            <textarea class="form-control" id="textarea3" rows="3"></textarea>
+            <label asp-for="reqres">Resources Required (if student needs to buy them)</label>
+            <textarea asp-for="reqres" class="form-control" id="reqres" rows="3"></textarea>
         </div>
         <div class="form-group">
-            <label for="textarea4">Recommended Prerequisites / Knowledge Required and supporting 3rd Year study-units</label>
-            <textarea class="form-control" id="textarea4" rows="3"></textarea>
+            <label asp-for="reqpre">Recommended Prerequisites / Knowledge Required and supporting 3rd Year study-units</label>
+            <textarea asp-for="reqpre" class="form-control" id="reqpre" rows="3"></textarea>
         </div>
         <div class="form-group">
-            <label for="textarea4">Foreseeable Etichal Issues and How these will be tackled (if applicable)</label>
-            <textarea class="form-control" id="textarea4" rows="3"></textarea>
+            <label asp-for="ethissues">Foreseeable Etichal Issues and How these will be tackled (if applicable)</label>
+            <textarea asp-for="ethissues" class="form-control" id="ethissues" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="quota">Area Quota(if applicable)</label>
+            <input asp-for="quota" type="number" class="form-control" id="quota" rows="3">
         </div>
         <div class="text-center position">
             <button type="submit" class="btncustom">Save</button>

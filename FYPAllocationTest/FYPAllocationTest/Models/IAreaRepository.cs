@@ -8,5 +8,7 @@ namespace FYPAllocationTest.Models
     public interface IAreaRepository
     {
         public IEnumerable<Area> GetAllData();
+        public void Submit(Area area);
+        public Area getNextID();
     }
 }
