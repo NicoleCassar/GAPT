@@ -23,7 +23,11 @@ namespace FYPAllocationTest.Models
 
         public Area getNextID()
         {
-            return _appDbContext.supervisor_area.OrderByDescending(p => p.area_id).First();
+            var nextid =  _appDbContext.supervisor_area.OrderByDescending(p => p.area_id).First();
+            if (nextid != null)
+                return nextid;
+            else
+                return null;
         }
 
         public IEnumerable<Area> GetAllData()

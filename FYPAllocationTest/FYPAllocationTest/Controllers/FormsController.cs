@@ -132,12 +132,17 @@ namespace FYPAllocationTest.Controllers
         [HttpPost]
         public IActionResult StaffForm([Bind("area", "name", "id", "cosupname", "areakw", "desc", "reqres", "reqpre", "ethissues", "quota")] AddArea submission)
         {
-
+            //int area_id;
+            //var last_area = _areaRepository.getNextID();
+            //if (last_area != null)
+                //area_id = _areaRepository.getNextID().area_id++;
+            //else
+                //area_id = 0;
             if (ModelState.IsValid)
             {
                 Area area = new Area()
                 {
-                    area_id = _areaRepository.getNextID().area_id + 1,
+                    //area_id = _areaRepository.getNextID().area_id + 1,
                     supervisor_id = submission.id,
                     title = submission.area,
                     description = submission.desc,

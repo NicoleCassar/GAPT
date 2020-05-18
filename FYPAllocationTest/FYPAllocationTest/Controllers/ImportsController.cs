@@ -66,7 +66,7 @@ namespace FYPAllocationTest.Controllers
                 }
                 else //if the data contains already existing elements, or the column sequence from the csv does not match the database column sequence.
                 {
-                    TempData["failurestudent"] = "An error occurred inserting student data, csv columns be in the wrong order or already exist";  //Prepare a custom error message to inform the user of failure
+                    TempData["failurestudent"] = "An error occurred, csv columns be in the wrong order or already exist. Only new data was inserted";  //Prepare a custom error message to inform the user of failure
                     return RedirectToAction("Import"); //return to the import page, giving user advice on what caused the failure
                 }
 
@@ -110,7 +110,7 @@ namespace FYPAllocationTest.Controllers
                 }
                 else //if any error occired whilst inserting supervisor data, due to the same possible exceptions as the student import.
                 {
-                    TempData["failuresupervisor"] = "An error occurred inserting supervisor data, csv columns be in the wrong order or already exist"; //Prepare a failure message
+                    TempData["failuresupervisor"] = "An error occurred, csv columns be in the wrong order or already exist. Only new data was inserted"; //Prepare a failure message
                     return RedirectToAction("Import"); //Return to Import view with a failure message.
                 }
 

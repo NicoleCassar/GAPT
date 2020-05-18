@@ -30,7 +30,7 @@ namespace FYPAllocationTest.Controllers
         public FileResult Export_Supervisors()
         {
             List<String> columnData = new List<String>();
-            string connectionstring = "Server=localhost\\MSSQLSERVER2;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string connectionstring = "Server=MSI-CSF;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();
@@ -52,19 +52,19 @@ namespace FYPAllocationTest.Controllers
                     }
                 }
             }
-            var sw = new StreamWriter("Supervisors.csv", false, Encoding.ASCII);
+            var sw = new StreamWriter("supervisors.csv", false, Encoding.ASCII);
             foreach (var item in columnData)
                 sw.WriteLine(item);
             sw.Close();
-            byte[] fileBytes = System.IO.File.ReadAllBytes(@"Supervisors.csv");
-            string fileName = "Supervisors.csv";
+            byte[] fileBytes = System.IO.File.ReadAllBytes(@"supervisors.csv");
+            string fileName = "supervisors.csv";
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
         public FileResult Export_Students()
         {
             List<String> columnData = new List<String>();
-            string connectionstring = "Server=localhost\\MSSQLSERVER2;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string connectionstring = "Server=MSI-CSF;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();
@@ -121,10 +121,10 @@ namespace FYPAllocationTest.Controllers
             Export_Supervisors();
             Export_Students();
             ScriptEngine engine = Python.CreateEngine();
-            engine.ExecuteFile(@"SMPAlgtoCSV.py");
-            if (System.IO.File.Exists("SMPResult.csv"))
+            engine.ExecuteFile(@"Allocation.py");
+            if (System.IO.File.Exists("allocation_result.csv"))
             {
-                StreamReader sr = new StreamReader("SMPResult.csv");              
+                StreamReader sr = new StreamReader("allocation_result.csv");              
                 List<string> stud_id = new List<string>();
                 List<string> sup_id = new List<string>();
                 List<string> res = new List<string>();
@@ -146,6 +146,7 @@ namespace FYPAllocationTest.Controllers
                     SaveAlloc(i+1, stud_id[i], sup_id[i]);
                 }
                 ViewBag.Message = output.ToList();
+                sr.Close();
                 sw.Stop(); //Stop benchmarking
                 Console.WriteLine("\nTime was: " + sw.ElapsedMilliseconds/1000 + " seconds"); //Output Benchmarked time
                 return View(output);

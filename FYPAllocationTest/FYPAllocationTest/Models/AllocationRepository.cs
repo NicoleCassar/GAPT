@@ -20,7 +20,7 @@ namespace FYPAllocationTest.Models
         }
 
         public void Create(Allocation allocation)
-        { //ADD CATCH TO INFORM SECRETARIES THAT ALLOCATION HAS ALREADY BEEN PERFORMED
+        { 
             _appDbContext.allocation.Add(allocation);
             _appDbContext.SaveChanges();
         }

@@ -14,5 +14,6 @@ namespace FYPAllocationTest.Models
         public string surname { get; set; }
         public string email { get; set; }
         public int quota { get; set; }
+
     }
 }

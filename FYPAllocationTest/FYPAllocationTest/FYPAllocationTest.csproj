@@ -5,6 +5,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200401131009_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200401131009_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518070939_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518070939_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518072309_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518072309_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518072528_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518072528_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518073955_MigrationA.cs" />
+    <Compile Remove="Migrations\20200518073955_MigrationA.Designer.cs" />
+    <Compile Remove="Migrations\20200518074419_A.cs" />
+    <Compile Remove="Migrations\20200518074419_A.Designer.cs" />
+    <Compile Remove="Migrations\20200518074549_A.cs" />
+    <Compile Remove="Migrations\20200518074549_A.Designer.cs" />
+    <Compile Remove="Migrations\20200518074844_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518074844_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518093525_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518093525_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518100011_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518100011_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518124021_Updates.cs" />
+    <Compile Remove="Migrations\20200518124021_Updates.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\images\uom.png" />
   </ItemGroup>
 

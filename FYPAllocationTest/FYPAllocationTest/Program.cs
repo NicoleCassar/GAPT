@@ -23,7 +23,7 @@ namespace FYPAllocationTest
                 try
                 {
                     var context = services.GetRequiredService<AppDbContext>();
-                    DbInitializer.Seed(context);
+                    //DbInitializer.Seed(context);
                 }
                 catch (Exception ex)
                 {

@@ -10,7 +10,7 @@ audit = open("Allocation_Log.txt", 'w')
 #pathfile = open("path.txt", 'r')
 #path = pathfile.read()
 csv_file = open("students.csv", 'r') #CSV file being read from
-csv_test = open("SMPResult.csv", 'w') #CSV file to write the results to.
+csv_test = open("allocation_result.csv", 'w') #CSV file to write the results to.
 writer = csv.writer(csv_test, delimiter=",")
 reader = csv.reader(csv_file)
 for row in reader: #Each element with the csv file is read and saved below:
@@ -53,7 +53,7 @@ for row in tread: #Reading all rows from supervisor csv
     for sp in supervisor: #Loop to create Distinct list of supervisors
         if(any(name in sp for sp in supervisor)): #If Supervisor exists
             break;
-        if(any(ID not in st for st in student)): #If supervisor not found
+        if(any(ID not in sp for sp in supervisor)): #If supervisor not found
             supervisor[k].append(name) #Add supervisor properties
             supervisor[k].append(supervisor_id)
             supervisor[k].append(quota)
@@ -67,11 +67,10 @@ for row in tread: #Reading all rows from supervisor csv
     area[k].append(area_quota)
     area[k].append(supervisor_id)
     area[k].append(bool(is_area_free))
+   
     
     k += 1
 supervisor = [x for x in supervisor if x!= []] #cleaning up the list
-
-
 
 
 def get_name_of_preferred_area(stud): #Retrieve first preference of student.
@@ -191,14 +190,13 @@ def main():
 
 
 def end(): #Basic print implementation for test data
-    print("Resolution:\n")
+    print("Allocation Result:\n")
     for i in range(0, len(student)):
         stud = student[i][1]
         stud_id = student[i][0]
         area = student[i][8] #add tutor name with final output
         sup = get_supervisor(area)
         sup_id = get_supervisor_id(area)
-
         print(stud + " is assigned to " + area + " with " + sup )
         returntoweb(stud, stud_id, area, sup, sup_id)
     
