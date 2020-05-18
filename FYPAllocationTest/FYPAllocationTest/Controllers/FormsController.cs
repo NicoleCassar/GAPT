@@ -125,7 +125,36 @@ namespace FYPAllocationTest.Controllers
 
         public IActionResult StaffForm()
         {
-            return View();
+            var model = new AddArea();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult StaffForm([Bind("area", "name", "id", "cosupname", "areakw", "desc", "reqres", "reqpre", "ethissues", "quota")] AddArea submission)
+        {
+
+            if (ModelState.IsValid)
+            {
+                Area area = new Area()
+                {
+                    area_id = _areaRepository.getNextID().area_id + 1,
+                    supervisor_id = submission.id,
+                    title = submission.area,
+                    description = submission.desc,
+                    available = true,
+                    area_quota = submission.quota
+                 };
+
+                 _areaRepository.Submit(area);
+
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("All", "Something went wrong, please try again");
+                return View();
+            }
+
         }
 
         public JsonResult GetArea(string supervisor_id)
