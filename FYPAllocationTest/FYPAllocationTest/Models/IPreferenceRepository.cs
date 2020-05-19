@@ -9,7 +9,7 @@ namespace FYPAllocationTest.Models
     {
         void Submit(Preference preference);
 
-        Area GetAreaById(string id);
+        Area GetAreaByTitle(string id);
 
 
     }

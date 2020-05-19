@@ -1,8 +1,12 @@
 
+Luke Fearne: Checking FYP availability 
+Preference 1: Machine Vision with John Abela AVAILABLE 
+
 Joe Borg: Checking FYP availability 
-Preference 1: Human-Computer Interaction in Software Testing with Chris Porter AVAILABLE 
+Preference 1: The human mind - coding the consciousness with Colin Layfield AVAILABLE 
 
 Ian Grech: Checking FYP availability 
-Preference 1: Human-Computer Interaction in Software Testing with Chris Porter NOT AVAILABLE 
-Reason for unavailability: Quota has been met for Area Human-Computer Interaction in Software Testing
-Preference 2: Hospital Admission Pattern Analysis - Bed Resource Requirements Forecasting- Allocation & Management with Lalit Garg AVAILABLE 
+Preference 1: Bioinformatics (DNA & Protein Sequence Classification and  Medical Imaging) with John Abela AVAILABLE 
+
+Jane Said: Checking FYP availability 
+Preference 1: AI and Machine Learning with John Abela AVAILABLE 

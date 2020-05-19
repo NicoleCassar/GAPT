@@ -14,9 +14,9 @@ namespace FYPAllocationTest.Models
             _appDbContext = appDbContext;
         }
 
-        public Area GetAreaById(string id)
+        public Area GetAreaByTitle(string title)
         {
-            return _appDbContext.supervisor_area.FirstOrDefault(p => p.supervisor_id == id);
+            return _appDbContext.supervisor_area.FirstOrDefault(p => p.title == title);
         }
 
         public void Submit(Preference preference)
