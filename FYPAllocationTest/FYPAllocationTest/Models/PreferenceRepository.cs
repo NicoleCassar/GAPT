@@ -14,6 +14,11 @@ namespace FYPAllocationTest.Models
             _appDbContext = appDbContext;
         }
 
+        public IEnumerable<Preference> GetAllData()
+        {
+            return _appDbContext.student_preference;
+        }
+
         public Area GetAreaByTitle(string title)
         {
             return _appDbContext.supervisor_area.FirstOrDefault(p => p.title == title);

@@ -18,12 +18,18 @@ namespace FYPAllocationTest.Controllers
     public class AllocationController : Controller
     {
         private readonly IStudentRepository _studentRepository;
+        private readonly ISupervisorRepository _supervisorRepository;
         private readonly IAllocationRepository _allocationRepository;
+        private readonly IPreferenceRepository _preferenceRepository;
+        private readonly IAreaRepository _areaRepository;
 
-        public AllocationController(IStudentRepository studentRepository, IAllocationRepository allocationRepository)
+        public AllocationController(IAllocationRepository allocationRepository, IStudentRepository studentRepository, ISupervisorRepository supervisorRepository,  IPreferenceRepository preferenceRepository, IAreaRepository areaRepository)
         {
-            _studentRepository = studentRepository;
             _allocationRepository = allocationRepository;
+            _studentRepository = studentRepository;
+            _supervisorRepository = supervisorRepository;
+            _preferenceRepository = preferenceRepository;
+            _areaRepository = areaRepository;
         }
 
 
@@ -142,14 +148,18 @@ namespace FYPAllocationTest.Controllers
                     var cell = result[i].Split(',');
                     stud_id.Add(cell[1]);
                     sup_id.Add(cell[4]);
-                    output.Add(cell[0] + " is assigned to " + cell[2] + " with " + cell[3]);
                     SaveAlloc(i+1, stud_id[i], sup_id[i]);
                 }
-                ViewBag.Message = output.ToList();
                 sr.Close();
                 sw.Stop(); //Stop benchmarking
                 Console.WriteLine("\nTime was: " + sw.ElapsedMilliseconds/1000 + " seconds"); //Output Benchmarked time
-                return View(output);
+                var model = new AllocationViewModel();
+                model.allocation = _allocationRepository.GetAllData();
+                model.student = _studentRepository.GetAllData();
+                model.supervisor = _supervisorRepository.GetAllData();
+                model.preferences = _preferenceRepository.GetAllData();
+                model.area = _areaRepository.GetAllData();
+                return View(model);
             }
             else
             {

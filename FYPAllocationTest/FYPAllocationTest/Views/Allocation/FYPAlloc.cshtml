@@ -1,4 +1,4 @@
-﻿@model List<string>
+﻿@model FYPAllocationTest.ViewModels.AllocationViewModel
 @{
     ViewData["Title"] = "FYP Allocation Results";
 }
@@ -9,15 +9,71 @@
     <link href="~/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>FYPAlloc</h1>
+    <h1>FYP Allocation Results</h1>
 
-    @foreach (var item in Model)
-    {
-        <p>@item</p>
-    }
     <div class="text-center position">
         <a asp-controller="Allocation" asp-action="Export_Log" class="btncustom">Download complete allocation log</a>
     </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Preference 1</th>
+                <th scope="col">Preference 2</th>
+                <th scope="col">Preference 3</th>
+                <th scope="col">Preference 4</th>
+                <th scope="col">Preference 5</th>
+                <th scope="col">Preference 6</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model.student)
+             {
+                <tr>
+
+                    @foreach (var allocation in Model.allocation)
+                    {
+
+                        @if (allocation.student_id == student.student_id)
+                        {
+                            <th scope="row">@student.student_id : @student.name @student.surname</th>
+                            @foreach (var preference in Model.preferences)
+                            {
+                                @if (preference.student_id == allocation.student_id)
+                                {
+                                    @foreach (var area in Model.area)
+                                    {
+                                        if (preference.area_id == area.area_id)
+                                        {
+                                            @foreach(var supervisor in Model.supervisor)
+                                            {
+                                                if(area.supervisor_id == supervisor.supervisor_id)
+                                                {
+                                                    if (allocation.supervisor_id == area.supervisor_id)
+                                                    {
+                                                        <td class="alert-success">@supervisor.name  @supervisor.surname</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>@supervisor.name @supervisor.surname</td>
+                                                    }
+                                                }
+                                               
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+
+                        }
+                    }
+                </tr>
+             }
+           
+        </tbody>
+    </table>
 
 
 </body>

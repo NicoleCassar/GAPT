@@ -7,6 +7,7 @@ namespace FYPAllocationTest.Models
 {
     public interface IPreferenceRepository
     {
+        public IEnumerable<Preference> GetAllData();
         void Submit(Preference preference);
 
         Area GetAreaByTitle(string id);

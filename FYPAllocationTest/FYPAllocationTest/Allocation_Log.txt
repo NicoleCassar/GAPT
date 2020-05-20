@@ -1,4 +1,7 @@
 
+Link Vella: Checking FYP availability 
+Preference 1: Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled with Peter Xuereb AVAILABLE 
+
 Luke Fearne: Checking FYP availability 
 Preference 1: Machine Vision with John Abela AVAILABLE 
 
@@ -7,6 +10,11 @@ Preference 1: The human mind - coding the consciousness with Colin Layfield AVAI
 
 Ian Grech: Checking FYP availability 
 Preference 1: Bioinformatics (DNA & Protein Sequence Classification and  Medical Imaging) with John Abela AVAILABLE 
+
+James Bonello: Checking FYP availability 
+Preference 1: Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled with Peter Xuereb NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
+Preference 2: Digital Forensics with Joseph Vella AVAILABLE 
 
 Jane Said: Checking FYP availability 
 Preference 1: AI and Machine Learning with John Abela AVAILABLE 
