@@ -124,6 +124,7 @@ namespace FYPAllocationTest.Controllers
         {
             Stopwatch sw = new Stopwatch(); //Setting Benchmark for analysis
             sw.Start(); //Start timer
+            _allocationRepository.Delete(); //Purge current allocations before performing new allocation
             Export_Supervisors();
             Export_Students();
             ScriptEngine engine = Python.CreateEngine();
@@ -147,15 +148,23 @@ namespace FYPAllocationTest.Controllers
                 {
                     var cell = result[i].Split(',');
                     stud_id.Add(cell[1]);
-                    sup_id.Add(cell[4]);
-                    SaveAlloc(i+1, stud_id[i], sup_id[i]);
+                    
+                    if (cell[4] == "None")
+                    {
+                        ViewBag.Message = cell[1] + " was not assigned due to lack of availability";
+                    }
+                    else
+                    {
+                        sup_id.Add(cell[4]);
+                        SaveAlloc(i + 1, stud_id[i], sup_id[i]);
+                    }   
                 }
                 sr.Close();
                 sw.Stop(); //Stop benchmarking
                 Console.WriteLine("\nTime was: " + sw.ElapsedMilliseconds/1000 + " seconds"); //Output Benchmarked time
                 var model = new AllocationViewModel();
                 model.allocation = _allocationRepository.GetAllData();
-                model.student = _studentRepository.GetAllData();
+                model.student = _studentRepository.GetAllData().OrderByDescending(s => s.average_mark);
                 model.supervisor = _supervisorRepository.GetAllData();
                 model.preferences = _preferenceRepository.GetAllData();
                 model.area = _areaRepository.GetAllData();

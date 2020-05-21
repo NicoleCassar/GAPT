@@ -1,20 +1,63 @@
 
 Link Vella: Checking FYP availability 
-Preference 1: Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled with Peter Xuereb AVAILABLE 
-
-Luke Fearne: Checking FYP availability 
-Preference 1: Machine Vision with John Abela AVAILABLE 
-
-Joe Borg: Checking FYP availability 
 Preference 1: The human mind - coding the consciousness with Colin Layfield AVAILABLE 
 
+Luke Fearne: Checking FYP availability 
+Preference 1: The human mind - coding the consciousness with Colin Layfield NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Colin Layfield
+Preference 2: ERP Designing Solutions for Workplace Environment with Conrad Attard AVAILABLE 
+
+George Grech: Checking FYP availability 
+Preference 1: The human mind - coding the consciousness with Colin Layfield NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Colin Layfield
+Preference 2: ERP Designing Solutions for Workplace Environment with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Machine Learning Methods for Handling Missing Data in Medical Questionnaires with Lalit Garg AVAILABLE 
+
+Joe Borg: Checking FYP availability 
+Preference 1: The human mind - coding the consciousness with Colin Layfield NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Colin Layfield
+Preference 2: ERP Designing Solutions for Workplace Environment with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Machine Learning Methods for Handling Missing Data in Medical Questionnaires with Lalit Garg NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Lalit Garg
+Preference 4: Machine Vision with John Abela AVAILABLE 
+
 Ian Grech: Checking FYP availability 
-Preference 1: Bioinformatics (DNA & Protein Sequence Classification and  Medical Imaging) with John Abela AVAILABLE 
+Preference 1: The human mind - coding the consciousness with Colin Layfield NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Colin Layfield
+Preference 2: ERP Designing Solutions for Workplace Environment with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Machine Learning Methods for Handling Missing Data in Medical Questionnaires with Lalit Garg NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Lalit Garg
+Preference 4: Machine Vision with John Abela NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor John Abela
+Preference 5: High-Level Description Languages for IoT Programming with Ernest Cachia AVAILABLE 
 
 James Bonello: Checking FYP availability 
-Preference 1: Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled with Peter Xuereb NOT AVAILABLE 
-Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
-Preference 2: Digital Forensics with Joseph Vella AVAILABLE 
+Preference 1: The human mind - coding the consciousness with Colin Layfield NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Colin Layfield
+Preference 2: ERP Designing Solutions for Workplace Environment with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Machine Learning Methods for Handling Missing Data in Medical Questionnaires with Lalit Garg NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Lalit Garg
+Preference 4: Machine Vision with John Abela NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor John Abela
+Preference 5: High-Level Description Languages for IoT Programming with Ernest Cachia NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Ernest Cachia
+Preference 6: Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled with Peter Xuereb AVAILABLE 
 
 Jane Said: Checking FYP availability 
-Preference 1: AI and Machine Learning with John Abela AVAILABLE 
+Preference 1: The human mind - coding the consciousness with Colin Layfield NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Colin Layfield
+Preference 2: ERP Designing Solutions for Workplace Environment with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Machine Learning Methods for Handling Missing Data in Medical Questionnaires with Lalit Garg NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Lalit Garg
+Preference 4: Machine Vision with John Abela NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor John Abela
+Preference 5: High-Level Description Languages for IoT Programming with Ernest Cachia NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Ernest Cachia
+Preference 6: Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled with Peter Xuereb NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
+Preference 7: [] with Not assigned AVAILABLE 

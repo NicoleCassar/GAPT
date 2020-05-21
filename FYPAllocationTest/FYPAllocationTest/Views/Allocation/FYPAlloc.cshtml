@@ -14,7 +14,7 @@
     <div class="text-center position">
         <a asp-controller="Allocation" asp-action="Export_Log" class="btncustom">Download complete allocation log</a>
     </div>
-
+    <p class="text-danger">@ViewBag.Message</p>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -38,6 +38,7 @@
                         @if (allocation.student_id == student.student_id)
                         {
                             <th scope="row">@student.student_id : @student.name @student.surname</th>
+                            <td>@student.average_mark</td>
                             @foreach (var preference in Model.preferences)
                             {
                                 @if (preference.student_id == allocation.student_id)

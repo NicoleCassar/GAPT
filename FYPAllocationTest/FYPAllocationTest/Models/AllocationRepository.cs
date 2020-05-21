@@ -24,5 +24,10 @@ namespace FYPAllocationTest.Models
             _appDbContext.allocation.Add(allocation);
             _appDbContext.SaveChanges();
         }
+
+        public void Delete()
+        {
+            _appDbContext.allocation.RemoveRange(_appDbContext.allocation);
+        }
     }
 }

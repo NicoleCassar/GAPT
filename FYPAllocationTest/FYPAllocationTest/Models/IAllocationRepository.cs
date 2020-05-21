@@ -8,7 +8,7 @@ namespace FYPAllocationTest.Models
     public interface IAllocationRepository
     {
         public IEnumerable<Allocation> GetAllData();
-
         void Create(Allocation allocation);
+        void Delete();
     }
 }

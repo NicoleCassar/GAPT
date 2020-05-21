@@ -84,6 +84,7 @@ def get_supervisor(ar): #Retrieving supervisor linked to area by FK
             for j in range(0, len(supervisor)):
                 if area[i][2] == supervisor[j][1]:
                     return supervisor[j][0]
+    return "Not assigned"
 
 def get_supervisor_quota(ar): #Retrieve supervisor quota
     for i in range(0, len(area)):
@@ -99,7 +100,11 @@ def get_supervisor_id(ar): #Retrieve ID bound to supervisor for area
                 if area[i][2] == supervisor[j][1]:
                     return supervisor[j][1]
 
-
+def get_area(stud):
+    for i in range(0, len(student)):
+        if student[i][1] == stud:
+            return student[i][8]
+        
 
 def area_is_assigned(ar, sup): #check if quota has been met yet
     for i in range(0, len(area)):
@@ -128,16 +133,14 @@ def allocated_to(stud): #Check supervisor Availability
             audit.write("\n%s: Checking FYP availability \n" %(student[i][1]))
             audit.write("Preference 1: %s with %s NOT AVAILABLE \n" %(student[i][2], get_supervisor(student[i][2])))
             reason_for_result(student[i][2]);
-            for j in range(3, 7):
+            for j in range(3, 9):
                 if not area_is_assigned(student[i][j], get_supervisor(student[i][j])):
                     audit.write("Preference %s: %s with %s AVAILABLE \n" %(j-1, student[i][j], get_supervisor(student[i][j])))
                     student[i][j] = student[i][j]
                     return student[i][j]
-                else:
+                elif area_is_assigned(student[i][j], get_supervisor(student[i][j])) and j != 9:
                     audit.write("Preference %s: %s with %s NOT AVAILABLE \n" %(j-1, student[i][j], get_supervisor(student[i][j])))
                     reason_for_result(student[i][j]);
-
-                
 
 def assign(stud, ar, is_First): #Assigning supervisor to student
     if is_First:
@@ -157,7 +160,7 @@ def assign(stud, ar, is_First): #Assigning supervisor to student
                         if not(supervisor[j][4]): #if supervisor has total quota
                             supervisor[j][2] -= 1 #reduce total quota
                             if(supervisor[j][2] == 0): #if the total quota is zero
-                                supervisor[j][3] = False #set the supervisor's availability to unavailable
+                                supervisor[j][3] = False #set the supervisor's availability to unavailable          
     if not is_First: #For lower than first preference
        for i in range(0, len(student)):
             if student[i][0] == stud:
@@ -194,12 +197,17 @@ def end(): #Basic print implementation for test data
     for i in range(0, len(student)):
         stud = student[i][1]
         stud_id = student[i][0]
-        area = student[i][8] #add tutor name with final output
+        area = get_area(stud) #add tutor name with final output
         sup = get_supervisor(area)
         sup_id = get_supervisor_id(area)
-        print(stud + " is assigned to " + area + " with " + sup )
-        returntoweb(stud, stud_id, area, sup, sup_id)
-    
+        if not area:
+            area = "No area"
+            sup_id = "None"
+            print(stud + " is assigned to " + area + " having been " + sup )
+            returntoweb(stud, stud_id, area, sup, sup_id)
+        else:
+            print(stud + " is assigned to " + area + " with " + sup )
+            returntoweb(stud, stud_id, area, sup, sup_id)
 
 def returntoweb(stud, stud_id, area, sup, sup_id): #Returning allocation to Web App.
     writer.writerow([stud , stud_id, area, sup, sup_id ])
