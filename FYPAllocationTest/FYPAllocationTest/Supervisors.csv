@@ -1,36 +1,35 @@
-Peter Xuereb,123456M,Apps & Educational Games for Children with Disabilities,1,True,0
-Peter Xuereb,123456M,Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled,1,True,0
-Peter Xuereb,123456M,Improving Human Productivity through Prediction and Automation,1,True,0
-Peter Xuereb,123456M,Voice Recognition and Mixed Input Application,1,True,0
-Joseph Bonello,123480M,Bioinformatics (Computational Biology),1,True,0
-Joseph Bonello,123480M,Bioinformatics (Data Science - Statistics - Machine Learning),1,True,0
-Conrad Attard,123482M,ERP Designing Solutions for Workplace Environment,1,True,0
-Conrad Attard,123482M,Digital Health - Persuasive Technology and Pervasive Computing,1,True,0
-Conrad Attard,123482M,Data Science - Pervasive Computing - Mobile Applications - AAPS,1,True,0
-Michel Camilleri,123460M,Data Mining and Distributed Computing,1,True,0
-Michel Camilleri,123460M,ICT in Smart Wheelchairs,1,True,0
-Clyde Meli,123465M,Computer Security and Communications Issues in Automobiles,1,True,0
-Chris Porter,123476M,Human-Computer Interaction in Software Testing,1,True,0
-John Abela,123464M,AI and Machine Learning,1,True,0
-John Abela,123464M,Natural Language Processing,1,True,0
-John Abela,123464M,Bioinformatics (DNA & Protein Sequence Classification and  Medical Imaging),1,True,0
-John Abela,123464M,Machine Vision,1,True,0
-John Abela,123464M,Space Science,1,True,0
-John Abela,123464M,Search and Optimisation,1,True,0
-Joshua Ellul,123472M,Blockchain and/or Cryptocurrency and/or Smart Contracts,1,True,0
-Ernest Cachia,123462M,High-Level Description Languages for IoT Programming,1,True,0
-Ernest Cachia,123462M,Automated Portal Creation Tools,1,True,0
-Matthew Montebello,123474M,Autonommous Drone Navigation,1,True,0
-Joseph Vella,123468M,Database Data Modelling,1,True,0
-Joseph Vella,123468M,Database Setup and  Tuning and Administration,1,True,0
-Joseph Vella,123468M,Digital Forensics,1,True,0
-Joseph Vella,123468M,Data Mining & Data Warehousing: With Massive Datasets,1,True,0
-Joseph Vella,123468M,Scalability Issues over Distributed Data,1,True,0
-Colin Layfield,123471M,Voynich Word Prediction,1,True,0
-Tony Spiteri Staines,123463M,Real Time Systems,1,True,0
-Lalit Garg,123475M,Hospital Admission Pattern Analysis - Bed Resource Requirements Forecasting- Allocation & Management,1,True,0
-Lalit Garg,123475M,Traffic Congestion Problems in Malta,1,True,0
-Lalit Garg,123475M,Digital Footprint Analytics,1,True,0
-Lalit Garg,123475M,Smart Sensor for EEG Acquisition and Epileptic Seizure Detection,1,True,0
-Lalit Garg,123475M,Machine Learning Methods for Handling Missing Data in Medical Questionnaires,1,True,0
-Colin Layfield,123471M,The human mind - coding the consciousness,1,True,0
+Conrad Attard,123482M,ERP Designing Solutions for Workplace Environment,0,True,0,7
+Conrad Attard,123482M,Digital Health - Persuasive Technology and Pervasive Computing,0,True,0,8
+Conrad Attard,123482M,Data Science - Pervasive Computing - Mobile Applications - AAPS,0,True,0,9
+Michel Camilleri,123460M,Data Mining and Distributed Computing,1,True,0,10
+Michel Camilleri,123460M,ICT in Smart Wheelchairs,1,True,0,11
+Clyde Meli,123465M,Computer Security and Communications Issues in Automobiles,1,True,0,12
+Chris Porter,123476M,Human-Computer Interaction in Software Testing,1,True,0,13
+John Abela,123464M,AI and Machine Learning,1,True,0,14
+John Abela,123464M,Natural Language Processing,1,True,0,15
+John Abela,123464M,Bioinformatics (DNA & Protein Sequence Classification and  Medical Imaging),1,True,0,16
+John Abela,123464M,Machine Vision,1,True,0,17
+John Abela,123464M,Space Science,1,True,0,18
+John Abela,123464M,Search and Optimisation,1,True,0,19
+Joshua Ellul,123472M,Blockchain and/or Cryptocurrency and/or Smart Contracts,1,True,0,20
+Ernest Cachia,123462M,High-Level Description Languages for IoT Programming,1,True,0,21
+Ernest Cachia,123462M,Automated Portal Creation Tools,1,True,0,22
+Matthew Montebello,123474M,Autonommous Drone Navigation,1,True,0,23
+Joseph Vella,123468M,Database Data Modelling,1,True,0,24
+Joseph Vella,123468M,Database Setup and  Tuning and Administration,1,True,0,25
+Joseph Vella,123468M,Digital Forensics,1,True,0,26
+Joseph Vella,123468M,Data Mining & Data Warehousing: With Massive Datasets,1,True,0,27
+Joseph Vella,123468M,Scalability Issues over Distributed Data,1,True,0,28
+Colin Layfield,123471M,Voynich Word Prediction,1,True,0,29
+Tony Spiteri Staines,123463M,Real Time Systems,1,True,0,30
+Lalit Garg,123475M,Hospital Admission Pattern Analysis - Bed Resource Requirements Forecasting- Allocation & Management,1,True,0,31
+Lalit Garg,123475M,Traffic Congestion Problems in Malta,1,True,0,32
+Lalit Garg,123475M,Digital Footprint Analytics,1,True,0,33
+Lalit Garg,123475M,Smart Sensor for EEG Acquisition and Epileptic Seizure Detection,1,True,0,34
+Lalit Garg,123475M,Machine Learning Methods for Handling Missing Data in Medical Questionnaires,1,True,0,35
+Peter Xuereb,123456M,Apps & Educational Games for Children with Disabilities,1,True,0,1
+Peter Xuereb,123456M,Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled,1,True,0,2
+Peter Xuereb,123456M,Improving Human Productivity through Prediction and Automation,1,True,0,3
+Peter Xuereb,123456M,Voice Recognition and Mixed Input Application,1,True,0,4
+Joseph Bonello,123480M,Bioinformatics (Computational Biology),1,True,0,5
+Joseph Bonello,123480M,Bioinformatics (Data Science - Statistics - Machine Learning),1,True,0,6

@@ -19,6 +19,11 @@ namespace FYPAllocationTest.Models
         {
             return _appDbContext.supervisor;
         }
+        public Supervisor GetSupervisorById(string Id)
+        {
+                return _appDbContext.supervisor.FirstOrDefault(p => p.supervisor_id == Id);
+        }
+
         public bool Import(Supervisor supervisor)
         {
             try
@@ -33,6 +38,14 @@ namespace FYPAllocationTest.Models
             }
 
 
+        }
+
+        public void UpdateQuota(Supervisor new_supervisor)
+        {
+            var current_supervisor = _appDbContext.supervisor.SingleOrDefault(s => s.supervisor_id == new_supervisor.supervisor_id);
+            current_supervisor.quota = new_supervisor.quota;
+            _appDbContext.Entry(current_supervisor).State = EntityState.Modified;
+            _appDbContext.SaveChanges();
         }
     }
 }

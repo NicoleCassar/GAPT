@@ -10,5 +10,8 @@ namespace FYPAllocationTest.Models
         public IEnumerable<Area> GetAllData();
         public void Submit(Area area);
         public Area getNextID();
+        public Area GetAreaById(int id);
+        public void UpdateQuota(Area area);
+
     }
 }

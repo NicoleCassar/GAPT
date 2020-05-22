@@ -41,9 +41,11 @@ namespace FYPAllocationTest.Migrations
                 name: "allocation",
                 columns: table => new
                 {
-                    allocation_id = table.Column<int>(nullable: false),
+                    allocation_id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     student_id = table.Column<string>(nullable: true),
-                    supervisor_id = table.Column<string>(nullable: true)
+                    supervisor_id = table.Column<string>(nullable: true),
+                    manual = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

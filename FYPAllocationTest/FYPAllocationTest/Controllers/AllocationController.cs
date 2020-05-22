@@ -32,6 +32,45 @@ namespace FYPAllocationTest.Controllers
             _areaRepository = areaRepository;
         }
 
+        public IActionResult FYPAlloc()
+        {
+            var model = new AllocationViewModel();
+            bool found = false;
+            model.allocation = _allocationRepository.GetAllData();
+            model.student = _studentRepository.GetAllData().OrderByDescending(s => s.average_mark);
+            model.supervisor = _supervisorRepository.GetAllData();
+            model.preferences = _preferenceRepository.GetAllData();
+            model.area = _areaRepository.GetAllData();
+            if (model.allocation.Count() == 0)
+                ViewBag.Unavailable = "No Allocation has been performed yet";
+            else
+            {
+                foreach (var students in model.student)
+                {
+                    bool exists = false;
+                    foreach (var allocations in model.allocation)
+                    {
+                        if (allocations.student_id == students.student_id)
+                        {
+                            exists = true;
+                        }
+                    }
+                    if (!exists)
+                    {
+                        ViewBag.NotFound = "Some Students remain unallocated, please allocate them through the below link";
+                        ViewBag.Unassigned = "true";
+                    }
+                    Console.WriteLine(exists);
+                }
+    
+            }
+                
+            ViewBag.Message = TempData["Not Assigned"];
+            ViewBag.Success = TempData["Success"];
+            return View(model);
+            
+        }
+
 
         public FileResult Export_Supervisors()
         {
@@ -40,7 +79,7 @@ namespace FYPAllocationTest.Controllers
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();
-                string query = "SELECT sup.name, sup.surname, sup.supervisor_id, area.title, sup.quota, area.available, area.area_quota FROM supervisor sup INNER JOIN supervisor_area area ON sup.supervisor_id = area.supervisor_id ORDER BY sup.quota;";
+                string query = "SELECT sup.name, sup.surname, sup.supervisor_id, area.title, sup.quota, area.available, area.area_quota, area.area_id FROM supervisor sup INNER JOIN supervisor_area area ON sup.supervisor_id = area.supervisor_id ORDER BY sup.quota;";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -53,7 +92,8 @@ namespace FYPAllocationTest.Controllers
                                 + "," + reader[3].ToString()
                                 + "," + reader[4].ToString()
                                 + "," + reader[5].ToString()
-                                + "," + reader[6].ToString());
+                                + "," + reader[6].ToString()
+                                + "," + reader[7].ToString());
                         }
                     }
                 }
@@ -120,7 +160,7 @@ namespace FYPAllocationTest.Controllers
         }
 
 
-        public ActionResult FYPAlloc()
+        public IActionResult Perform_Allocation()
         {
             Stopwatch sw = new Stopwatch(); //Setting Benchmark for analysis
             sw.Start(); //Start timer
@@ -149,47 +189,62 @@ namespace FYPAllocationTest.Controllers
                     var cell = result[i].Split(',');
                     stud_id.Add(cell[1]);
                     
-                    if (cell[4] == "None")
+                    if (cell[5] == "None")
                     {
-                        ViewBag.Message = cell[1] + " was not assigned due to lack of availability";
+                       TempData["Not Assigned"] = "Notice: Some student/s were not assigned due to lack of availability. remaining student may be allocated through the link below:";
                     }
                     else
                     {
-                        sup_id.Add(cell[4]);
-                        SaveAlloc(i + 1, stud_id[i], sup_id[i]);
+                        sup_id.Add(cell[5]);
+                        Supervisor_Update(cell[5], Convert.ToInt32(cell[6]));
+                        Area_Update(Convert.ToInt32(cell[3]), Convert.ToInt32(cell[7]));
+                        SaveAlloc(stud_id[i], sup_id[i]);
                     }   
                 }
                 sr.Close();
                 sw.Stop(); //Stop benchmarking
                 Console.WriteLine("\nTime was: " + sw.ElapsedMilliseconds/1000 + " seconds"); //Output Benchmarked time
-                var model = new AllocationViewModel();
-                model.allocation = _allocationRepository.GetAllData();
-                model.student = _studentRepository.GetAllData().OrderByDescending(s => s.average_mark);
-                model.supervisor = _supervisorRepository.GetAllData();
-                model.preferences = _preferenceRepository.GetAllData();
-                model.area = _areaRepository.GetAllData();
-                return View(model);
+                return RedirectToAction("FYPAlloc");
             }
             else
             {
-                List<string> res = new List<string>();
-                res.Add("No results available");
-                var result = res.ToList();
-                // ViewBag.Message = result;
-                return View(result);
+                TempData["Not Assigned"] = "An error occured during allocation";
+                return RedirectToAction("FYPAlloc");
             }
         }
 
 
-        public void SaveAlloc(int alloc_id, string stud_id, string supervisor_id)
+        public void SaveAlloc(string stud_id, string supervisor_id)
         {
             Allocation alloc = new Allocation()
             {
-                allocation_id = alloc_id,
                 student_id = stud_id,
-                supervisor_id = supervisor_id
+                supervisor_id = supervisor_id,
+                manual = false
             };
             _allocationRepository.Create(alloc);
+        }
+
+        public void Supervisor_Update(string id, int sup_quota)
+        {
+            var current_supervisor = _supervisorRepository.GetSupervisorById(id);
+            Supervisor new_quota = new Supervisor()
+            {
+                supervisor_id = current_supervisor.supervisor_id,
+                quota = sup_quota
+            };
+            _supervisorRepository.UpdateQuota(new_quota);
+        }
+
+        public void Area_Update(int id, int ar_quota)
+        {
+            var current_area = _areaRepository.GetAreaById(id);
+            Area new_quota = new Area()
+            {
+                area_id = current_area.area_id,
+                area_quota = ar_quota
+            };
+            _areaRepository.UpdateQuota(new_quota);
         }
 
 
@@ -200,3 +255,13 @@ namespace FYPAllocationTest.Controllers
         }
     }
 }
+
+/* 1. Get Supervisor by ID
+ * 2. Get Area By ID
+ * 3. Save new quotas to objects Supervisor and Area
+ * 4. Send Objects to Update Methods.
+ * 5. Get Area and Supervisor by ID
+ * 6. Set the existing to the new quota
+ * 7. _appDbContext.Entry(existingBlogPost).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+ * 8. SaveChanges()
+ */

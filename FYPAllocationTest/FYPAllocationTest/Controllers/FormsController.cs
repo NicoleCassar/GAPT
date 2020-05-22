@@ -68,7 +68,6 @@ namespace FYPAllocationTest.Controllers
             if (ModelState.IsValid)
             {
                 
-                Console.WriteLine(submission.sup1 + " " + submission.pref1);
                 var area1 = _preferenceRepository.GetAreaByTitle(submission.pref1);
                 var area2 = _preferenceRepository.GetAreaByTitle(submission.pref2);
                 var area3 = _preferenceRepository.GetAreaByTitle(submission.pref3);

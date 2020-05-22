@@ -20,6 +20,15 @@
     text-align: center;
 }
 
+.btncustom:disabled {
+    background-color: gray;
+    border: 1px solid #ba0c2f;
+    border-radius: 100px;
+    text-decoration: none;
+    color: whitesmoke;
+    text-align: center;
+}
+
 .position {
     padding:20px;
 }

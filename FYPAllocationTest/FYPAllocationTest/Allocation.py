@@ -50,6 +50,7 @@ for row in tread: #Reading all rows from supervisor csv
     is_supervisor_free = row[4]
     is_area_free = row[4]
     area_quota = int(row[5]) #Quota by area
+    area_ID = int(row[6])
     for sp in supervisor: #Loop to create Distinct list of supervisors
         if(any(name in sp for sp in supervisor)): #If Supervisor exists
             break;
@@ -67,6 +68,7 @@ for row in tread: #Reading all rows from supervisor csv
     area[k].append(area_quota)
     area[k].append(supervisor_id)
     area[k].append(bool(is_area_free))
+    area[k].append(area_ID)
    
     
     k += 1
@@ -86,12 +88,19 @@ def get_supervisor(ar): #Retrieving supervisor linked to area by FK
                     return supervisor[j][0]
     return "Not assigned"
 
-def get_supervisor_quota(ar): #Retrieve supervisor quota
+def supervisor_has_quota(ar): #Retrieve supervisor quota
     for i in range(0, len(area)):
         if area[i][0] == ar:
             for j in range(0, len(supervisor)):
                 if area[i][2] == supervisor[j][1]:
                     return supervisor[j][4]
+
+def get_supervisor_quota(ar): #Retrieve supervisor quota
+    for i in range(0, len(area)):
+        if area[i][0] == ar:
+            for j in range(0, len(supervisor)):
+                if area[i][2] == supervisor[j][1]:
+                    return supervisor[j][2]
 
 def get_supervisor_id(ar): #Retrieve ID bound to supervisor for area
     for i in range(0, len(area)):
@@ -104,6 +113,16 @@ def get_area(stud):
     for i in range(0, len(student)):
         if student[i][1] == stud:
             return student[i][8]
+
+def get_area_quota(ar):
+    for i in range(0, len(area)):
+        if area[i][0] == ar:
+            return area[i][1]
+
+def get_area_id(ar):
+    for i in range(0, len(area)):
+        if area[i][0] == ar:
+            return area[i][4]
         
 
 def area_is_assigned(ar, sup): #check if quota has been met yet
@@ -120,7 +139,7 @@ def area_is_assigned(ar, sup): #check if quota has been met yet
     return False
 
 def reason_for_result(ar): ##For logging purposes
-    has_ar_quota = get_supervisor_quota(ar)
+    has_ar_quota = supervisor_has_quota(ar)
     if not (has_ar_quota): #If Supervisor has no area quota then log supervisor unavailable
         audit.write("Reason for unavailability: Quota has been met for Supervisor %s\n" %(get_supervisor(ar)))
     if(has_ar_quota): #If Supervisor has area quota then log area unavailable
@@ -200,17 +219,21 @@ def end(): #Basic print implementation for test data
         area = get_area(stud) #add tutor name with final output
         sup = get_supervisor(area)
         sup_id = get_supervisor_id(area)
+        sup_quota = get_supervisor_quota(area)
+        area_quota = get_area_quota(area)
+        area_id = get_area_id(area)
         if not area:
             area = "No area"
+            area_id = "0"
             sup_id = "None"
             print(stud + " is assigned to " + area + " having been " + sup )
-            returntoweb(stud, stud_id, area, sup, sup_id)
+            returntoweb(stud, stud_id, area, area_id, sup, sup_id, sup_quota, area_quota)
         else:
             print(stud + " is assigned to " + area + " with " + sup )
-            returntoweb(stud, stud_id, area, sup, sup_id)
+            returntoweb(stud, stud_id, area, area_id, sup, sup_id, sup_quota, area_quota)
 
-def returntoweb(stud, stud_id, area, sup, sup_id): #Returning allocation to Web App.
-    writer.writerow([stud , stud_id, area, sup, sup_id ])
+def returntoweb(stud, stud_id, area, area_id, sup, sup_id, sup_quota, area_quota): #Returning allocation to Web App.
+    writer.writerow([stud , stud_id, area, area_id, sup, sup_id, sup_quota, area_quota ])
     
         
    

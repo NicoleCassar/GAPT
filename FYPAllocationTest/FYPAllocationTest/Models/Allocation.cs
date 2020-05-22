@@ -10,7 +10,6 @@ namespace FYPAllocationTest.Models
     public class Allocation
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int allocation_id { get; set; }
         [ForeignKey("student")]
         public string student_id { get; set; }
@@ -18,5 +17,6 @@ namespace FYPAllocationTest.Models
         [ForeignKey("supervisor")]
         public string supervisor_id { get; set; }
         public Supervisor supervisor { get; set; }
+        public bool manual { get; set; }
     }
 }

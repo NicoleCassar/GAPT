@@ -7,18 +7,53 @@
 <html>
 <head>
     <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>FYP Allocation Results</h1>
+    <p id="Success" class="alert-success">@ViewBag.Success</p>
 
+    @if (ViewBag.Unassigned == "true")
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @ViewBag.NotFound
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong>Notice:</strong> manually assigned students will be highlighted in yellow.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    <h1>FYP Allocation Results</h1>
+    <p class="alert-warning">@ViewBag.Unavailable</p>
     <div class="text-center position">
-        <a asp-controller="Allocation" asp-action="Export_Log" class="btncustom">Download complete allocation log</a>
+        @if (ViewBag.Unassigned != "true")
+        {
+            <a asp-controller="Allocation" asp-action="Perform_Allocation" class="btncustom">Perform Allocation</a>
+        }
+        else
+        {
+            <button class="btncustom" disabled>Perform Allocation</button>
+        }
+
+        @if (ViewBag.Unassigned == "true")
+        {
+            <a asp-controller="Allocation" asp-action="Export_Log" class="btncustom">Download complete allocation log</a>
+            <div class="mt-4">
+                <a asp-controller="Manual" asp-action="ManualAlloc" class="btncustom">Allocate Manually</a>
+            </div>
+        }
     </div>
     <p class="text-danger">@ViewBag.Message</p>
+
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Average</th>
                 <th scope="col">Preference 1</th>
                 <th scope="col">Preference 2</th>
                 <th scope="col">Preference 3</th>
@@ -29,13 +64,13 @@
         </thead>
         <tbody>
             @foreach (var student in Model.student)
-             {
+            {
                 <tr>
 
                     @foreach (var allocation in Model.allocation)
                     {
 
-                        @if (allocation.student_id == student.student_id)
+                        @if (allocation.student_id == student.student_id && !allocation.manual)
                         {
                             <th scope="row">@student.student_id : @student.name @student.surname</th>
                             <td>@student.average_mark</td>
@@ -47,9 +82,9 @@
                                     {
                                         if (preference.area_id == area.area_id)
                                         {
-                                            @foreach(var supervisor in Model.supervisor)
+                                            @foreach (var supervisor in Model.supervisor)
                                             {
-                                                if(area.supervisor_id == supervisor.supervisor_id)
+                                                if (area.supervisor_id == supervisor.supervisor_id)
                                                 {
                                                     if (allocation.supervisor_id == area.supervisor_id)
                                                     {
@@ -60,7 +95,7 @@
                                                         <td>@supervisor.name @supervisor.surname</td>
                                                     }
                                                 }
-                                               
+
                                             }
                                         }
                                     }
@@ -69,13 +104,30 @@
                             }
 
                         }
+                        else if (allocation.student_id == student.student_id && allocation.manual)
+                        {
+                            <th class="alert-warning" scope="row">@student.student_id : @student.name @student.surname</th>
+                            <td>@student.average_mark</td>
+
+                            @foreach (var supervisor in Model.supervisor)
+                            {
+                                if (allocation.supervisor_id == supervisor.supervisor_id)
+                                {
+                                    <td class="alert-success">@supervisor.name  @supervisor.surname</td>
+                                }
+                            }
+                        }
                     }
                 </tr>
-             }
-           
+            }
+
         </tbody>
     </table>
-
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Success').delay(3000).fadeOut();
+        });
+    </script>
 
 </body>
 </html>

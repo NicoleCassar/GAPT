@@ -22,7 +22,12 @@ namespace FYPAllocationTest.Migrations
             modelBuilder.Entity("FYPAllocationTest.Models.Allocation", b =>
                 {
                     b.Property<int>("allocation_id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("manual")
+                        .HasColumnType("bit");
 
                     b.Property<string>("student_id")
                         .HasColumnType("nvarchar(450)");

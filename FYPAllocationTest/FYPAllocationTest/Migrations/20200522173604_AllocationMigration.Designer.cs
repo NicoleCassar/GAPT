@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FYPAllocationTest.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200518123652_AllocationMigration")]
+    [Migration("20200522173604_AllocationMigration")]
     partial class AllocationMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,12 @@ namespace FYPAllocationTest.Migrations
             modelBuilder.Entity("FYPAllocationTest.Models.Allocation", b =>
                 {
                     b.Property<int>("allocation_id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("manual")
+                        .HasColumnType("bit");
 
                     b.Property<string>("student_id")
                         .HasColumnType("nvarchar(450)");
