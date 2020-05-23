@@ -35,14 +35,13 @@ namespace FYPAllocationTest.Controllers
         public IActionResult FYPAlloc()
         {
             var model = new AllocationViewModel();
-            bool found = false;
             model.allocation = _allocationRepository.GetAllData();
             model.student = _studentRepository.GetAllData().OrderByDescending(s => s.average_mark);
             model.supervisor = _supervisorRepository.GetAllData();
             model.preferences = _preferenceRepository.GetAllData();
             model.area = _areaRepository.GetAllData();
             if (model.allocation.Count() == 0)
-                ViewBag.Unavailable = "No Allocation has been performed yet";
+                ViewBag.Unavailable = "No Allocations have been performed yet";
             else
             {
                 foreach (var students in model.student)

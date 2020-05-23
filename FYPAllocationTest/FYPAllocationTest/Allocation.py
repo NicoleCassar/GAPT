@@ -153,13 +153,16 @@ def allocated_to(stud): #Check supervisor Availability
             audit.write("Preference 1: %s with %s NOT AVAILABLE \n" %(student[i][2], get_supervisor(student[i][2])))
             reason_for_result(student[i][2]);
             for j in range(3, 9):
-                if not area_is_assigned(student[i][j], get_supervisor(student[i][j])):
+                print(j)
+                if not area_is_assigned(student[i][j], get_supervisor(student[i][j])) and j != 8:
                     audit.write("Preference %s: %s with %s AVAILABLE \n" %(j-1, student[i][j], get_supervisor(student[i][j])))
                     student[i][j] = student[i][j]
                     return student[i][j]
-                elif area_is_assigned(student[i][j], get_supervisor(student[i][j])) and j != 9:
+                elif area_is_assigned(student[i][j], get_supervisor(student[i][j])) and j != 8:
                     audit.write("Preference %s: %s with %s NOT AVAILABLE \n" %(j-1, student[i][j], get_supervisor(student[i][j])))
                     reason_for_result(student[i][j]);
+                else:
+                    audit.write("All Preference NOT AVAILABLE, please manually allocate \n")
 
 def assign(stud, ar, is_First): #Assigning supervisor to student
     if is_First:

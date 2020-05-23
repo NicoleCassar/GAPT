@@ -1,24 +1,18 @@
 
 Tom Olson: Checking FYP availability 
-Preference 1: Data Science - Pervasive Computing - Mobile Applications - AAPS with Conrad Attard NOT AVAILABLE 
-Reason for unavailability: Quota has been met for Supervisor Conrad Attard
-Preference 2: Bioinformatics (Data Science - Statistics - Machine Learning) with Joseph Bonello AVAILABLE 
+Preference 1: Data Science - Pervasive Computing - Mobile Applications - AAPS with Conrad Attard AVAILABLE 
 
 Wallace Xuereb: Checking FYP availability 
 Preference 1: Data Science - Pervasive Computing - Mobile Applications - AAPS with Conrad Attard NOT AVAILABLE 
 Reason for unavailability: Quota has been met for Supervisor Conrad Attard
-Preference 2: Bioinformatics (Data Science - Statistics - Machine Learning) with Joseph Bonello NOT AVAILABLE 
-Reason for unavailability: Quota has been met for Supervisor Joseph Bonello
-Preference 3: Human-Computer Interaction in Software Testing with Chris Porter AVAILABLE 
+Preference 2: Bioinformatics (Data Science - Statistics - Machine Learning) with Joseph Bonello AVAILABLE 
 
 Ursula Borg: Checking FYP availability 
 Preference 1: Data Science - Pervasive Computing - Mobile Applications - AAPS with Conrad Attard NOT AVAILABLE 
 Reason for unavailability: Quota has been met for Supervisor Conrad Attard
 Preference 2: Bioinformatics (Data Science - Statistics - Machine Learning) with Joseph Bonello NOT AVAILABLE 
 Reason for unavailability: Quota has been met for Supervisor Joseph Bonello
-Preference 3: Human-Computer Interaction in Software Testing with Chris Porter NOT AVAILABLE 
-Reason for unavailability: Quota has been met for Supervisor Chris Porter
-Preference 4: Machine Learning Methods for Handling Missing Data in Medical Questionnaires with Lalit Garg AVAILABLE 
+Preference 3: Human-Computer Interaction in Software Testing with Chris Porter AVAILABLE 
 
 Joe Borg: Checking FYP availability 
 Preference 1: Data Science - Pervasive Computing - Mobile Applications - AAPS with Conrad Attard NOT AVAILABLE 
@@ -27,9 +21,7 @@ Preference 2: Bioinformatics (Data Science - Statistics - Machine Learning) with
 Reason for unavailability: Quota has been met for Supervisor Joseph Bonello
 Preference 3: Human-Computer Interaction in Software Testing with Chris Porter NOT AVAILABLE 
 Reason for unavailability: Quota has been met for Supervisor Chris Porter
-Preference 4: Machine Learning Methods for Handling Missing Data in Medical Questionnaires with Lalit Garg NOT AVAILABLE 
-Reason for unavailability: Quota has been met for Supervisor Lalit Garg
-Preference 5: Autonommous Drone Navigation with Matthew Montebello AVAILABLE 
+Preference 4: Machine Learning Methods for Handling Missing Data in Medical Questionnaires with Lalit Garg AVAILABLE 
 
 Ian Grech: Checking FYP availability 
 Preference 1: Data Science - Pervasive Computing - Mobile Applications - AAPS with Conrad Attard NOT AVAILABLE 
@@ -40,9 +32,7 @@ Preference 3: Human-Computer Interaction in Software Testing with Chris Porter N
 Reason for unavailability: Quota has been met for Supervisor Chris Porter
 Preference 4: Machine Learning Methods for Handling Missing Data in Medical Questionnaires with Lalit Garg NOT AVAILABLE 
 Reason for unavailability: Quota has been met for Supervisor Lalit Garg
-Preference 5: Autonommous Drone Navigation with Matthew Montebello NOT AVAILABLE 
-Reason for unavailability: Quota has been met for Supervisor Matthew Montebello
-Preference 6: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul AVAILABLE 
+Preference 5: Autonommous Drone Navigation with Matthew Montebello AVAILABLE 
 
 Jane Said: Checking FYP availability 
 Preference 1: Data Science - Pervasive Computing - Mobile Applications - AAPS with Conrad Attard NOT AVAILABLE 
@@ -55,9 +45,7 @@ Preference 4: Machine Learning Methods for Handling Missing Data in Medical Ques
 Reason for unavailability: Quota has been met for Supervisor Lalit Garg
 Preference 5: Autonommous Drone Navigation with Matthew Montebello NOT AVAILABLE 
 Reason for unavailability: Quota has been met for Supervisor Matthew Montebello
-Preference 6: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul NOT AVAILABLE 
-Reason for unavailability: Quota has been met for Supervisor Joshua Ellul
-Preference 7: [] with Not assigned AVAILABLE 
+Preference 6: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul AVAILABLE 
 
 Kylie Soler: Checking FYP availability 
 Preference 1: Data Science - Pervasive Computing - Mobile Applications - AAPS with Conrad Attard NOT AVAILABLE 
@@ -72,4 +60,4 @@ Preference 5: Autonommous Drone Navigation with Matthew Montebello NOT AVAILABLE
 Reason for unavailability: Quota has been met for Supervisor Matthew Montebello
 Preference 6: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul NOT AVAILABLE 
 Reason for unavailability: Quota has been met for Supervisor Joshua Ellul
-Preference 7: [] with Not assigned AVAILABLE 
+All Preference NOT AVAILABLE, please manually allocate 
