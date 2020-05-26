@@ -1,4 +1,6 @@
 ﻿@model FYPAllocationTest.ViewModels.StudentViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +17,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a asp-controller="Imports" asp-action="Import" class="nav-item nav-link">Import Students or Supervisors</a>
-                <a asp-controller="Allocation" asp-action="Export_Supervisors" class="nav-item nav-link">Export Supervisors</a>
-                <a asp-controller="Allocation" asp-action="Export_Students" class="nav-item nav-link">Export Students</a>
-                <a asp-controller="Forms" asp-action="FormA" class="nav-item nav-link">Student Form</a>
-                <a asp-controller="Forms" asp-action="StaffForm" class="nav-item nav-link">Supervisor Form</a>
-                <a asp-controller="Allocation" asp-action="FYPAlloc" class="nav-item nav-link">FYP Allocations</a>
+                <a asp-controller="Home" asp-action="Areas" class="nav-item nav-link">List of Areas for FYP</a>
+
+                @if (User.IsInRole("Administrator"))
+                {
+                    <a asp-controller="Imports" asp-action="Import" class="nav-item nav-link">Import Students or Supervisors</a>
+                    <a asp-controller="Allocation" asp-action="Export_Supervisors" class="nav-item nav-link">Export Supervisors</a>
+                    <a asp-controller="Allocation" asp-action="Export_Students" class="nav-item nav-link">Export Students</a>
+                    <a asp-controller="Allocation" asp-action="FYPAlloc" class="nav-item nav-link">FYP Allocations</a>
+                }
+                @if (User.IsInRole("Supervisor"))
+                {
+                    <a asp-controller="Forms" asp-action="StaffForm" class="nav-item nav-link">Supervisor Form</a>
+                }
+                @if (User.IsInRole("Student"))
+                {
+                    <a asp-controller="Forms" asp-action="FormA" class="nav-item nav-link">Student Form</a>
+                }
 
             </div>
         </div>
