@@ -1,11 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+<!DOCTYPE html>
 
 <html>
 <head>
+    
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title>FYP Allocation System</title>
 </head>
 <body>
     <nav class="navbar navbar-expand navbar-custom">
@@ -30,6 +34,27 @@
                 </li>
             </ul>
         </div>
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Accounts" asp-action="Login"> <i class="fas fa-lock"></i> Sign In</a>
+                </li>
+            </ul>
+        }
+        else
+        {
+            <form asp-action="Logout" asp-controller="Accounts" id="logoutForm" method="post" class="float-right">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link">@User.Identity.Name</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fas fa-unlock"></i> Sign Out </a>
+                    </li>
+                </ul>
+            </form>
+        }
     </nav>
     <main role="main" class="container">
         @RenderBody()
@@ -42,4 +67,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </body>
-</html >
+</html>

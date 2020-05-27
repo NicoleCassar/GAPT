@@ -1,15 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FYPAllocationTest.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using System.Configuration;
 
 namespace FYPAllocationTest
 {
@@ -38,9 +36,27 @@ namespace FYPAllocationTest
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
             );
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                
+                //Password policy
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
 
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
-        }
+                //Lockout settings
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.AllowedForNewUsers = true;
+
+                //User settings
+                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-._@+";
+
+            }).AddEntityFrameworkStores<AppDbContext>();
+
+                services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -56,10 +72,11 @@ namespace FYPAllocationTest
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.UseStatusCodePagesWithRedirects("/Home/Error");
             app.UseStaticFiles();
-
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -67,6 +84,10 @@ namespace FYPAllocationTest
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "404-PageNotFound",
+                    pattern: "{controller=Home}/{action=Error}/{id?}");
+
             });
         }
     }

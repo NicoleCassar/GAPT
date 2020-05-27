@@ -7,6 +7,7 @@ using FYPAllocationTest.ViewModels;
 using FYPAllocationTest.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FYPAllocationTest.Controllers
 {
@@ -53,15 +54,24 @@ namespace FYPAllocationTest.Controllers
                 );
             }
         }
-
+        [Authorize(Roles = "Student")]
         public IActionResult FormA()
         {
-            var model = new AddStudent();
-            ViewBag.supervisors = new SelectList(sup, "supervisor_id", "name");
-            return View(model);
+            try
+            {
+                var model = new AddStudent();
+                ViewBag.supervisors = new SelectList(sup, "supervisor_id", "name");
+                return View(model);
+            }
+            catch
+            {
+                return RedirectToAction("Error", "Home");
+            }
+            
         }
 
         [HttpPost]
+        [Authorize(Roles = "Student")]
         public IActionResult FormA([Bind("name", "id", "sup1", "pref1", "sup2", "pref2", "sup3", "pref3", "sup4", "pref4", "sup5", "pref5", "sup6", "pref6")] AddStudent submission)
         {
             
@@ -119,12 +129,22 @@ namespace FYPAllocationTest.Controllers
 
         }
 
+        [Authorize(Roles = "Supervisor")]
         public IActionResult StaffForm()
         {
-            var model = new AddArea();
-            return View(model);
+            try
+            {
+                var model = new AddArea();
+                return View(model);
+            }
+            catch
+            {
+                return RedirectToAction("Error", "Home");
+            }
+           
         }
 
+        [Authorize(Roles = "Supervisor")]
         [HttpPost]
         public IActionResult StaffForm([Bind("area", "name", "id", "cosupname", "desc", "quota", "areakw", "reqres", "reqpre", "ethissues")] AddArea submission)
         {
