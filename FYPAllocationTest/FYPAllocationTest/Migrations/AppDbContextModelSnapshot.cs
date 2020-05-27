@@ -125,6 +125,18 @@ namespace FYPAllocationTest.Migrations
                     b.Property<string>("description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ethical_issues")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("keywords")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("required_prerequisites")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("required_resources")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("supervisor_id")
                         .HasColumnType("nvarchar(450)");
 

@@ -18,5 +18,10 @@ namespace FYPAllocationTest.Models
         public string description { get; set; }
         public bool available { get; set; }
         public int area_quota { get; set; }
+        public string keywords { get; set; }
+        public string required_resources { get; set; }
+        public string required_prerequisites { get; set; }
+        public string ethical_issues { get; set; }
+        
     }
 }
