@@ -1,6 +1,35 @@
-Peter Xuereb,123456M,Test Area 1,1,True,1,1
-Tony Spiteri Staines,123463M,Test Area 4,1,True,0,4
-Clyde Meli,123465M,Test Area 5,2,True,2,5
-Joshua Ellul,123472M,Test Area 6,3,True,1,6
-Ernest Cachia,123462M,Test Area 2,3,True,2,2
-Michel Camilleri,123460M,Test Area 3,3,True,1,3
+Peter Xuereb,123456M,Apps & Educational Games for Children with Disabilities,1,True,5,36
+Peter Xuereb,123456M,Multi-Model UI in Semi-Autonomous Motorised Wheelchairs for the Aged and Disabled,1,True,4,37
+Peter Xuereb,123456M,Improving Human Productivity through Prediction and Automation,1,True,2,38
+Peter Xuereb,123456M,Voice Recognition and Mixed Input Application,1,True,1,39
+Chris Porter,123476M,Human-Computer Interaction in Software Testing,1,True,1,48
+Matthew Montebello,123474M,Autonomous Drone Navigation,1,True,2,58
+Tony Spiteri Staines,123463M,Real Time Systems,1,True,1,65
+Clyde Meli,123465M,Computer Security and Communications Issues in Automobiles,2,True,2,47
+Colin Layfield,123471M,Voynich Word Prediction,2,True,1,64
+Michel Camilleri,123460M,Data Mining and Distributed Computing,3,True,5,45
+Michel Camilleri,123460M,ICT in Smart Wheelchairs,3,True,4,46
+Joshua Ellul,123472M,Blockchain and/or Cryptocurrency and/or Smart Contracts,3,True,1,55
+Ernest Cachia,123462M,High-Level Description Languages for IoT Programming,3,True,2,56
+Ernest Cachia,123462M,Automated Portal Creation Tools,3,True,4,57
+Joseph Bonello,123480M,Bioinformatics (Computational Biology),3,True,3,40
+Joseph Bonello,123480M,Bioinformatics (Data Science & Statistics - Machine Learning),3,True,2,41
+Joseph Vella,123468M,Database Data Modelling,6,True,1,59
+Joseph Vella,123468M,Database Setup - Tuning and Administration,6,True,2,60
+Joseph Vella,123468M,Digital Forensics,6,True,3,61
+Joseph Vella,123468M,Data Mining & Data Warehousing: With Massive Datasets,6,True,2,62
+Joseph Vella,123468M,Scalability Issues over Distributed Data,6,True,1,63
+Conrad Attard,123482M,ERP - Designing Solutions for Workplace Environment,7,True,2,42
+Conrad Attard,123482M,Digital Health - Persuasive Technology - Pervasive Computing,7,True,4,43
+Conrad Attard,123482M,Data Science - Pervasive Computing - Mobile Applications - AAPS,7,True,6,44
+Lalit Garg,123475M,Hospital Admission Pattern Analysis - Bed Resource Requirement Forecasting - Allocation & Management,8,True,2,66
+Lalit Garg,123475M,Traffic Congestion Problems in Malta,8,True,1,67
+Lalit Garg,123475M,Digital Footprint Analytics,8,True,1,68
+Lalit Garg,123475M,Smart Sensor for EEG Acquisition and Epileptic Seizure Detection,8,True,2,69
+Lalit Garg,123475M,Machine Learning Methods for Handling Missing Data in Medical Questionnaires,8,True,1,70
+John Abela,123464M,AI and Machine Learning,10,True,2,49
+John Abela,123464M,Natural Language Processing,10,True,3,50
+John Abela,123464M,Bioinformatics (DNA & Protein Sequence Classification - Medical Imaging),10,True,1,51
+John Abela,123464M,Machine Vision,10,True,1,52
+John Abela,123464M,Space Science,10,True,2,53
+John Abela,123464M,Search and Optimisation,10,True,2,54

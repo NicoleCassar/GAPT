@@ -12,6 +12,8 @@ namespace FYPAllocationTest.Models
         public Area getNextID();
         public Area GetAreaById(int id);
         public void UpdateQuota(Area area);
+        public void Delete(int id);
+        
 
     }
 }

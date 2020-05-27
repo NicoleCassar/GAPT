@@ -30,6 +30,7 @@ namespace FYPAllocationTest.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Denied = TempData["denied"];
             ViewBag.success = TempData["success"];
             var model = new StudentViewModel();
             model.student = _studentRepository.GetAllData();

@@ -42,9 +42,12 @@
         {
             <button class="btncustom" disabled>Perform Allocation</button>
         }
-        @if (ViewBag.Unassigned == "true")
+        @if (ViewBag.Performed == "true")
         {
             <a asp-controller="Allocation" asp-action="Export_Log" class="btncustom">Download complete allocation log</a>
+        }
+        @if (ViewBag.Unassigned == "true")
+        {
             <div class="mt-4">
                 <a asp-controller="Manual" asp-action="ManualAlloc" class="btncustom">Allocate Manually</a>
             </div>

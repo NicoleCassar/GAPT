@@ -9,7 +9,7 @@ namespace FYPAllocationTest.ViewModels
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Email address")]
         public string UserName { get; set; }
 
         [Required]

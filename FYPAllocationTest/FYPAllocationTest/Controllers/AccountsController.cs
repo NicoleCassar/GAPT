@@ -52,7 +52,7 @@ namespace FYPAllocationTest.Controllers
                 }
             }
 
-            ModelState.AddModelError("", "User name or password not correct");
+            ModelState.AddModelError("", "Email or password not correct");
             return View(loginViewModel);
         }
 
@@ -101,7 +101,15 @@ namespace FYPAllocationTest.Controllers
             var model = new Supervisor_AreaViewModel();
             model.supervisor = _supervisorRepository.GetAllData();
             model.area = _areaRepository.GetAllData();
+            ViewBag.deleted = TempData["success"];
             return View(model);
+        }
+
+        public IActionResult Delete_Area(int id)
+        {
+            _areaRepository.Delete(id);
+            TempData["success"] = "Area has been deleted";
+            return RedirectToAction("StaffProfile", "Accounts");
         }
     }
 }

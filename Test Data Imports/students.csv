@@ -1,4 +1,3 @@
-student_id,name,surname,email,average_mark
 123400L,Joe,Borg,JB@um.edu.mt,68
 123498M,Ian,Grech,IG@um.edu.mt,68
 123499M,Tom,Olson,TO@um.edu.mt,88
@@ -6,3 +5,4 @@ student_id,name,surname,email,average_mark
 143200L,Ursula,Borg,UB@um.edu.mt,70
 432100L,Kyle,West,KW@um.edu.mt,78
 432199M,Link,Vella,LV@um.edu.mt,90
+313699M,Connor,Sant Fournier,connor.sant.17@um.edu.mt,74

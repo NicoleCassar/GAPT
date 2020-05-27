@@ -10,6 +10,7 @@
 
 <body>
     <p id="success" class="alert-success">@ViewBag.success</p>
+    <p id="denied" class="alert-warning">@ViewBag.denied</p>
     <nav class="navbar navbar-expand-lg navbar-light navbar-custom-home">
         <a class="navbar-brand" href="#"><img src="~/images/uom.png" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +42,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#success').delay(3000).fadeOut();
+            $('#denied').delay(3000).fadeOut();
         });
     </script>
 

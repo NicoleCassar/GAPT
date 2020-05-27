@@ -1,4 +1,6 @@
 ﻿@model FYPAllocationTest.ViewModels.AddArea
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
 
 @{
     ViewData["Title"] = "Supervisor Form";
@@ -19,12 +21,12 @@
         </div>
         <div class="form-group">
             <label asp-for="name">Supervisor</label>
-            <input asp-for="name" type="text" class="form-control" id="name" placeholder="Enter full name">
+            <input asp-for="name" type="text" class="form-control" id="name"  placeholder="Enter full name" readonly>
         </div>
         <div class="form-group">
             <label asp-for="id">Supervisor ID</label>
-            <input asp-for="id" type="text" class="form-control" id="id" placeholder="Enter Supervisor ID">
-        </div> @*Complete Validation*@
+            <input asp-for="id" type="text" class="form-control" id="id" placeholder="Enter Supervisor ID" readonly>
+        </div> 
         <div class="form-group">
             <label asp-for="cosupname">Co-Supervisor (if applicable)</label>
             <input asp-for="cosupname" type="text" class="form-control" id="cosupname" placeholder="Enter name">

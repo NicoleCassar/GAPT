@@ -12,20 +12,38 @@
 </head>
 
 <body>
-    <div class="text-center">
-        <p id="success" class="alert-success">@ViewBag.success</p>
-        <h1>Welcome @User.Identity.Name</h1>
-        <h4>Here is a list of your currently proposed FYP areas:</h4>
-    </div>
     <div>
-        @foreach(var area in Model.area)
+        <p id="deleted" class="alert-info">@ViewBag.deleted</p>
+        @foreach (var supervisor in Model.supervisor)
         {
-            <h2>@area.title</h2>
+            if (@User.Identity.Name == supervisor.email)
+            {
+                <div class="text-center">
+                    <h1>Welcome @supervisor.name @supervisor.surname</h1>
+                    <h3>Here is a list of your currently proposed FYP areas:</h3><br/>
+                </div>
+                
+                @foreach (var area in Model.area)
+                {
+                    if (area.supervisor_id == supervisor.supervisor_id)
+                    {
+                        <div class="row">
+                            <h4>@area.title</h4> 
+                            <a asp-action="Delete_Area" asp-controller="Accounts" asp-route-id="@area.area_id"><i class="delete fas fa-trash"></i></a>
+                        </div>
+                        <p>@area.description</p>
+                    }
+
+                }
+            }
+
         }
+
     </div>
+       
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#success').delay(3000).fadeOut();
+            $('#deleted').delay(3000).fadeOut();
         });
     </script>
 </body>

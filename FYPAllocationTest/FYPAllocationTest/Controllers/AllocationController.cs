@@ -46,16 +46,22 @@ namespace FYPAllocationTest.Controllers
                 ViewBag.NoStudents = "No Student list has been imported yet";
                 ViewBag.Ready = "false";
             }
+            else
+                ViewBag.Ready = "true";
             if (model.supervisor.Count() == 0)
             {
                 ViewBag.NoSupervisors = "No Supervisor list has been imported yet";
                 ViewBag.Ready = "false";
             }
+            else
+                ViewBag.Ready = "true";
             if (model.preferences.Count()/ 6 != model.student.Count())
             {
                 ViewBag.NotSubmitted = "Some Students haven't submitted their preferences yet";
                 ViewBag.Ready = "false";
             }
+            else
+                ViewBag.Ready = "true";
             if (model.allocation.Count() == 0)
             {
                 ViewBag.Unavailable = "No Allocations have been performed yet";
@@ -77,11 +83,11 @@ namespace FYPAllocationTest.Controllers
                         ViewBag.NotFound = "Some Students remain unallocated, please allocate them through the below link";
                         ViewBag.Unassigned = "true";
                     }
-                    Console.WriteLine(exists);
                 }
+                ViewBag.Ready = "false";
+                ViewBag.Performed = "true";
 
             }
-             
             ViewBag.Message = TempData["Not Assigned"];
             ViewBag.Success = TempData["Success"];
             return View(model);
@@ -99,7 +105,7 @@ namespace FYPAllocationTest.Controllers
         public FileResult Export_Supervisors()
         {
             List<String> columnData = new List<String>();
-            string connectionstring = "Server=localhost\\MSSQLSERVER2;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string connectionstring = "Server=MSI-CSF;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();
@@ -135,7 +141,7 @@ namespace FYPAllocationTest.Controllers
         public FileResult Export_Students()
         {
             List<String> columnData = new List<String>();
-            string connectionstring = "Server=localhost\\MSSQLSERVER2;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string connectionstring = "Server=MSI-CSF;Database=fypallocation;Trusted_Connection=True;MultipleActiveResultSets=true";
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 connection.Open();

@@ -85,10 +85,11 @@ namespace FYPAllocationTest.Models
             {
                 var student = new ApplicationUser()
                 {
-                    Email = "teststudent@testmail.com",
-                    NormalizedEmail = "TESTSTUDENT@TESTMAIL.COM",
-                    UserName = "teststudent@testmail.com",
-                    NormalizedUserName = "TESTUSER@TESTMAIL.COM",
+                    Id = "313699M",
+                    Email = "connor.sant.17@um.edu.mt",
+                    NormalizedEmail = "CONNOR.SANT.17@UM.EDU.MT",
+                    UserName = "connor.sant.17@um.edu.mt",
+                    NormalizedUserName = "CONNOR.SANT.17@UM.EDU.MT",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString("D") //to track important profile updates (e.g. password change)
@@ -103,10 +104,11 @@ namespace FYPAllocationTest.Models
 
                 var supervisor = new ApplicationUser()
                 {
-                    Email = "testsupervisor@testmail.com",
-                    NormalizedEmail = "TESTSUPERVISOR@TESTMAIL.COM",
-                    UserName = "testsupervisor@testmail.com",
-                    NormalizedUserName = "TESTSUPERVISOR@TESTMAIL.COM",
+                    Id = "123464M",
+                    Email = "jabela@um.edu.mt",
+                    NormalizedEmail = "JABELA@UM.EDU.MT",
+                    UserName = "jabela@um.edu.mt",
+                    NormalizedUserName = "JABELA@UM.EDU.MT",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString("D") //to track important profile updates (e.g. password change)
@@ -123,11 +125,10 @@ namespace FYPAllocationTest.Models
 
                 var admin = new ApplicationUser()
                 {
-                    Email = "testadmin@testmail.com",
-                    NormalizedEmail = "TESTADMIN@TESTMAIL.COM",
-                    UserName = "testadmin@testmail.com",
-                    NormalizedUserName = "TESTADMIN@TESTMAIL.COM",
-                    PasswordHash = "Admin1234",
+                    Email = "secretary@um.edu.mt",
+                    NormalizedEmail = "SECRETARY@UM.EDU.MT",
+                    UserName = "secretary@um.edu.mt",
+                    NormalizedUserName = "SECRETARY@UM.EDU.MT",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString("D") //to track important profile updates (e.g. password change)

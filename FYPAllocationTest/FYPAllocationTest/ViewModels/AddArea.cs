@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using FYPAllocationTest.Models;
 
 namespace FYPAllocationTest.ViewModels
 {
     public class AddArea
     {
+    
         [Required]
         public string area { get; set; }
         [Required]

@@ -51,7 +51,7 @@ namespace FYPAllocationTest
                 options.Lockout.AllowedForNewUsers = true;
 
                 //User settings
-                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-._@+";
+                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789-._@+";
 
             }).AddEntityFrameworkStores<AppDbContext>();
 

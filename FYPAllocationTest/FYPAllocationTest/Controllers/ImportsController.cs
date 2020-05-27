@@ -129,64 +129,72 @@ namespace FYPAllocationTest.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public bool Import_DB(int id, String path) //This method deals with inserting csv data into the database
         {
-            if (System.IO.File.Exists(path)) //Checking that the file exists at the given path
+            try
             {
-                StreamReader sr = new StreamReader(path); //Open read stream for csv file
-                List<string> res = new List<string>(); //similiar to processing allocated students, csv data will be read cell by cell
-                string row;
-                while ((row = sr.ReadLine()) != null) // Read and display rows from the file until the end of the file is reached.
+                if (System.IO.File.Exists(path)) //Checking that the file exists at the given path
                 {
-                    res.Add(row); //Add each row to the list res
-                }
-                var result = res.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList(); //eleminate any possible whitespace that may have been created during processing
-                for (int i = 0; i <= result.Count() - 1; i++) //For each row in the csv file, now inside the res list
-                {
-                    var cell = result[i].Split(','); //split each comma delimited string into multiple list elements
-                    if (id == 0) //if enumaeration indicates student data is to be inserted
+                    StreamReader sr = new StreamReader(path); //Open read stream for csv file
+                    List<string> res = new List<string>(); //similiar to processing allocated students, csv data will be read cell by cell
+                    string row;
+                    while ((row = sr.ReadLine()) != null) // Read and display rows from the file until the end of the file is reached.
                     {
-                        Student students = new Student() //Grabbing students from csv file by taking data from each cell
+                        res.Add(row); //Add each row to the list res
+                    }
+                    var result = res.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList(); //eleminate any possible whitespace that may have been created during processing
+                    for (int i = 0; i <= result.Count() - 1; i++) //For each row in the csv file, now inside the res list
+                    {
+                        var cell = result[i].Split(','); //split each comma delimited string into multiple list elements
+                        if (id == 0) //if enumaeration indicates student data is to be inserted
                         {
-                            student_id = cell[0],
-                            name = cell[1],
-                            surname = cell[2],
-                            email = cell[3],
-                            average_mark = Convert.ToDouble(cell[4])
-                        }; 
-                        bool uploaded = _studentRepository.Import(students); //Sending retrived details to the database
-                        if (!uploaded) //if upload fails
+                            Student students = new Student() //Grabbing students from csv file by taking data from each cell
+                            {
+                                student_id = cell[0],
+                                name = cell[1],
+                                surname = cell[2],
+                                email = cell[3],
+                                average_mark = Convert.ToDouble(cell[4])
+                            };
+                            bool uploaded = _studentRepository.Import(students); //Sending retrived details to the database
+                            if (!uploaded) //if upload fails
+                            {
+                                sr.Close(); //close the stream
+                                System.IO.File.Delete(path); //delete the csv file from storage (for space optimisation purposes).
+                                return uploaded; //return false to the import method for students.
+                            }
+                        }
+                        if (id == 1) //If enumeration indicates that supervisor data is to be inserted
                         {
-                            sr.Close(); //close the stream
-                            System.IO.File.Delete(path); //delete the csv file from storage (for space optimisation purposes).
-                            return uploaded; //return false to the import method for students.
+                            Supervisor supervisors = new Supervisor() //Grabbing supervisors from csv file by taking data from each cell
+                            {
+                                supervisor_id = cell[0],
+                                name = cell[1],
+                                surname = cell[2],
+                                email = cell[3],
+                                quota = Convert.ToInt32(cell[4])
+                            };
+                            bool uploaded = _supervisorRepository.Import(supervisors); //Sending retrived details to the database
+                            if (!uploaded) //if upload is not succesful 
+                            {
+                                sr.Close(); //Always close the stream, as not doing so will cause an exception if user attempts to reupload
+                                System.IO.File.Delete(path); //Remove the uploaded csv from the server (for space optimisation purposes).
+                                return uploaded; //return false to indicate upload failure
+                            }
                         }
                     }
-                    if (id == 1) //If enumeration indicates that supervisor data is to be inserted
-                    {
-                        Supervisor supervisors = new Supervisor() //Grabbing supervisors from csv file by taking data from each cell
-                        {
-                            supervisor_id = cell[0],
-                            name = cell[1],
-                            surname = cell[2],
-                            email = cell[3],
-                            quota = Convert.ToInt32(cell[4])
-                        };
-                        bool uploaded = _supervisorRepository.Import(supervisors); //Sending retrived details to the database
-                        if (!uploaded) //if upload is not succesful 
-                        {
-                            sr.Close(); //Always close the stream, as not doing so will cause an exception if user attempts to reupload
-                            System.IO.File.Delete(path); //Remove the uploaded csv from the server (for space optimisation purposes).
-                            return uploaded; //return false to indicate upload failure
-                        }
-                    }
+                    sr.Close(); //Even if success, ALWAYS close the stream.
+                    System.IO.File.Delete(path); //Once again, delete the uploaded file now that data has been successfully utilised.
+                    return true; //Return true to indicate successful upload.
                 }
-                sr.Close(); //Even if success, ALWAYS close the stream.
-                System.IO.File.Delete(path); //Once again, delete the uploaded file now that data has been successfully utilised.
-                return true; //Return true to indicate successful upload.
+                else //if the file specified does not exist
+                {
+                    return false; //Return false to indicate failed upload
+                }
             }
-            else //if the file specified does not exist
+            catch
             {
-                return false; //Return false to indicate failed upload
+                return false;
             }
+            
         }
 
         public String Upload(IFormFile imports) //Method that handles the upload of files to the server

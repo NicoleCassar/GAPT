@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FYPAllocationTest.ViewModels;
 using FYPAllocationTest.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.IO;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace FYPAllocationTest.Controllers
 {
@@ -17,39 +16,55 @@ namespace FYPAllocationTest.Controllers
         private readonly IAreaRepository _areaRepository;
         private readonly IPreferenceRepository _preferenceRepository;
         private readonly IStudentRepository _studentRepository;
+        private readonly SignInManager<ApplicationUser> _signinManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private List<Supervisor> sup;
         private List<Area> ar;
 
 
-        public FormsController(ISupervisorRepository supervisorRepository, IAreaRepository areaRepository, IPreferenceRepository preferenceRepository, IStudentRepository studentRepository)
+        public FormsController(ISupervisorRepository supervisorRepository, IAreaRepository areaRepository, IPreferenceRepository preferenceRepository, IStudentRepository studentRepository, SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
             _supervisorRepository = supervisorRepository;
             _areaRepository = areaRepository;
             _preferenceRepository = preferenceRepository;
             _studentRepository = studentRepository;
+            _signinManager = signInManager;
+            _userManager = userManager;
             var supervisors = _supervisorRepository.GetAllData().OrderByDescending(p => p.supervisor_id);
             var areas = _areaRepository.GetAllData().OrderByDescending(p => p.area_id);
             sup = new List<Supervisor>();
             ar = new List<Area>();
-            foreach (var item in supervisors)
+            foreach (var supervisor in supervisors)
             {
-                sup.Add
-                (
-                    new Supervisor()
+                int count = 0;
+                foreach (var area in areas)
+                {
+                    if(supervisor.supervisor_id == area.supervisor_id)
                     {
-                        supervisor_id = item.supervisor_id, 
-                        name = item.name + " " + item.surname
+                        count++;
                     }
-                );
+                }
+                if(count != 0)
+                {
+                    sup.Add
+                    (
+                        new Supervisor()
+                        {
+                            supervisor_id = supervisor.supervisor_id,
+                            name = supervisor.name + " " + supervisor.surname
+                        }
+                    );
+                }
+                
             }
-            foreach (var item in areas)
+            foreach (var area in areas)
             {
                 ar.Add
                 (
                     new Area()
                     {
-                        supervisor_id = item.supervisor_id, 
-                        title = item.title
+                        supervisor_id = area.supervisor_id, 
+                        title = area.title
                     }
                 );
             }
@@ -61,6 +76,16 @@ namespace FYPAllocationTest.Controllers
             {
                 var model = new AddStudent();
                 ViewBag.supervisors = new SelectList(sup, "supervisor_id", "name");
+                var student = _studentRepository.GetAllData();
+                var user = User.Identity.Name;
+                foreach (var item in student)
+                {
+                    if (user == item.email)
+                    {
+                        model.name = item.name + " " + item.surname;
+                        model.id = item.student_id;
+                    }
+                }
                 return View(model);
             }
             catch
@@ -77,7 +102,15 @@ namespace FYPAllocationTest.Controllers
             
             if (ModelState.IsValid)
             {
-                
+                var prefs = _preferenceRepository.GetAllData();
+                foreach(var item in prefs)
+                {
+                    if(item.student_id == submission.id)
+                    {
+                        TempData["denied"] = "You have already submitted your preferences";
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
                 var area1 = _preferenceRepository.GetAreaByTitle(submission.pref1);
                 var area2 = _preferenceRepository.GetAreaByTitle(submission.pref2);
                 var area3 = _preferenceRepository.GetAreaByTitle(submission.pref3);
@@ -135,6 +168,16 @@ namespace FYPAllocationTest.Controllers
             try
             {
                 var model = new AddArea();
+                var supervisor = _supervisorRepository.GetAllData();
+                var user = User.Identity.Name;
+                foreach(var item in supervisor)
+                {
+                    if(user == item.email)
+                    {
+                        model.name = item.name + " " + item.surname;
+                        model.id = item.supervisor_id;
+                    }
+                }
                 return View(model);
             }
             catch
@@ -156,14 +199,6 @@ namespace FYPAllocationTest.Controllers
             string resources = submission.reqres.Replace(", ", " ");
             string prerequisites = submission.reqpre.Replace(", ", " ");
             string ethics = submission.ethissues.Replace(", ", " ");
-            /*
-            if(submission.reqres != null)
-                resources = submission.reqres.Replace(", ", " ");
-            if (submission.reqpre != null)
-                prerequisites = submission.reqpre.Replace(", ", " ");
-            if (submission.ethissues != null)
-                ethics = submission.ethissues.Replace(", ", " ");
-                */
             if (ModelState.IsValid)
             {
                 Area area = new Area()

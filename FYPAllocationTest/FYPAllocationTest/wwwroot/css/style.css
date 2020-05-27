@@ -127,6 +127,20 @@ img{
     font-family: Arial;
 }
 
+.delete {
+    color: #ba0c2f;
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-size: 160%;
+    margin-right: 10px;
+}
+.delete:hover{
+    color:red;
+}
+.delete:active{
+    color:#ba0c2f;
+}
 
 
 
