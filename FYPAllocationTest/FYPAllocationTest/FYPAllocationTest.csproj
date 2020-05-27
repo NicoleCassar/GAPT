@@ -33,6 +33,10 @@
     <Compile Remove="Migrations\20200522160735_NewMigration.Designer.cs" />
     <Compile Remove="Migrations\20200522161049_AllocationMigration.cs" />
     <Compile Remove="Migrations\20200522161049_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200525215547_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200525215547_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200525220211_area_update.cs" />
+    <Compile Remove="Migrations\20200525220211_area_update.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -18,18 +18,21 @@ namespace FYPAllocationTest.ViewModels
 
         public string cosupname { get; set; }
 
-        [Required(ErrorMessage = "Missing Area Keywords")]
-        public string areakw { get; set; }
 
         [Required(ErrorMessage = "Missing Area Description")]
         public string desc { get; set; }
 
+        public int quota { get; set; }
+
+        [Required(ErrorMessage = "Missing Area Keywords")]
+        public string areakw { get; set; }
+        [Required]
         public string reqres { get; set; }
-
+        [Required]
         public string reqpre { get; set; }
-
+        [Required]
         public string ethissues { get; set; }
 
-        public int quota { get; set; }
+        
     }
 }

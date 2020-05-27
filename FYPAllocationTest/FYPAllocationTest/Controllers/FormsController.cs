@@ -126,20 +126,24 @@ namespace FYPAllocationTest.Controllers
         }
 
         [HttpPost]
-        public IActionResult StaffForm([Bind("area", "name", "id", "cosupname", "areakw", "desc", "reqres", "reqpre", "ethissues", "quota")] AddArea submission)
+        public IActionResult StaffForm([Bind("area", "name", "id", "cosupname", "desc", "quota", "areakw", "reqres", "reqpre", "ethissues")] AddArea submission)
         {
             var area_title = submission.area.Replace(", ", " - ");
-            var area_keywords = submission.areakw.Replace(", ", " ");
-            var description_field = submission.desc.Replace(", ", " ");
-            string resources;
-            string prerequisites;
-            string ethics;
+            var area_keywords = submission.areakw.Replace(", ", " ");    
+            var description_field = submission.desc.Replace(", ", " ")
+                                                   .Replace("\r\n", string.Empty).Replace("\n", string.Empty)
+                                                   .Replace("\r", string.Empty);
+            string resources = submission.reqres.Replace(", ", " ");
+            string prerequisites = submission.reqpre.Replace(", ", " ");
+            string ethics = submission.ethissues.Replace(", ", " ");
+            /*
             if(submission.reqres != null)
                 resources = submission.reqres.Replace(", ", " ");
             if (submission.reqpre != null)
                 prerequisites = submission.reqpre.Replace(", ", " ");
             if (submission.ethissues != null)
                 ethics = submission.ethissues.Replace(", ", " ");
+                */
             if (ModelState.IsValid)
             {
                 Area area = new Area()
@@ -148,7 +152,11 @@ namespace FYPAllocationTest.Controllers
                     title = area_title,
                     description = description_field,
                     available = true,
-                    area_quota = submission.quota
+                    area_quota = submission.quota,
+                    keywords = area_keywords,
+                    required_resources = resources,
+                    required_prerequisites = prerequisites,
+                    ethical_issues = ethics
                  };
 
                  _areaRepository.Submit(area);
