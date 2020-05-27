@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@model FYPAllocationTest.ViewModels.Supervisor_AreaViewModel
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/portal.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="text-center">
+        <p id="success" class="alert-success">@ViewBag.success</p>
+        <h1>Welcome @User.Identity.Name</h1>
+        <h4>Here is a list of your currently proposed FYP areas:</h4>
+    </div>
+    <div>
+        @foreach(var area in Model.area)
+        {
+            <h2>@area.title</h2>
+        }
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#success').delay(3000).fadeOut();
+        });
+    </script>
+</body>
+</html>

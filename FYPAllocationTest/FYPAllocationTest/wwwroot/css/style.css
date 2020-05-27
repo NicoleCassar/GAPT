@@ -22,7 +22,7 @@
 
 .btncustom:disabled {
     background-color: gray;
-    border: 1px solid #ba0c2f;
+    border: 1px solid whitesmoke;
     border-radius: 100px;
     text-decoration: none;
     color: whitesmoke;

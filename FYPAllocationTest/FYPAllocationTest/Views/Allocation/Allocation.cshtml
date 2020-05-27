@@ -1,6 +1,6 @@
 ﻿@model FYPAllocationTest.ViewModels.AllocationViewModel
 @{
-    ViewData["Title"] = "FYP Allocation Results";
+    ViewData["Title"] = "FYP Allocation";
 }
 
 <!DOCTYPE html>
@@ -29,8 +29,12 @@
     }
     <h1>FYP Allocation Results</h1>
     <p class="alert-warning">@ViewBag.Unavailable</p>
+    <p class="alert-danger"><strong>@ViewBag.NoStudents</strong> </p>
+    <p class="alert-danger"><strong>@ViewBag.NoSupervisors</strong> </p>
+    <p class="alert-warning"><strong>@ViewBag.NotSubmitted</strong> </p>
+
     <div class="text-center position">
-        @if (ViewBag.Unassigned != "true")
+        @if (ViewBag.Unassigned != "true" && ViewBag.Ready == "true")
         {
             <a asp-controller="Allocation" asp-action="Perform_Allocation" class="btncustom">Perform Allocation</a>
         }
@@ -38,7 +42,6 @@
         {
             <button class="btncustom" disabled>Perform Allocation</button>
         }
-
         @if (ViewBag.Unassigned == "true")
         {
             <a asp-controller="Allocation" asp-action="Export_Log" class="btncustom">Download complete allocation log</a>
@@ -47,6 +50,7 @@
             </div>
         }
     </div>
+
     <p class="text-danger">@ViewBag.Message</p>
 
     <table class="table table-bordered">

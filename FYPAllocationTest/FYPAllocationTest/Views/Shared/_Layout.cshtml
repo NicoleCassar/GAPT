@@ -54,6 +54,22 @@
                     </li>
                 </ul>
             </form>
+            @if (User.IsInRole("Supervisor"))
+            {
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Accounts" asp-action="StaffProfile"> Profile </a>
+                    </li>
+                </ul>
+            }
+            @if (User.IsInRole("Administrator"))
+            {
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Allocation" asp-action="Dashboard"> Dashboard </a>
+                    </li>
+                </ul>
+            }
         }
     </nav>
     <main role="main" class="container">

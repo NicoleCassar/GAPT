@@ -8,6 +8,7 @@ using FYPAllocationTest.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FYPAllocationTest.Controllers
 {
@@ -25,7 +26,7 @@ namespace FYPAllocationTest.Controllers
            
         }
 
-        
+        [Authorize(Roles = "Administrator")]
         public IActionResult Import() //Loading in view for importing students and supervisors
         {
             ViewBag.failurestudent = TempData["failurestudent"]; //Each TempData is set as a custom validation for students' and supervisors' success or failure.
@@ -36,6 +37,7 @@ namespace FYPAllocationTest.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public IActionResult Import_Student([Bind("studentimport")] Imports imports) //Importing CSV for students
         {
@@ -62,7 +64,7 @@ namespace FYPAllocationTest.Controllers
                 if (uploaded) //If upload is successful
                 {
                     TempData["success"] = "student data successfully uploaded from csv file"; //Prepare a success message to ensure the user of task completion
-                    return RedirectToAction("Index", "Home"); //Return to the desired page with the success message
+                    return RedirectToAction("Dashboard", "Allocation"); //Return to the desired page with the success message
                 }
                 else //if the data contains already existing elements, or the column sequence from the csv does not match the database column sequence.
                 {
@@ -79,7 +81,7 @@ namespace FYPAllocationTest.Controllers
         }
 
 
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost] //Similar to students, supervisor is tasked to perform imports of supervisor, with only the type of data being processed differenciating the two methods.
         public IActionResult Import_Supervisor([Bind("supervisorimport")] Imports imports)
         {
@@ -106,7 +108,7 @@ namespace FYPAllocationTest.Controllers
                 if (uploaded) //If supervisor upload was a success
                 {
                     TempData["success"] = "supervisor data successfully uploaded from csv file"; //Prepare a message to inform the user of success
-                    return RedirectToAction("Index", "Home"); //Redirect to the desired page and display success message
+                    return RedirectToAction("Dashboard", "Allocation"); //Redirect to the desired page and display success message
                 }
                 else //if any error occired whilst inserting supervisor data, due to the same possible exceptions as the student import.
                 {

@@ -22,9 +22,8 @@
                 @if (User.IsInRole("Administrator"))
                 {
                     <a asp-controller="Imports" asp-action="Import" class="nav-item nav-link">Import Students or Supervisors</a>
-                    <a asp-controller="Allocation" asp-action="Export_Supervisors" class="nav-item nav-link">Export Supervisors</a>
-                    <a asp-controller="Allocation" asp-action="Export_Students" class="nav-item nav-link">Export Students</a>
-                    <a asp-controller="Allocation" asp-action="FYPAlloc" class="nav-item nav-link">FYP Allocations</a>
+                    <a asp-controller="Allocation" asp-action="Export_Students" class="nav-item nav-link">Export List of Students</a>
+                    <a asp-controller="Allocation" asp-action="Export_Supervisors" class="nav-item nav-link">Export List of Supervisors</a>
                 }
                 @if (User.IsInRole("Supervisor"))
                 {

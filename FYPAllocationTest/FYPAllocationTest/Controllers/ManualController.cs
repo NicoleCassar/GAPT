@@ -8,6 +8,7 @@ using FYPAllocationTest.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -85,6 +86,8 @@ namespace FYPAllocationTest.Controllers
                 
             }
         }
+
+        [Authorize(Roles = "Administrator")]
         public IActionResult ManualAlloc()
         {
             var model = new AddAllocation();
@@ -93,6 +96,7 @@ namespace FYPAllocationTest.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public IActionResult Manual([Bind("student", "supervisor")] AddAllocation addAllocation)
         {
@@ -108,7 +112,7 @@ namespace FYPAllocationTest.Controllers
                 _allocationsRepository.Create(allocation);
                 Supervisor_Update(addAllocation.supervisor);
                 TempData["Success"] = "Success! Student was allocated, see below";
-                return RedirectToAction("FYPAlloc", "Allocation");
+                return RedirectToAction("Allocation", "Allocation");
             }
             else
             {

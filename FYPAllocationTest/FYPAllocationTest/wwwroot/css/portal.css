@@ -1,0 +1,122 @@
+﻿.btn-primary {
+    background-color: #BA0C2F;
+    border-color:white;
+    width: 200px;
+    height: 110px;
+    margin: 50px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: #BA0C2F;
+    border-color: #BA0C2F;
+}
+
+#button1{
+    padding-top: 20px;
+}
+
+.fas{
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-size: 160%;
+    margin-right: 10px;
+}
+
+.far{
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-size: 160%;
+    margin-right: 10px;
+}
+
+
+/*Button
+.btn{
+    background-color: #ba0c2f;
+    border: 1px solid #ba0c2f;
+    border-radius: 200px;
+    display: inline-block;
+    padding: 10px 30px; 
+    font-weight: 300;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+}
+
+.spacing{
+    display: flex;
+    justify-content: center;
+    padding-left:70px;
+    padding-top: 50px;
+    
+}
+
+.space{
+    display: flex;
+    justify-content: center;
+    padding-left: 300px;
+    padding-top: 10px;
+    
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    padding-left:70px;
+    padding-top: 20px;
+}
+*/
+/*Form
+.form{
+    text-align: left;
+}
+
+.fyp-form{
+    margin-left:30%;
+    margin-top: 10%;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+
+input[type=text]{
+    width: 50%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#title{
+    margin-left: 122px;   
+}
+
+#supervisor{
+    margin-left: 70px;   
+}
+
+#co-supervisor{
+    margin-left: 45px;   
+}
+#main-area{
+    margin-left: 61px;   
+}
+#desc{
+    margin-left: 76px;   
+}
+#resources{
+    margin-left: 60px;   
+}
+#prerequisites{
+    margin-left: 7px;   
+}
+#ethics{
+    margin-left: 27px;   
+}
+*/

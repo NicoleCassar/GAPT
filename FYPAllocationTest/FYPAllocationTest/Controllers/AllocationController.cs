@@ -12,6 +12,7 @@ using System.IO;
 using Microsoft.Data.SqlClient;
 using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FYPAllocationTest.Controllers
 {
@@ -19,9 +20,9 @@ namespace FYPAllocationTest.Controllers
     {
         private readonly IStudentRepository _studentRepository;
         private readonly ISupervisorRepository _supervisorRepository;
+        private readonly IAreaRepository _areaRepository;
         private readonly IAllocationRepository _allocationRepository;
         private readonly IPreferenceRepository _preferenceRepository;
-        private readonly IAreaRepository _areaRepository;
 
         public AllocationController(IAllocationRepository allocationRepository, IStudentRepository studentRepository, ISupervisorRepository supervisorRepository,  IPreferenceRepository preferenceRepository, IAreaRepository areaRepository)
         {
@@ -31,8 +32,8 @@ namespace FYPAllocationTest.Controllers
             _preferenceRepository = preferenceRepository;
             _areaRepository = areaRepository;
         }
-
-        public IActionResult FYPAlloc()
+        [Authorize(Roles = "Administrator")]
+        public IActionResult Allocation()
         {
             var model = new AllocationViewModel();
             model.allocation = _allocationRepository.GetAllData();
@@ -40,8 +41,25 @@ namespace FYPAllocationTest.Controllers
             model.supervisor = _supervisorRepository.GetAllData();
             model.preferences = _preferenceRepository.GetAllData();
             model.area = _areaRepository.GetAllData();
+            if (model.student.Count() == 0)
+            {
+                ViewBag.NoStudents = "No Student list has been imported yet";
+                ViewBag.Ready = "false";
+            }
+            if (model.supervisor.Count() == 0)
+            {
+                ViewBag.NoSupervisors = "No Supervisor list has been imported yet";
+                ViewBag.Ready = "false";
+            }
+            if (model.preferences.Count()/ 6 != model.student.Count())
+            {
+                ViewBag.NotSubmitted = "Some Students haven't submitted their preferences yet";
+                ViewBag.Ready = "false";
+            }
             if (model.allocation.Count() == 0)
+            {
                 ViewBag.Unavailable = "No Allocations have been performed yet";
+            }
             else
             {
                 foreach (var students in model.student)
@@ -61,16 +79,23 @@ namespace FYPAllocationTest.Controllers
                     }
                     Console.WriteLine(exists);
                 }
-    
+
             }
-                
+             
             ViewBag.Message = TempData["Not Assigned"];
             ViewBag.Success = TempData["Success"];
             return View(model);
             
         }
 
+        [Authorize(Roles = "Administrator")]
+        public IActionResult Dashboard()
+        {
+            ViewBag.success = TempData["success"];
+            return View();
+        }
 
+        [Authorize(Roles = "Administrator")]
         public FileResult Export_Supervisors()
         {
             List<String> columnData = new List<String>();
@@ -106,6 +131,7 @@ namespace FYPAllocationTest.Controllers
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
+        [Authorize(Roles = "Administrator")]
         public FileResult Export_Students()
         {
             List<String> columnData = new List<String>();
@@ -151,6 +177,7 @@ namespace FYPAllocationTest.Controllers
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
+        [Authorize(Roles = "Administrator")]
         public FileResult Export_Log()
         {
             byte[] fileBytes = System.IO.File.ReadAllBytes(@"Allocation_Log.txt");
@@ -158,7 +185,7 @@ namespace FYPAllocationTest.Controllers
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
 
-
+        [Authorize(Roles = "Administrator")]
         public IActionResult Perform_Allocation()
         {
             Stopwatch sw = new Stopwatch(); //Setting Benchmark for analysis
@@ -203,16 +230,16 @@ namespace FYPAllocationTest.Controllers
                 sr.Close();
                 sw.Stop(); //Stop benchmarking
                 Console.WriteLine("\nTime was: " + sw.ElapsedMilliseconds/1000 + " seconds"); //Output Benchmarked time
-                return RedirectToAction("FYPAlloc");
+                return RedirectToAction("Allocation");
             }
             else
             {
                 TempData["Not Assigned"] = "An error occured during allocation";
-                return RedirectToAction("FYPAlloc");
+                return RedirectToAction("Allocation");
             }
         }
 
-
+ 
         public void SaveAlloc(string stud_id, string supervisor_id)
         {
             Allocation alloc = new Allocation()

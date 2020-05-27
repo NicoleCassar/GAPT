@@ -30,7 +30,6 @@ namespace FYPAllocationTest.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Title = "Student Data";
             ViewBag.success = TempData["success"];
             var model = new StudentViewModel();
             model.student = _studentRepository.GetAllData();

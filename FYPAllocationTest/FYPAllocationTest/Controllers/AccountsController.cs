@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FYPAllocationTest.Models;
 using FYPAllocationTest.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +14,15 @@ namespace FYPAllocationTest.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signinManager;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ISupervisorRepository _supervisorRepository;
+        private readonly IAreaRepository _areaRepository;
 
-        public AccountsController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        public AccountsController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, ISupervisorRepository supervisorRepository, IAreaRepository areaRepository)
         {
             _signinManager = signInManager;
             _userManager = userManager;
+            _supervisorRepository = supervisorRepository;
+            _areaRepository = areaRepository;
         }
 
         public IActionResult Login(string returnUrl)
@@ -90,6 +95,13 @@ namespace FYPAllocationTest.Controllers
 
         }
 
-
+        [Authorize(Roles = "Supervisor")]
+        public IActionResult StaffProfile()
+        {
+            var model = new Supervisor_AreaViewModel();
+            model.supervisor = _supervisorRepository.GetAllData();
+            model.area = _areaRepository.GetAllData();
+            return View(model);
+        }
     }
 }
