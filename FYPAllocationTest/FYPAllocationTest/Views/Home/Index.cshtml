@@ -25,6 +25,8 @@
                     <a asp-controller="Imports" asp-action="Import" class="nav-item nav-link">Import Students or Supervisors</a>
                     <a asp-controller="Allocation" asp-action="Export_Students" class="nav-item nav-link">Export List of Students</a>
                     <a asp-controller="Allocation" asp-action="Export_Supervisors" class="nav-item nav-link">Export List of Supervisors</a>
+                    <a asp-controller="Accounts" asp-action="Mailer" class="nav-item nav-link">Testing Email</a>
+                    <a asp-controller="Allocation" asp-action="AreaCode" class="nav-item nav-link">Testing Area Codes</a>
                 }
                 @if (User.IsInRole("Supervisor"))
                 {

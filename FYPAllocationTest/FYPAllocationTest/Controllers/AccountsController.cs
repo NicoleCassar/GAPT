@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using FYPAllocationTest.Models;
 using FYPAllocationTest.ViewModels;
@@ -110,6 +111,27 @@ namespace FYPAllocationTest.Controllers
             _areaRepository.Delete(id);
             TempData["success"] = "Area has been deleted";
             return RedirectToAction("StaffProfile", "Accounts");
+        }
+
+        [Authorize(Roles = "Administrator")]
+        public IActionResult Mailer()
+        {
+            SmtpClient smtpClient = new SmtpClient("mail.connorsf.com", 25);
+
+            smtpClient.Credentials = new System.Net.NetworkCredential("info@connorsf.com", "Banana1234");
+            // smtpClient.UseDefaultCredentials = true; // uncomment if you don't want to use the network credentials
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.EnableSsl = true;
+            MailMessage mail = new MailMessage();
+
+            //Setting From , To and CC
+            mail.From = new MailAddress("info@connorsf.com", "Mail Tester");
+            mail.To.Add(new MailAddress("info@connorsf.com"));
+            mail.CC.Add(new MailAddress("connorsantdls@gmail.com"));
+
+            smtpClient.Send(mail);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

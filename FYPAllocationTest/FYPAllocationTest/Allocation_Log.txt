@@ -1,26 +1,24 @@
 
 Link Vella: Checking FYP availability 
-Preference 1: Autonomous Drone Navigation with Matthew Montebello AVAILABLE 
+Preference 1: Digital Forensics with Joseph Vella AVAILABLE 
 
 Tom Olson: Checking FYP availability 
-Preference 1: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul AVAILABLE 
+Preference 1: Smart Sensor for EEG Acquisition and Epileptic Seizure Detection with Lalit Garg AVAILABLE 
 
 Kyle West: Checking FYP availability 
-Preference 1: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul NOT AVAILABLE 
-Reason for unavailability: Quota has been met for Area Blockchain and/or Cryptocurrency and/or Smart Contracts
-Preference 2: Digital Forensics with Joseph Vella AVAILABLE 
+Preference 1: Database Setup - Tuning and Administration with Joseph Vella AVAILABLE 
 
 Connor Sant Fournier: Checking FYP availability 
 Preference 1: Space Science with John Abela AVAILABLE 
 
 Ursula Borg: Checking FYP availability 
-Preference 1: Autonomous Drone Navigation with Matthew Montebello AVAILABLE 
+Preference 1: Traffic Congestion Problems in Malta with Lalit Garg AVAILABLE 
 
 Joe Borg: Checking FYP availability 
 Preference 1: Data Science - Pervasive Computing - Mobile Applications - AAPS with Conrad Attard AVAILABLE 
 
 Ian Grech: Checking FYP availability 
-Preference 1: Smart Sensor for EEG Acquisition and Epileptic Seizure Detection with Lalit Garg AVAILABLE 
+Preference 1: Autonomous Drone Navigation with Matthew Montebello AVAILABLE 
 
 Jane Said: Checking FYP availability 
-Preference 1: Human-Computer Interaction in Software Testing with Chris Porter AVAILABLE 
+Preference 1: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul AVAILABLE 

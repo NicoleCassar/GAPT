@@ -197,6 +197,7 @@ namespace FYPAllocationTest.Controllers
             Stopwatch sw = new Stopwatch(); //Setting Benchmark for analysis
             sw.Start(); //Start timer
             _allocationRepository.Delete(); //Purge current allocations before performing new allocation
+            AreaCode();
             Export_Supervisors();
             Export_Students();
             ScriptEngine engine = Python.CreateEngine();
@@ -277,6 +278,30 @@ namespace FYPAllocationTest.Controllers
                 area_quota = ar_quota
             };
             _areaRepository.UpdateQuota(new_quota);
+        }
+
+        public void AreaCode()
+        {
+            var areas = _areaRepository.GetAllData();
+            var supervisor = _supervisorRepository.GetAllData();
+            List<Area> code = new List<Area>();
+            foreach(var item in supervisor)
+            {
+                int i = 1;
+                foreach (var area in areas)
+                {
+                    if (area.supervisor_id == item.supervisor_id)
+                    {
+                        code.Add(new Area { area_id = area.area_id ,area_code = i.ToString() + item.name[0] + item.surname[0] + item.quota});
+                        i++;
+                    }
+                        
+                }
+            }
+            foreach(var item in code)
+            {
+                _areaRepository.AddAreaCodes(item);
+            }
         }
 
 

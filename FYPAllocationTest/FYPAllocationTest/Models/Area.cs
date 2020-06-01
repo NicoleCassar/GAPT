@@ -22,6 +22,6 @@ namespace FYPAllocationTest.Models
         public string required_resources { get; set; }
         public string required_prerequisites { get; set; }
         public string ethical_issues { get; set; }
-        
+        public string area_code { get; set; }
     }
 }

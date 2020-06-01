@@ -56,5 +56,15 @@ namespace FYPAllocationTest.Models
             _appDbContext.supervisor_area.Remove(area);
             _appDbContext.SaveChanges();
         }
+
+        public void AddAreaCodes(Area new_area)
+        {
+            var current_area = _appDbContext.supervisor_area.SingleOrDefault(a => a.area_id == new_area.area_id);
+            current_area.area_code = new_area.area_code;
+            _appDbContext.Entry(current_area).State = EntityState.Modified;
+            _appDbContext.SaveChanges();
+        }
+
+
     }
 }

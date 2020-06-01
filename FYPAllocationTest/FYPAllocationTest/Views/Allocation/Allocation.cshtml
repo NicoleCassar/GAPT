@@ -95,11 +95,11 @@
                                                 {
                                                     if (allocation.supervisor_id == area.supervisor_id)
                                                     {
-                                                        <td class="alert-success">@supervisor.name  @supervisor.surname</td>
+                                                        <td class="alert-success">@area.area_code</td>
                                                     }
                                                     else
                                                     {
-                                                        <td>@supervisor.name @supervisor.surname</td>
+                                                        <td>@area.area_code</td>
                                                     }
                                                 }
 
@@ -130,6 +130,30 @@
 
         </tbody>
     </table>
+    @if (ViewBag.Performed == "true")
+    {
+        <div class=" ml-3 border border-dark">
+            <h2 class=" ml-3" >Legend</h2>
+            <h5 class=" ml-3">Please refer to the below legend as a means of identifying the above allocations:</h5>
+            <p class=" ml-3">First number in code: Area number</p>
+            <p class=" ml-3">Last number in code: Supervisor's Area Quota</p>
+            @foreach (var supervisor in Model.supervisor)
+            {
+                <p class="ml-3">@supervisor.name[0]@supervisor.surname[0] : @supervisor.name @supervisor.surname</p>
+                @foreach(var area in Model.area)
+                {
+                    if(area.supervisor_id == supervisor.supervisor_id)
+                    {
+                        <p class="ml-5">@area.area_code[0]: @area.title</p>
+
+                    }
+                }
+            }
+        </div>
+
+    }
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#Success').delay(3000).fadeOut();

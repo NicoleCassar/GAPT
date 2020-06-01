@@ -13,7 +13,8 @@ namespace FYPAllocationTest.Models
         public Area GetAreaById(int id);
         public void UpdateQuota(Area area);
         public void Delete(int id);
-        
+        public void AddAreaCodes(Area area);
+
 
     }
 }
