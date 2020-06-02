@@ -1,24 +1,24 @@
 
 Link Vella: Checking FYP availability 
-Preference 1: Digital Forensics with Joseph Vella AVAILABLE 
-
-Tom Olson: Checking FYP availability 
-Preference 1: Smart Sensor for EEG Acquisition and Epileptic Seizure Detection with Lalit Garg AVAILABLE 
-
-Kyle West: Checking FYP availability 
-Preference 1: Database Setup - Tuning and Administration with Joseph Vella AVAILABLE 
-
-Connor Sant Fournier: Checking FYP availability 
 Preference 1: Space Science with John Abela AVAILABLE 
 
-Ursula Borg: Checking FYP availability 
-Preference 1: Traffic Congestion Problems in Malta with Lalit Garg AVAILABLE 
+Joshua Spiteri: Checking FYP availability 
+Preference 1: Voice Recognition and Mixed Input Application with Peter Xuereb AVAILABLE 
 
-Joe Borg: Checking FYP availability 
-Preference 1: Data Science - Pervasive Computing - Mobile Applications - AAPS with Conrad Attard AVAILABLE 
+Kyle West: Checking FYP availability 
+Preference 1: Digital Forensics with Joseph Vella AVAILABLE 
 
-Ian Grech: Checking FYP availability 
+Connor Sant Fournier: Checking FYP availability 
 Preference 1: Autonomous Drone Navigation with Matthew Montebello AVAILABLE 
 
-Jane Said: Checking FYP availability 
+Nicole Cassar: Checking FYP availability 
+Preference 1: AI and Machine Learning with John Abela AVAILABLE 
+
+Joe Borg: Checking FYP availability 
+Preference 1: Digital Footprint Analytics with Lalit Garg AVAILABLE 
+
+Ian Grech: Checking FYP availability 
 Preference 1: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul AVAILABLE 
+
+Caoimhe Camilleri: Checking FYP availability 
+Preference 1: Apps & Educational Games for Children with Disabilities with Peter Xuereb AVAILABLE 

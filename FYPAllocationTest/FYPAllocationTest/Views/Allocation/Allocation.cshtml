@@ -10,6 +10,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+    @if (ViewBag.Complete == "true")
+    {
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            @ViewBag.Assigned
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
     <p id="Success" class="alert-success">@ViewBag.Success</p>
 
     @if (ViewBag.Unassigned == "true")
@@ -27,6 +37,7 @@
             </button>
         </div>
     }
+
     <h1>FYP Allocation Results</h1>
     <p class="alert-warning">@ViewBag.Unavailable</p>
     <p class="alert-danger"><strong>@ViewBag.NoStudents</strong> </p>
@@ -52,6 +63,19 @@
                 <a asp-controller="Manual" asp-action="ManualAlloc" class="btncustom">Allocate Manually</a>
             </div>
         }
+        @if (ViewBag.Complete == "true")
+        {
+            <div class="mt-4">
+                <a asp-controller="Accounts" asp-action="Mailer" class="btncustom">Publish Results</a>
+            </div>
+        }
+        else
+        {
+            <div class="mt-4">
+                <button class="btncustom" disabled>Publish Results</button>
+            </div>
+        }
+
     </div>
 
     <p class="text-danger">@ViewBag.Message</p>
@@ -133,16 +157,16 @@
     @if (ViewBag.Performed == "true")
     {
         <div class=" ml-3 border border-dark">
-            <h2 class=" ml-3" >Legend</h2>
+            <h2 class=" ml-3">Legend</h2>
             <h5 class=" ml-3">Please refer to the below legend as a means of identifying the above allocations:</h5>
             <p class=" ml-3">First number in code: Area number</p>
             <p class=" ml-3">Last number in code: Supervisor's Area Quota</p>
             @foreach (var supervisor in Model.supervisor)
             {
                 <p class="ml-3">@supervisor.name[0]@supervisor.surname[0] : @supervisor.name @supervisor.surname</p>
-                @foreach(var area in Model.area)
+                @foreach (var area in Model.area)
                 {
-                    if(area.supervisor_id == supervisor.supervisor_id)
+                    if (area.supervisor_id == supervisor.supervisor_id)
                     {
                         <p class="ml-5">@area.area_code[0]: @area.title</p>
 
@@ -156,7 +180,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#Success').delay(3000).fadeOut();
+            $('#Success').delay(5000).fadeOut();
         });
     </script>
 

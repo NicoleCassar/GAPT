@@ -83,6 +83,11 @@ namespace FYPAllocationTest.Controllers
                         ViewBag.NotFound = "Some Students remain unallocated, please allocate them through the below link";
                         ViewBag.Unassigned = "true";
                     }
+                    else
+                    {
+                        ViewBag.Assigned = "All Students have been allocated, the option to publish results is now available";
+                        ViewBag.Complete = "true";
+                    }
                 }
                 ViewBag.Ready = "false";
                 ViewBag.Performed = "true";
@@ -281,7 +286,7 @@ namespace FYPAllocationTest.Controllers
         }
 
         public void AreaCode()
-        {
+        {//This method will generate Serial codes per area and supervisor combination, as a means of compressing more inforamtion into the allocation table result
             var areas = _areaRepository.GetAllData();
             var supervisor = _supervisorRepository.GetAllData();
             List<Area> code = new List<Area>();
