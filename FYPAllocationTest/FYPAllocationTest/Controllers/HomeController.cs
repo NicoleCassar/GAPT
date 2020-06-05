@@ -46,8 +46,25 @@ namespace FYPAllocationTest.Controllers
         {
             var model = new Supervisor_AreaViewModel();
             model.supervisor = _supervisorRepository.GetAllData().OrderByDescending(p => p.supervisor_id);
-            model.area = _areaRepository.GetAllData().OrderByDescending(p => p.area_id);
+            model.area = _areaRepository.GetAllData();
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            try
+            {
+                var area = _areaRepository.GetAreaById(id);
+                if (area == null)
+                    return NotFound();
+                else
+                    return View(area);
+            }
+            catch
+            {
+                return View("Error");
+            }
         }
 
         public IActionResult Error()

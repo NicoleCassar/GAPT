@@ -9,25 +9,23 @@
     <link href="~/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>Available FYP Areas</h1>
-
-    @foreach (var supervisors in Model.supervisor)
+    <img src="~/images/uom.png"/>
+    <h1 class="mb-2">Available FYP Areas</h1>
+    <p class="mb-4">The following is a list of existing areas to be chosen from, sorted by supervisor:</p>
+    @foreach (var supervisor in Model.supervisor)
     {
-        @foreach (var areas in Model.area)
-        {
-
-            if (areas.supervisor_id == supervisors.supervisor_id)
+        <div class="mb-4">
+            <h3 class="mb-0">@supervisor.name @supervisor.surname</h3>
+            @foreach (var area in Model.area)
             {
-                <div class="card-body">
-                    <h3>@areas.title</h3>
-                    <h5>With @supervisors.name @supervisors.surname</h5>
-                    <p>@areas.description</p>
-                    <p>@areas.keywords</p>
-                </div>
+                if (area.supervisor_id == supervisor.supervisor_id)
+                {
+                    <div>
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@area.area_id" class="nav-item uom">@area.area_code[0]. @area.title</a>
+                    </div>
+                }
             }
-
-
-        }
+        </div>
     }
 </body>
 </html>

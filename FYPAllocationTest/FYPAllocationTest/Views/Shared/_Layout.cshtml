@@ -47,7 +47,7 @@
             <form asp-action="Logout" asp-controller="Accounts" id="logoutForm" method="post" class="float-right">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link">@User.Identity.Name</a>
+                        <a class="nav-link"><strong>@User.Identity.Name</strong></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fas fa-unlock"></i> Sign Out </a>
