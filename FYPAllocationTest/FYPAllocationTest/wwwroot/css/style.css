@@ -11,14 +11,21 @@
     text-align: center;
 }
 
+body{
+    padding-top:7%;
+}
+
 .uom{
     color:#ba0c2f;
 }
 
+.uom:hover {
+    color: red;
+    text-decoration: none;
+}
 
-.uom:hover{
-    color:red;
-    text-decoration:none;
+.um {
+    color: #ba0c2f;
 }
 
 .btncustom:hover {

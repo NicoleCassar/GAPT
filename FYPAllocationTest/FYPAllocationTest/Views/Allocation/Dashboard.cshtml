@@ -12,7 +12,10 @@
 
 <body>
     <div class="text-center">
-        <p id="success" class="alert-success">@ViewBag.success</p>
+        @if (ViewBag.success != null)
+        {
+            <p id="success" class="alert-success">@ViewBag.success</p>
+        }
         <h1>Welcome @User.Identity.Name</h1>
         <h4>Actions you can perform:</h4>
     </div>
