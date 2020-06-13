@@ -1,0 +1,36 @@
+
+Link Vella: Checking FYP availability 
+Preference 1: Space Science with John Abela AVAILABLE 
+
+Joshua Spiteri: Checking FYP availability 
+Preference 1: Voice Recognition and Mixed Input Application with Peter Xuereb NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Area Voice Recognition and Mixed Input Application
+Preference 2: Digital Footprint Analytics with Lalit Garg NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Area Digital Footprint Analytics
+Preference 3: Autonomous Drone Navigation with Matthew Montebello AVAILABLE 
+
+Kyle West: Checking FYP availability 
+Preference 1: Digital Forensics with Joseph Vella AVAILABLE 
+
+Connor Sant Fournier: Checking FYP availability 
+Preference 1: Autonomous Drone Navigation with Matthew Montebello NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Area Autonomous Drone Navigation
+Preference 2: Space Science with John Abela NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Area Space Science
+Preference 3: Digital Forensics with Joseph Vella AVAILABLE 
+
+Nicole Cassar: Checking FYP availability 
+Preference 1: AI and Machine Learning with John Abela AVAILABLE 
+
+Joe Borg: Checking FYP availability 
+Preference 1: Digital Footprint Analytics with Lalit Garg NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Area Digital Footprint Analytics
+Preference 2: Autonomous Drone Navigation with Matthew Montebello NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Area Autonomous Drone Navigation
+Preference 3: High-Level Description Languages for IoT Programming with Ernest Cachia AVAILABLE 
+
+Ian Grech: Checking FYP availability 
+Preference 1: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul AVAILABLE 
+
+Caoimhe Camilleri: Checking FYP availability 
+Preference 1: Apps & Educational Games for Children with Disabilities with Peter Xuereb AVAILABLE 

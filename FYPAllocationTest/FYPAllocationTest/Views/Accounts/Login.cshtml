@@ -3,17 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <div>
         <img src="~/images/uom.png" />
         <h2 class="nav-item">Sign In to UM IT Account</h2>
-        <form asp-action="Login" asp-controller="Accounts" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+        <form asp-action="Login" asp-controller="Accounts" method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UserName" value="Email address" class="col-md-2"></label>
+                <label asp-for="UserName" value="Email address" class="col-md-4"></label>
                 <div class="col-md-10">
                     <input asp-for="UserName" class="form-control" />
                     <span asp-validation-for="UserName" class="text-danger"></span>

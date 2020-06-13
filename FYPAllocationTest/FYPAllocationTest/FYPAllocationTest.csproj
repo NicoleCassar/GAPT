@@ -39,7 +39,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\csv\allocation_result.csv" />
     <None Include="wwwroot\images\uom.png" />
+    <None Include="wwwroot\txt\Allocation_Log.txt" />
   </ItemGroup>
 
   <ItemGroup>

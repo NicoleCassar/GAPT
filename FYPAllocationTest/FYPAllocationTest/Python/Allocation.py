@@ -6,11 +6,11 @@ y = 1
 pref = []
 pref_supervisor = []
 student = []
-audit = open("Allocation_Log.txt", 'w')
+audit = open("wwwroot\\txt\\Allocation_Log.txt", 'w')
 #pathfile = open("path.txt", 'r')
 #path = pathfile.read()
-csv_file = open("students.csv", 'r') #CSV file being read from
-csv_test = open("allocation_result.csv", 'w') #CSV file to write the results to.
+csv_file = open("wwwroot\\csv\\students.csv", 'r') #CSV file being read from
+csv_test = open("wwwroot\\csv\\allocation_result.csv", 'w') #CSV file to write the results to.
 writer = csv.writer(csv_test, delimiter=",")
 reader = csv.reader(csv_file)
 for row in reader: #Each element with the csv file is read and saved below:
@@ -38,7 +38,7 @@ for i in range(0, len(student)):
 
 supervisor = []
 area = []
-supervisors_file = open("supervisors.csv", 'r') #CSV file being read from
+supervisors_file = open("wwwroot\\csv\\supervisors.csv", 'r') #CSV file being read from
 tread = csv.reader(supervisors_file)
 for row in tread: #Reading all rows from supervisor csv
     supervisor.append([])

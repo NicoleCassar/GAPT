@@ -52,7 +52,6 @@ namespace FYPAllocationTest.Models
         public void Delete(int id)
         {
             var area  = GetAreaById(id);
-            Console.WriteLine(area.title);
             _appDbContext.supervisor_area.Remove(area);
             _appDbContext.SaveChanges();
         }

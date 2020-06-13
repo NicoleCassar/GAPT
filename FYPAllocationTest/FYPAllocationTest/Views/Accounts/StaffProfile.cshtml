@@ -5,10 +5,6 @@
 <html>
 
 <head>
-    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/portal.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -20,16 +16,16 @@
             {
                 <div class="text-center">
                     <h1>Welcome @supervisor.name @supervisor.surname</h1>
-                    <h3>Here is a list of your currently proposed FYP areas:</h3><br/>
+                    <h3>Here is a list of your currently proposed FYP areas:</h3><br />
                 </div>
-                
+
                 @foreach (var area in Model.area)
                 {
                     if (area.supervisor_id == supervisor.supervisor_id)
                     {
-                        <div class="row">
-                            <h4>@area.title</h4> 
-                            <a asp-action="Delete_Area" asp-controller="Accounts" asp-route-id="@area.area_id"><i class="delete fas fa-trash"></i></a>
+                        <div class="row mb-1">
+                            <h4>@area.title</h4>
+                            <a class="btn btn-danger btn-sm ml-2" asp-action="Delete_Area" asp-controller="Accounts" asp-route-id="@area.area_id">Delete Area</a>
                         </div>
                         <p>@area.description</p>
                     }
