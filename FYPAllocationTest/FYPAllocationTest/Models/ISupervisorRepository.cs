@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FYPAllocationTest.Models
 {
-    public interface ISupervisorRepository
-    {
+    public interface ISupervisorRepository // Interface connection SupervisorRepository to controller class
+    { // Methods used are explained within the SupervisorRepository class
         public IEnumerable<Supervisor> GetAllData();
         bool Import(Supervisor supervisor);
         public Supervisor GetSupervisorById(string id);

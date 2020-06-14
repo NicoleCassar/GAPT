@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FYPAllocationTest.Models
 {
-    public class Supervisor
+    public class Supervisor // Model for 'supervisors' table, containing all variables found as columns on the 'supervisor' table
     {
         [Key]
-        public string supervisor_id { get; set; }
-        public string name { get; set; }
-        public string surname { get; set; }
-        public string email { get; set; }
-        public int quota { get; set; }
+        public string supervisor_id { get; set; } // Id pf supervisor
+        public string name { get; set; } // Name of supervisor
+        public string surname { get; set; } // Surname of supervisor
+        public string email { get; set; } // Email address of supervisor
+        public int quota { get; set; } // Supervisor total quota
 
     }
 }
-//623222150131-ubbqhqigbis91aj9rsbpmkv1cguc1422.apps.googleusercontent.com
-//HKbxfpASOPACZg1BbzQQuGcn

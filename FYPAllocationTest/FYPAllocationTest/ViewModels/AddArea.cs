@@ -1,41 +1,26 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using FYPAllocationTest.Models;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FYPAllocationTest.ViewModels
 {
-    public class AddArea
-    {
-    
+    public class AddArea // ViewModel for area proposal form submission
+    {   
+        [Required(ErrorMessage = "Missing Area Title")]
+        public string area { get; set; } // Title of area
         [Required]
-        public string area { get; set; }
+        public string name { get; set; } // Supervisor name, being automatically filled
         [Required]
-        public string name { get; set; }
-        [Required]
-        public string id { get; set; }
-
-        public string cosupname { get; set; }
-
-
+        public string id { get; set; } // Supervisor id, also automatically filled
+        public string cosupname { get; set; } // Co-Supervisor name if necessary
         [Required(ErrorMessage = "Missing Area Description")]
-        public string desc { get; set; }
-
-        public int quota { get; set; }
-
+        public string desc { get; set; } // Area description
+        public int quota { get; set; } // Area quota
         [Required(ErrorMessage = "Missing Area Keywords")]
-        public string areakw { get; set; }
+        public string areakw { get; set; } // Keywords to describe area
         [Required]
-        public string reqres { get; set; }
+        public string reqres { get; set; } // Required resources
         [Required]
-        public string reqpre { get; set; }
+        public string reqpre { get; set; } // Required prerequisites
         [Required]
-        public string ethissues { get; set; }
-
-        
+        public string ethissues { get; set; } // Possible ethical issues
     }
 }

@@ -110,12 +110,12 @@ namespace FYPAllocationTest.Controllers
                         return RedirectToAction("Index", "Home");
                     }
                 } // Get each area associated with the submitted preference
-                var area1 = _preferenceRepository.GetAreaByTitle(submission.pref1); 
-                var area2 = _preferenceRepository.GetAreaByTitle(submission.pref2);
-                var area3 = _preferenceRepository.GetAreaByTitle(submission.pref3);
-                var area4 = _preferenceRepository.GetAreaByTitle(submission.pref4);
-                var area5 = _preferenceRepository.GetAreaByTitle(submission.pref5);
-                var area6 = _preferenceRepository.GetAreaByTitle(submission.pref6);
+                var area1 = _areaRepository.GetAreaByTitle(submission.pref1); 
+                var area2 = _areaRepository.GetAreaByTitle(submission.pref2);
+                var area3 = _areaRepository.GetAreaByTitle(submission.pref3);
+                var area4 = _areaRepository.GetAreaByTitle(submission.pref4);
+                var area5 = _areaRepository.GetAreaByTitle(submission.pref5);
+                var area6 = _areaRepository.GetAreaByTitle(submission.pref6);
                 List<int> areas = new List<int>()
                 { area1.area_id, area2.area_id, area3.area_id, area4.area_id, area5.area_id, area6.area_id}; // Add preferred areas to list by area id
                 List<string> supervisors = new List<string>()

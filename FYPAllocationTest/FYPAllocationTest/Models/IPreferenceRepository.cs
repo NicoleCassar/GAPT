@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FYPAllocationTest.Models
 {
-    public interface IPreferenceRepository
-    {
+    public interface IPreferenceRepository // This is an interface used to connect the 'PreferenceRepository' to a controller class
+    { // Methods will be discussed within the repository class for preferences
         public IEnumerable<Preference> GetAllData();
         void Submit(Preference preference);
-
-        Area GetAreaByTitle(string id);
-
-
     }
 }

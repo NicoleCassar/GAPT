@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FYPAllocationTest.Models;
-using System.Linq;
-using System.Threading.Tasks;
 namespace FYPAllocationTest.ViewModels
 {
-    public class AllocationViewModel
+    public class AllocationViewModel // ViewModel used when prsenting perfom allocation page to administrators
     {
-        public IEnumerable<Student> student { get; set; }
-        public IEnumerable<Supervisor> supervisor { get; set; }
-        public IEnumerable<Area> area { get; set; }
-        public IEnumerable<Preference> preferences { get; set; }
-        public IEnumerable<Allocation> allocation { get; set; }
-
+        public IEnumerable<Student> student { get; set; } // Allows for the loading of all students
+        public IEnumerable<Supervisor> supervisor { get; set; } // Enables the retrieving of supervisors
+        public IEnumerable<Area> area { get; set; } // Allows for a call to be made for all areas
+        public IEnumerable<Preference> preferences { get; set; } // Enables the use of all preference
+        public IEnumerable<Allocation> allocation { get; set; } // Allows for the display of all allocations
     }
 }

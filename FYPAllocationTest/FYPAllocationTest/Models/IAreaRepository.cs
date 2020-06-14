@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FYPAllocationTest.Models
 {
-    public interface IAreaRepository
-    {
+    public interface IAreaRepository // Interface connecting AreaRepository to controller class
+    { // Methods to be explained within the 'AreaRepository' class
         public IEnumerable<Area> GetAllData();
         public void Submit(Area area);
-        public Area getNextID();
         public Area GetAreaById(int id);
+        public Area GetAreaByTitle(string id);
         public void UpdateQuota(Area area);
         public void Delete(int id);
         public void AddAreaCodes(Area area);
-
-
     }
 }

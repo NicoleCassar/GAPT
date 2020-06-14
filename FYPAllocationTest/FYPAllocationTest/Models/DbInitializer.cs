@@ -1,87 +1,24 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace FYPAllocationTest.Models
 {
-    public class DbInitializer
+    public class DbInitializer // This class allows for the seeding of roles and prepared users to be used for testing puposes
     {
-        public static void Seed(AppDbContext context)
-        {
-            if (!context.student.Any())
-            {
-                context.AddRange(
-                    new Student()
-                    { 
-                        student_id = "123400L",
-                        name = "Joe",
-                        surname = "Borg",
-                        email = "JB@um.edu.mt",
-                        average_mark = 68
-                    },
-                    new Student()
-                    {
-                        student_id = "132400L",
-                        name = "Jane",
-                        surname = "Said",
-                        email = "JS@um.edu.mt",
-                        average_mark = 65
-                    }, new Student()
-                    {
-                        student_id = "432100L",
-                        name = "Kyle",
-                        surname = "West",
-                        email = "KW@um.edu.mt",
-                        average_mark = 78
-                    }, new Student()
-                    {
-                        student_id = "123499M",
-                        name = "Tom",
-                        surname = "Olson",
-                        email = "TO@um.edu.mt",
-                        average_mark = 88
-                    }, new Student()
-                    {
-                        student_id = "143200L",
-                        name = "Ursula",
-                        surname = "Borg",
-                        email = "UB@um.edu.mt",
-                        average_mark = 70
-                    }, new Student()
-                    {
-                        student_id = "432199M",
-                        name = "Link",
-                        surname = "Vella",
-                        email = "LV@um.edu.mt",
-                        average_mark = 90
-                    }, new Student()
-                    {
-                        student_id = "123498M",
-                        name = "Ian",
-                        surname = "Grech",
-                        email = "IG@um.edu.mt",
-                        average_mark = 68
-                    }
-                    
-                ) ;
-                context.SaveChanges();
-            }
-        }
-        public static void SeedRoles(RoleManager<IdentityRole> roleManager)
+        public static void SeedRoles(RoleManager<IdentityRole> roleManager) // Apply roles to used across the system
         {
             if (!roleManager.Roles.Any())
             {
-                roleManager.CreateAsync(new IdentityRole("Student")).Wait();
-                roleManager.CreateAsync(new IdentityRole("Supervisor")).Wait();
-                roleManager.CreateAsync(new IdentityRole("Administrator")).Wait();
+                roleManager.CreateAsync(new IdentityRole("Student")).Wait();  // Create Student role
+                roleManager.CreateAsync(new IdentityRole("Supervisor")).Wait(); // Create Supervisor role
+                roleManager.CreateAsync(new IdentityRole("Administrator")).Wait(); // Create Administrator role
             }
         }
 
-        public static void SeedUsers(UserManager<ApplicationUser> userManager)
+        public static void SeedUsers(UserManager<ApplicationUser> userManager) // Seed users to be utilised for testing
         {
-            if (!userManager.Users.Any())
+            if (!userManager.Users.Any()) // Adding user to take on the role of a student
             {
                 var student = new ApplicationUser()
                 {
@@ -94,15 +31,13 @@ namespace FYPAllocationTest.Models
                     PhoneNumberConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString("D") //to track important profile updates (e.g. password change)
                 };
-                //Add to store
-                IdentityResult result = userManager.CreateAsync(student, "FYPsRule!").Result;
+                IdentityResult result = userManager.CreateAsync(student, "FYPsRule!").Result; // Creating the user with the provided credentials
                 if (result.Succeeded)
                 {
-                    //Add to role
-                    userManager.AddToRoleAsync(student, "Student").Wait();
+                    userManager.AddToRoleAsync(student, "Student").Wait(); // Add to role
                 }
 
-                var supervisor = new ApplicationUser()
+                var supervisor = new ApplicationUser() // Creating user to be assigned the role of supervisor
                 {
                     Id = "123464M",
                     Email = "jabela@um.edu.mt",
@@ -113,17 +48,14 @@ namespace FYPAllocationTest.Models
                     PhoneNumberConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString("D") //to track important profile updates (e.g. password change)
                 };
-
-                //Add to store
-                result = userManager.CreateAsync(supervisor, "FYPMaster!").Result;
+                result = userManager.CreateAsync(supervisor, "FYPMaster!").Result; // Creation of user with credentials provided
                 if (result.Succeeded)
                 {
-                    //Add to role
-                    userManager.AddToRoleAsync(supervisor, "Supervisor").Wait();
+                    userManager.AddToRoleAsync(supervisor, "Supervisor").Wait(); // Add to role
                 }
 
 
-                var admin = new ApplicationUser()
+                var admin = new ApplicationUser() // Seeding user to serve the role of administrator 
                 {
                     Email = "secretary@um.edu.mt",
                     NormalizedEmail = "SECRETARY@UM.EDU.MT",
@@ -133,13 +65,10 @@ namespace FYPAllocationTest.Models
                     PhoneNumberConfirmed = true,
                     SecurityStamp = Guid.NewGuid().ToString("D") //to track important profile updates (e.g. password change)
                 };
-
-                //Add to store
-                result = userManager.CreateAsync(admin, "FYPMaster!").Result;
+                result = userManager.CreateAsync(admin, "FYPMaster!").Result; // Creating user with supplied credentials 
                 if (result.Succeeded)
                 {
-                    //Add to role
-                    userManager.AddToRoleAsync(admin, "Administrator").Wait();
+                    userManager.AddToRoleAsync(admin, "Administrator").Wait(); // Add to role
                 }
             }
         }

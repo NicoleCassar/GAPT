@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FYPAllocationTest.Models
 {
-    public interface IStudentRepository
-    {
+    public interface IStudentRepository // Interface connection StudentRepository to controller class
+    { // Methods used are explained within the SutdentRepository class
         public IEnumerable<Student> GetAllData();
-
         bool Import(Student student);
     }
 }

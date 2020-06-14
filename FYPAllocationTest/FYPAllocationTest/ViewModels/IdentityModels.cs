@@ -1,39 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FYPAllocationTest.ViewModels
 {
-    public class LoginViewModel
+    public class LoginViewModel // ViewModel for login page
     {
         [Required]
-        [Display(Name = "Email address")]
+        [Display(Name = "Email address")] // Email address field, also serving as username in this case
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
-    }
-
-    public class RegisterViewModel
-    {
-        [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
-
-        [Required]
-        [Display(Name = "Shoe size")]
-        public int ShoeSize { get; set; }
-
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
-
-        [Required(ErrorMessage = "Please confirm your password")]
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Confirm password doesn't match. please type it in carefully.")]
-        public string ConfirmPassword { get; set; }
+        public string Password { get; set; } // Password field
     }
 }

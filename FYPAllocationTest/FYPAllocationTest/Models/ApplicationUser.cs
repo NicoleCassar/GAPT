@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace FYPAllocationTest.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        // This class, although empty, serves the important purposes of instantiating use of ApplicationUser in order to utilise user details aross the system
     }
 }

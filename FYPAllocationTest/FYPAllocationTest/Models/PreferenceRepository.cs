@@ -1,32 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace FYPAllocationTest.Models
 {
-    public class PreferenceRepository : IPreferenceRepository
+    public class PreferenceRepository : IPreferenceRepository // Repository containing methods for communicating with the 'student_preference' table
     {
         private readonly AppDbContext _appDbContext;
 
-        public PreferenceRepository(AppDbContext appDbContext)
+        public PreferenceRepository(AppDbContext appDbContext) // COnstructor for repository
         {
             _appDbContext = appDbContext;
         }
 
-        public IEnumerable<Preference> GetAllData()
+        public IEnumerable<Preference> GetAllData() // Get all data from 'student_preference' table
         {
             return _appDbContext.student_preference;
         }
 
-        public Area GetAreaByTitle(string title)
+        public void Submit(Preference preference) // Add new preference to the 'student_preference' table
         {
-            return _appDbContext.supervisor_area.FirstOrDefault(p => p.title == title);
-        }
-
-        public void Submit(Preference preference)
-        {
-            
             _appDbContext.student_preference.Add(preference);
             _appDbContext.SaveChanges();
         }
