@@ -5,32 +5,44 @@
 <html>
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div>
-        <p id="deleted" class="alert-info">@ViewBag.deleted</p>
+        <p id="removed" class="alert-info">@ViewBag.deleted</p>
         @foreach (var supervisor in Model.supervisor)
         {
             if (@User.Identity.Name == supervisor.email)
             {
-                <div class="text-center">
+                <div class="text-center mb-4">
                     <h1>Welcome @supervisor.name @supervisor.surname</h1>
                     <h3>Here is a list of your currently proposed FYP areas:</h3><br />
+                    <a asp-controller="Forms" asp-action="StaffForm" class="btncustom">Add a new area proposal</a>
                 </div>
-
-                @foreach (var area in Model.area)
-                {
-                    if (area.supervisor_id == supervisor.supervisor_id)
-                    {
-                        <div class="row mb-1">
-                            <h4>@area.title</h4>
-                            <a class="btn btn-danger btn-sm ml-2" asp-action="Delete_Area" asp-controller="Accounts" asp-route-id="@area.area_id">Delete Area</a>
-                        </div>
-                        <p>@area.description</p>
-                    }
-
-                }
+                <table class="table">
+                    <tbody>
+                        @foreach (var area in Model.area)
+                        {
+                            if (area.supervisor_id == supervisor.supervisor_id)
+                            {
+                                <tr>
+                                    <td>
+                                        <h4 class="mb-4">
+                                            <a asp-controller="Home" asp-action="Details" asp-route-id="@area.area_id" class="uom">@area.title</a>
+                                        </h4> 
+                                        @area.description
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-dark btn-sm btn-block mb-2" asp-action="EditStaffForm" asp-controller="Forms" asp-route-id="@area.area_id">Edit Area</a>
+                                        <a class="btn btn-danger btn-sm btn-block" asp-action="Delete_Area" asp-controller="Accounts" asp-route-id="@area.area_id">Delete Area</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+               
             }
 
         }
@@ -39,7 +51,7 @@
        
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#deleted').delay(3000).fadeOut();
+            $('#removed').delay(2000).fadeOut();
         });
     </script>
 </body>

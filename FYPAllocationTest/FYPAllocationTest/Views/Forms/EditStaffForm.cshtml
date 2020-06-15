@@ -3,7 +3,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 
 @{
-    ViewData["Title"] = "Supervisor Form";
+    ViewData["Title"] = "Edit Area";
 }
 <!DOCTYPE html>
 <html>
@@ -12,21 +12,24 @@
 </head>
 
 <body>
-    <h1 class="align-content-center">FYP: Staff Submission</h1>
-    <form asp-action="StaffForm" method="post" role="form" enctype="multipart/form-data">
+    <h1 class="align-content-center">Edit FYP Area Proposal</h1>
+    <form asp-action="EditStaffForm" method="post" role="form" enctype="multipart/form-data">
         <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group" hidden>
+            <input asp-for="area_id" type="text" class="form-control" readonly>
+        </div>
         <div class="form-group">
             <label asp-for="area">Title/Area</label>
             <input asp-for="area" type="text" class="form-control" id="area" placeholder="Enter area">
         </div>
         <div class="form-group">
             <label asp-for="name">Supervisor</label>
-            <input asp-for="name" type="text" class="form-control" id="name"  placeholder="Enter full name" readonly>
+            <input asp-for="name" type="text" class="form-control" id="name" placeholder="Enter full name" readonly>
         </div>
         <div class="form-group">
             <label asp-for="sup_id">Supervisor ID</label>
             <input asp-for="sup_id" type="text" class="form-control" id="sup_id" placeholder="Enter Supervisor ID" readonly>
-        </div> 
+        </div>
         <div class="form-group">
             <label asp-for="cosupname">Co-Supervisor (if applicable)</label>
             <input asp-for="cosupname" type="text" class="form-control" id="cosupname" placeholder="Enter name">
@@ -62,7 +65,8 @@
             <span asp-validation-for="quota" class="text-danger"></span>
         </div>
         <div class="text-center position">
-            <button type="submit" class="btncustom">Save</button>
+            <button type="submit" class="btncustom">Save Changes</button>
+            <a asp-controller="Accounts" asp-action="StaffProfile" class="btncustom">Cancel</a>
         </div>
     </form>
 </body>

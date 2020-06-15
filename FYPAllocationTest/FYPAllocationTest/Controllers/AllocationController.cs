@@ -25,7 +25,7 @@ namespace FYPAllocationTest.Controllers
         private string connectionstring;
 
         // IMPORTANT
-        private string serverName = "MSI-CSF"; //NOTE: Change this variable's along with 'appsettings.json' file server name to your machine's erver name, in order to access MSSQL server.
+        private string serverName = "CHANGE SERVER NAME"; //NOTE: Change this variable's along with 'appsettings.json' file server name to your machine's erver name, in order to access MSSQL server.
 
         public AllocationController(IAllocationRepository allocationRepository, IStudentRepository studentRepository, ISupervisorRepository supervisorRepository,  IPreferenceRepository preferenceRepository, IAreaRepository areaRepository)
         { // Constructor for AllocationController

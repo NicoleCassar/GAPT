@@ -174,7 +174,7 @@ namespace FYPAllocationTest.Controllers
                     if(user == item.email)
                     {
                         model.name = item.name + " " + item.surname; // Automatically fil the supervisor name field
-                        model.id = item.supervisor_id; // Automatically fill the supervisor id field
+                        model.sup_id = item.supervisor_id; // Automatically fill the supervisor id field
                     }
                 }
                 return View(model);
@@ -187,7 +187,7 @@ namespace FYPAllocationTest.Controllers
 
         [Authorize(Roles = "Supervisor")] // Only allows supervisors to utilise this feature 
         [HttpPost]
-        public IActionResult StaffForm([Bind("area", "name", "id", "cosupname", "desc", "quota", "areakw", "reqres", "reqpre", "ethissues")] AddArea submission)
+        public IActionResult StaffForm([Bind("area", "name", "sup_id", "cosupname", "desc", "quota", "areakw", "reqres", "reqpre", "ethissues")] AddArea submission)
         { // Bind all the neccessary data submitted from the form
             // NOTE: Due to the nature of csv files, commas are used to define the shifting of a cell. Therefore to ensure data integrity, all commas have been replaced upon submission
             var area_title = submission.area.Replace(", ", " - "); 
@@ -202,7 +202,7 @@ namespace FYPAllocationTest.Controllers
             {
                 Area area = new Area() // Add a new Area object
                 {
-                    supervisor_id = submission.id,
+                    supervisor_id = submission.sup_id,
                     title = area_title,
                     description = description_field,
                     available = true,
@@ -215,6 +215,84 @@ namespace FYPAllocationTest.Controllers
                  _areaRepository.Submit(area); // Call repository to save new area to the database
                 TempData["success"] = "Success! FYP Area Proposal was submitted"; // Prepare a success message to ensure the user of task completion
                 return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("All", "Something went wrong, please try again"); // If an error occurs, inform the user.
+                return View();
+            }
+
+        }
+
+        [Authorize(Roles = "Supervisor")] // Only allow supervisors to access the area proposal form
+        public async System.Threading.Tasks.Task<IActionResult> EditStaffFormAsync(int id)
+        {
+            //try
+            //{
+                var model = new AddArea(); // Using the 'AddArea' ViewModel
+                var supervisor = _supervisorRepository.GetAllData();
+                var user = await _userManager.GetUserAsync(User);
+                foreach (var item in supervisor) // Find the user logged in from the list of supervisors
+                {
+                    if (user.Email == item.email)
+                    {
+                        model.name = item.name + " " + item.surname; // Automatically fil the supervisor name field
+                        model.sup_id = item.supervisor_id; // Automatically fill the supervisor id field
+                    }
+                }
+                var areas = _areaRepository.GetAllData();
+                foreach(var area in areas)
+                {
+                    if(area.area_id == id)
+                    {
+                        model.area_id = area.area_id;
+                        model.area = area.title;
+                        model.quota = area.area_quota;
+                        model.areakw = area.keywords;
+                        model.reqres = area.required_resources;
+                        model.reqpre = area.required_prerequisites;
+                        model.ethissues = area.ethical_issues;
+                    }
+                }
+                return View(model);
+            //}
+            //catch
+            //{
+                //return RedirectToAction("Error", "Home"); // If an  error occurs, redirect to home
+            //}
+        }
+
+        [Authorize(Roles = "Supervisor")] // Only allows supervisors to utilise this feature 
+        [HttpPost]
+        public IActionResult EditStaffForm([Bind("area_id", "area", "name", "sup_id", "cosupname", "desc", "quota", "areakw", "reqres", "reqpre", "ethissues")] AddArea submission)
+        { // Bind all the neccessary data submitted from the form
+            // NOTE: Due to the nature of csv files, commas are used to define the shifting of a cell. Therefore to ensure data integrity, all commas have been replaced upon submission
+            var area_title = submission.area.Replace(", ", " - ");
+            var area_keywords = submission.areakw.Replace(", ", " ");
+            var description_field = submission.desc.Replace(", ", " ")
+                                                   .Replace("\r\n", string.Empty).Replace("\n", string.Empty)
+                                                   .Replace("\r", string.Empty);
+            string resources = submission.reqres.Replace(", ", " ");
+            string prerequisites = submission.reqpre.Replace(", ", " ");
+            string ethics = submission.ethissues.Replace(", ", " ");
+            if (ModelState.IsValid) // If all data is submitted correctly 
+            {
+                Console.WriteLine(submission.area_id);
+                Area area = new Area() // Add a new Area object
+                {
+                    area_id = submission.area_id,
+                    supervisor_id = submission.sup_id,
+                    title = area_title,
+                    description = description_field,
+                    available = true,
+                    area_quota = submission.quota,
+                    keywords = area_keywords,
+                    required_resources = resources,
+                    required_prerequisites = prerequisites,
+                    ethical_issues = ethics
+                };
+                _areaRepository.UpdateArea(area); // Call repository to save save changes for area to the database
+                return RedirectToAction("StaffProfile", "Accounts");
             }
             else
             {
