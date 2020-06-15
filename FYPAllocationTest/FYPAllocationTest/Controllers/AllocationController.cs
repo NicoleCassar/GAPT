@@ -25,7 +25,7 @@ namespace FYPAllocationTest.Controllers
         private string connectionstring;
 
         // IMPORTANT
-        private string serverName = "CHANGE SERVER NAME"; //NOTE: Change this variable's along with 'appsettings.json' file server name to your machine's erver name, in order to access MSSQL server.
+        private string serverName = "MSI-CSF"; //NOTE: Change this variable's along with 'appsettings.json' file server name to your machine's erver name, in order to access MSSQL server.
 
         public AllocationController(IAllocationRepository allocationRepository, IStudentRepository studentRepository, ISupervisorRepository supervisorRepository,  IPreferenceRepository preferenceRepository, IAreaRepository areaRepository)
         { // Constructor for AllocationController
@@ -86,16 +86,16 @@ namespace FYPAllocationTest.Controllers
                         ViewBag.NotFound = "Some Students remain unallocated, please allocate them through the below link";
                         ViewBag.Unassigned = "true"; // Prevent the 'Publish Results' button from being enabled
                     }
-                    else // If all students have been successfully allocated
-                    {
-                        ViewBag.Assigned = "All Students have been allocated, the option to publish results is now available";
-                        ViewBag.Complete = "true"; // Enable 'Publish Results' button
-                    }
                 }
                 ViewBag.Ready = "false"; // Disable 'Perform Allocations' button after allocation has been performed
                 ViewBag.Performed = "true"; // Make Allocations log available for download 
-
             }
+            if(model.allocation.Count() == model.student.Count()) // If all students have been successfully allocated
+            {
+                ViewBag.Assigned = "All Students have been allocated, the option to publish results is now available";
+                ViewBag.Complete = "true"; // Enable 'Publish Results' button
+            }
+
             ViewBag.Message = TempData["Not Assigned"]; // Set notification in the case of students not being assigned after allocation
             ViewBag.Success = TempData["Success"]; // Notify successful allocation
             return View(model);

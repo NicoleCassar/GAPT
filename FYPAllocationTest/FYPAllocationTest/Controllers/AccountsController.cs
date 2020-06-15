@@ -113,34 +113,49 @@ namespace FYPAllocationTest.Controllers
                 {
                     if (allocation.student_id == student.student_id) // Once the student who matches the allocation student_id is found
                     {
-                        ismanual = allocation.manual; // Set whether or not the student was manually allocated
-                        stud = student.name; // Set the student name
-                        mailer.ToEmail = student.email; // Set the target address as the student's email address
-                        foreach (var preference in preferences) // Go through their preferences
+                        if (!allocation.manual) // If student has been allocated automatically
                         {
-                            if (preference.student_id == allocation.student_id) // Once the student's preferences are found
+                            ismanual = allocation.manual; // Set whether or not the student was manually allocated
+                            stud = student.name; // Set the student name
+                            mailer.ToEmail = student.email; // Set the target address as the student's email address
+                            foreach (var preference in preferences) // Go through their preferences
                             {
-                                foreach (var area in areas) // Go through the list of areas for that student
+                                if (preference.student_id == allocation.student_id) // Once the student's preferences are found
                                 {
-                                    if (preference.area_id == area.area_id) // When the student's assigned preference is found
+                                    foreach (var area in areas) // Go through the list of areas for that student
                                     {
-                                        foreach (var supervisor in supervisors) // Go through the list of supervisor
+                                        if (preference.area_id == area.area_id) // When the student's assigned preference is found
                                         {
-                                            if (area.supervisor_id == supervisor.supervisor_id) // Once the supervisor who is in charge of the area is found
+                                            foreach (var supervisor in supervisors) // Go through the list of supervisor
                                             {
-                                                if (allocation.supervisor_id == area.supervisor_id) // Find the supervisor who is allocated to the student
+                                                if (area.supervisor_id == supervisor.supervisor_id) // Once the supervisor who is in charge of the area is found
                                                 {
-                                                    sup = supervisor.name + " " + supervisor.surname; // Set the supervisor full name
-                                                    ar = area.title; // Set the area title
-                                                }
+                                                    if (allocation.supervisor_id == area.supervisor_id) // Find the supervisor who is allocated to the student
+                                                    {
+                                                        sup = supervisor.name + " " + supervisor.surname; // Set the supervisor full name
+                                                        ar = area.title; // Set the area title
+                                                    }
 
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
                         }
-
+                        else // If student has been allocated manually
+                        {
+                            ismanual = allocation.manual; // Set whether or not the student was manually allocated
+                            stud = student.name; // Set the student name
+                            mailer.ToEmail = student.email; // Set the target address as the student's email address
+                            foreach (var supervisor in supervisors) // Go through the list of supervisor
+                            {
+                                if (allocation.supervisor_id == supervisor.supervisor_id) // Once the allocated supervisor is found
+                                {
+                                        sup = supervisor.name + " " + supervisor.surname; // Set the supervisor full name 
+                                }
+                            }
+                        }                        
                     }
                 }
                 if (!ismanual) // If the student has been automatically assigned, then send a set template, extracted from the faculty of ICT

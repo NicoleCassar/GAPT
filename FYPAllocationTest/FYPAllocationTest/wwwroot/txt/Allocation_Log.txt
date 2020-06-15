@@ -1,0 +1,78 @@
+
+Link Vella: Checking FYP availability 
+Preference 1: Apps & Educational Games for Children with Disabilities with Peter Xuereb AVAILABLE 
+
+Nicole Cassar: Checking FYP availability 
+Preference 1: Apps & Educational Games for Children with Disabilities with Peter Xuereb NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
+Preference 2: Digital Health - Persuasive Technology - Pervasive Computing with Conrad Attard AVAILABLE 
+
+Caoimhe Camilleri: Checking FYP availability 
+Preference 1: Apps & Educational Games for Children with Disabilities with Peter Xuereb NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
+Preference 2: Digital Health - Persuasive Technology - Pervasive Computing with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Human-Computer Interaction in Software Testing with Chris Porter AVAILABLE 
+
+Connor Sant Fournier: Checking FYP availability 
+Preference 1: Apps & Educational Games for Children with Disabilities with Peter Xuereb NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
+Preference 2: Digital Health - Persuasive Technology - Pervasive Computing with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Human-Computer Interaction in Software Testing with Chris Porter NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Chris Porter
+Preference 4: Computer Security and Communications Issues in Automobiles with Clyde Meli AVAILABLE 
+
+Joshua Spiteri: Checking FYP availability 
+Preference 1: Apps & Educational Games for Children with Disabilities with Peter Xuereb NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
+Preference 2: Digital Health - Persuasive Technology - Pervasive Computing with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Human-Computer Interaction in Software Testing with Chris Porter NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Chris Porter
+Preference 4: Computer Security and Communications Issues in Automobiles with Clyde Meli NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Clyde Meli
+Preference 5: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul AVAILABLE 
+
+Joe Borg: Checking FYP availability 
+Preference 1: Apps & Educational Games for Children with Disabilities with Peter Xuereb NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
+Preference 2: Digital Health - Persuasive Technology - Pervasive Computing with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Human-Computer Interaction in Software Testing with Chris Porter NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Chris Porter
+Preference 4: Computer Security and Communications Issues in Automobiles with Clyde Meli NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Clyde Meli
+Preference 5: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Joshua Ellul
+Preference 6: Hospital Admission Pattern Analysis - Bed Resource Requirement Forecasting - Allocation & Management with Lalit Garg AVAILABLE 
+
+Ian Grech: Checking FYP availability 
+Preference 1: Apps & Educational Games for Children with Disabilities with Peter Xuereb NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
+Preference 2: Digital Health - Persuasive Technology - Pervasive Computing with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Human-Computer Interaction in Software Testing with Chris Porter NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Chris Porter
+Preference 4: Computer Security and Communications Issues in Automobiles with Clyde Meli NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Clyde Meli
+Preference 5: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Joshua Ellul
+Preference 6: Hospital Admission Pattern Analysis - Bed Resource Requirement Forecasting - Allocation & Management with Lalit Garg NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Lalit Garg
+All Preference NOT AVAILABLE, please manually allocate 
+
+Jane Said: Checking FYP availability 
+Preference 1: Apps & Educational Games for Children with Disabilities with Peter Xuereb NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Peter Xuereb
+Preference 2: Digital Health - Persuasive Technology - Pervasive Computing with Conrad Attard NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Conrad Attard
+Preference 3: Human-Computer Interaction in Software Testing with Chris Porter NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Chris Porter
+Preference 4: Computer Security and Communications Issues in Automobiles with Clyde Meli NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Clyde Meli
+Preference 5: Blockchain and/or Cryptocurrency and/or Smart Contracts with Joshua Ellul NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Joshua Ellul
+Preference 6: Hospital Admission Pattern Analysis - Bed Resource Requirement Forecasting - Allocation & Management with Lalit Garg NOT AVAILABLE 
+Reason for unavailability: Quota has been met for Supervisor Lalit Garg
+All Preference NOT AVAILABLE, please manually allocate 

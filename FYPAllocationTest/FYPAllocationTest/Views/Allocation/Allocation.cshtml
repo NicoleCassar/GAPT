@@ -20,7 +20,10 @@
         </div>
     }
 
-    <p id="Success" class="alert-success">@ViewBag.Success</p>
+    @if (ViewBag.success != null)
+    {
+        <p id="Success" class="alert-success">@ViewBag.success</p>
+    }
 
     @if (ViewBag.Unassigned == "true")
     {
@@ -77,8 +80,6 @@
         }
 
     </div>
-
-    <p class="text-danger">@ViewBag.Message</p>
 
     <table class="table table-bordered">
         <thead>

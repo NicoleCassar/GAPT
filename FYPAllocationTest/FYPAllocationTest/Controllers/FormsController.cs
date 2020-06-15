@@ -247,6 +247,7 @@ namespace FYPAllocationTest.Controllers
                     {
                         model.area_id = area.area_id;
                         model.area = area.title;
+                        model.desc = area.description;
                         model.quota = area.area_quota;
                         model.areakw = area.keywords;
                         model.reqres = area.required_resources;
