@@ -39,7 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\csv\allocation_result.csv" />
     <None Include="wwwroot\images\uom.png" />
   </ItemGroup>
 
@@ -60,6 +59,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\csv\" />
     <Folder Include="wwwroot\txt\" />
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
