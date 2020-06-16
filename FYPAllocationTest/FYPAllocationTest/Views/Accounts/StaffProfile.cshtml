@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@model FYPAllocationTest.ViewModels.Supervisor_AreaViewModel
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <p id="removed" class="alert-info">@ViewBag.deleted</p>
+        @foreach (var supervisor in Model.supervisor)
+        {
+            if (@User.Identity.Name == supervisor.email)
+            {
+                <div class="text-center mb-4">
+                    <h1>Welcome @supervisor.name @supervisor.surname</h1>
+                    <h3>Here is a list of your currently proposed FYP areas:</h3><br />
+                    <a asp-controller="Forms" asp-action="StaffForm" class="btncustom">Add a new area proposal</a>
+                </div>
+                <table class="table">
+                    <tbody>
+                        @foreach (var area in Model.area)
+                        {
+                            if (area.supervisor_id == supervisor.supervisor_id)
+                            {
+                                <tr>
+                                    <td>
+                                        <h4 class="mb-4">
+                                            <a asp-controller="Home" asp-action="Details" asp-route-id="@area.area_id" class="uom">@area.title</a>
+                                        </h4> 
+                                        @area.description
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-dark btn-sm btn-block mb-2" asp-action="EditStaffForm" asp-controller="Forms" asp-route-id="@area.area_id">Edit Area</a>
+                                        <a class="btn btn-danger btn-sm btn-block" asp-action="Delete_Area" asp-controller="Accounts" asp-route-id="@area.area_id">Delete Area</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+               
+            }
+
+        }
+
+    </div>
+       
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#removed').delay(2000).fadeOut();
+        });
+    </script>
+</body>
+</html>

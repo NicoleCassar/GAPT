@@ -1,0 +1,68 @@
+﻿@model FYPAllocationTest.Models.Area
+@{
+    ViewData["Title"] = "FYP Area";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <img src="~/images/uom.png" />
+    <h2>Proposed Area by Supervisor</h2>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th scope="row">Area:</th>
+                <td>@Model.title</td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Main Subject Area/s:
+                    (keywords/tags: not more than
+                    5)
+                </th>
+                <td>@Model.keywords</td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Brief Project Description inc.
+                    References:
+                    (word limit approx. 300 words)
+                </th>
+                <td>@Model.description</td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Resources Required:
+                    (if student needs to buy them)
+                </th>
+                <td>@Model.required_resources</td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Recommended Prerequisites /
+                    Knowledge Required and
+
+                    Supporting 3rd Year Study-
+                    units:
+                </th>
+                <td>@Model.required_prerequisites</td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Foreseeable Ethical Issues and
+                    How these will be tackled:
+                    (if applicable)
+                </th>
+                <td>@Model.ethical_issues</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center position">
+        <a asp-controller="Home" asp-action="Areas" class="btn btncustom">Go to list of all Areas</a>
+    </div>
+</body>
+</html>
+

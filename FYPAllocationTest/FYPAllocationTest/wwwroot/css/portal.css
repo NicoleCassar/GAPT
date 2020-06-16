@@ -1,0 +1,44 @@
+﻿.btn-container {
+    background-color: #BA0C2F;
+    border-color:white;
+    color:white;
+    width: 200px;
+    height: 110px;
+    margin: 50px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.btn-container:hover {
+    background-color: white;
+    color: #BA0C2F;
+    border-color: #BA0C2F;
+}
+
+.btn-container:active {
+    background-color: #BA0C2F;
+    border-color: white;
+    color:white;
+}
+
+#button1{
+    padding-top: 20px;
+}
+
+.fas{
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-size: 160%;
+    margin-right: 10px;
+}
+
+.far{
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-size: 160%;
+    margin-right: 10px;
+}
+
+

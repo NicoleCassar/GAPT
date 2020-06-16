@@ -11,9 +11,178 @@
     text-align: center;
 }
 
-.position {
-    display: flex;
-    justify-content: center;
+body{
+    padding-top:7%;
 }
+
+.uom{
+    color:#ba0c2f;
+}
+
+.uom:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.um {
+    color: #ba0c2f;
+}
+
+.btncustom:hover {
+    background-color: white;
+    border: 1px solid #ba0c2f;
+    border-radius: 100px;
+    text-decoration: none;
+    color: #ba0c2f;
+    text-align: center;
+}
+
+.btncustom:disabled {
+    background-color: gray;
+    border: 1px solid whitesmoke;
+    border-radius: 100px;
+    text-decoration: none;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.position {
+    padding:20px;
+}
+
+
+.Fyp-navbar {
+    background-color: #ba0c2f !important;
+}
+
+
+
+.nav-txt {
+    color: #ba0c2f;
+    font-size: 16px;
+    font-family: Arial;
+}
+
+.inline{
+    display:flex;
+}
+
+.navbar-custom {
+    background-color: #ba0c2f;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: white;
+    font-size: 16px;
+    font-family: Arial;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-custom {
+    background-color: #ba0c2f;
+    margin-bottom:2%;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+/* for dropdown only - change the color of dropdown */
+.navbar-custom .dropdown-menu {
+    background-color: #ba0c2f;
+}
+
+.navbar-custom .dropdown-item {
+    color: #ffffff;
+}
+
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+    color: #ba0c2f;
+    background-color:white;
+}
+
+.navbar-custom .navbar-brand{
+    color: white;
+    font-size:16px;
+    font-family:Arial;
+
+}
+
+.navbar-toggler {
+    font-size:25px;
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:active {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    border: none;
+    outline: none;
+}
+
+img{
+    width: 260px;
+    height:89px
+}
+
+.navbar-custom-home {
+}
+
+.navbar-custom-home .navbar-text{
+    color: #ba0c2f;
+}
+
+.navbar-custom-home .navbar-nav .nav-link {
+    color: gray;
+    font-size: 16px ;
+    font-family: sans-serif;
+}
+
+.navbar-custom-home .navbar-nav .nav-link:hover {
+    color: #ba0c2f;
+}
+
+
+.delete {
+    color: #ba0c2f;
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-size: 160%;
+    margin-right: 10px;
+}
+.delete:hover{
+    color:red;
+}
+.delete:active{
+    color:#ba0c2f;
+}
+
+
+
+
+
 
 

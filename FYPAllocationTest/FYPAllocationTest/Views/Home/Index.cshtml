@@ -1,35 +1,41 @@
-﻿@model FYPAllocationTest.ViewModels.StudentViewModel
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <nav class="navbar bg-light ">
-        <span class="navbar-brand  h1">FYP Allocation Portal</span>
+    @if (ViewBag.success != null){
+        <p id="success" class="alert-success">@ViewBag.success</p>
+    }
+    @if (ViewBag.denied != null){
+        <p id="denied" class="alert-warning">@ViewBag.denied</p>
+    }
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom-home">
+        <a class="navbar-brand" href="#"><img src="~/images/uom.png" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span> <i class="fas fa-bars um"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a href="https://www.um.edu.mt/study" class="nav-item nav-link">Study at UM</a>
+                <a href="https://www.um.edu.mt/about" class="nav-item nav-link">About the University</a>
+                <a href="https://www.um.edu.mt/research" class="nav-item nav-link">Research at UM</a>
+                <a href="https://www.um.edu.mt/academicentities/all" class="nav-item nav-link">Academic Entities</a>
+                <a href="https://www.um.edu.mt/services/all" class="nav-item nav-link">All Services at UM</a>
+            </div>
+        </div>
     </nav>
-    <div class="text-center ">
 
-        @using (Html.BeginForm("Export_Tutors", "Home", FormMethod.Post))
-        {
-            <input type="submit" id="btnSubmit" value="Export Tutors" />
-        }
-        <br />
-        @using (Html.BeginForm("Export_Students", "Home", FormMethod.Post))
-        {
-            <input type="submit" id="btnSubmit" value="Export Students" />
-        }
-        <br />
-        @using (Html.BeginForm("FYPAlloc", "Home", FormMethod.Post))
-        {
-            <input class="btncustom btn-primary" type="submit" id="btnSubmit" value="Perform Allocation" />
-        }
-        <br />
-        <a asp-controller="Home" asp-action="FormA" class="btncustom btn-primary">Student Form</a>
-        <a asp-controller="Home" asp-action="StaffForm" class="btncustom btn-primary">Supervisor Form</a>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#success').delay(3000).fadeOut();
+            $('#denied').delay(3000).fadeOut();
+        });
+    </script>
 
-    </div>
 </body>
 </html>
 

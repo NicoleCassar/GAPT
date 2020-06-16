@@ -1,0 +1,109 @@
+﻿@model FYPAllocationTest.ViewModels.AddStudent
+
+@{
+    ViewData["Title"] = "FormA";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/js/Filter.js"></script>
+
+</head>
+
+<body>
+
+    <h1 class="align-content-center">Form A: Student Submission</h1>
+    <form asp-action="FormA" method="post" role="form" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col">
+                    <label asp-for="name">Name and Surname</label>
+                    <input asp-for="name" type="text" class="form-control" id="input1">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col">
+                    <label asp-for="id">ID Number</label>
+                    <input asp-for="id" type="text" class="form-control" id="input2">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="sup1">Preference 1</label>
+            <select asp-for="sup1" class="form-control" id="sup1" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="sup1" class="text-danger"></span>
+            <select asp-for="pref1" class="form-control" id="area1" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref1" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="sup2">Preference 2</label>
+            <select asp-for="sup2" class="form-control" id="sup2" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="sup2" class="text-danger"></span>
+            <select asp-for="pref2" class="form-control" id="area2" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref2" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="sup3">Preference 3</label>
+            <select asp-for="sup3" class="form-control" id="sup3" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="sup3" class="text-danger"></span>
+            <select asp-for="pref3" class="form-control" id="area3" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref3" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="sup4">Preference 4</label>
+            <select asp-for="sup4" class="form-control" id="sup4" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="sup4" class="text-danger"></span>
+            <select asp-for="pref4" class="form-control" id="area4" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref4" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="sup5">Preference 5</label>
+            <select asp-for="sup5" class="form-control" id="sup5" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="sup5" class="text-danger"></span>
+            <select asp-for="pref5" class="form-control" id="area5" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref5" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="sup6">Preference 6</label>
+            <select asp-for="sup6" class="form-control" id="sup6" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>           
+            <span asp-validation-for="sup6" class="text-danger"></span>
+            <select asp-for="pref6" class="form-control" id="area6" asp-items="new SelectList(string.Empty)">
+                <option value="">Select an Area</option>
+            </select>
+            <span asp-validation-for="pref6" class="text-danger"></span>
+        </div>
+        <div class="text-center position">
+            <button type="submit" class="btncustom">Submit</button>
+        </div>
+    </form>
+
+   
+</body>
+
+</html>
+

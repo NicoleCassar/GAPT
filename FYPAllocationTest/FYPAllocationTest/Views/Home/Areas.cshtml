@@ -1,0 +1,32 @@
+﻿@model FYPAllocationTest.ViewModels.Supervisor_AreaViewModel
+@{
+    ViewData["Title"] = "Available FYP Areas";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <img src="~/images/uom.png"/>
+    <h1 class="mb-2">Available FYP Areas</h1>
+    <p class="mb-4">The following is a list of existing areas to be chosen from, sorted by supervisor:</p>
+    @foreach (var supervisor in Model.supervisor)
+    {
+        <div class="mb-4">
+            <h3 class="mb-0">@supervisor.name @supervisor.surname</h3>
+            @foreach (var area in Model.area)
+            {
+                if (area.supervisor_id == supervisor.supervisor_id)
+                {
+                    <div>
+                        <a asp-controller="Home" asp-action="Details" asp-route-id="@area.area_id" class="nav-item uom">@area.area_code[0]. @area.title</a>
+                    </div>
+                }
+            }
+        </div>
+    }
+</body>
+</html>
+

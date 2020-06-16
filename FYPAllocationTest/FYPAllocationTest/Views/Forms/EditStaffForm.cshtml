@@ -1,0 +1,74 @@
+﻿@model FYPAllocationTest.ViewModels.AddArea
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = "Edit Area";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1 class="align-content-center">Edit FYP Area Proposal</h1>
+    <form asp-action="EditStaffForm" method="post" role="form" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group" hidden>
+            <input asp-for="area_id" type="text" class="form-control" readonly>
+        </div>
+        <div class="form-group">
+            <label asp-for="area">Title/Area</label>
+            <input asp-for="area" type="text" class="form-control" id="area" placeholder="Enter area">
+        </div>
+        <div class="form-group">
+            <label asp-for="name">Supervisor</label>
+            <input asp-for="name" type="text" class="form-control" id="name" placeholder="Enter full name" readonly>
+        </div>
+        <div class="form-group">
+            <label asp-for="sup_id">Supervisor ID</label>
+            <input asp-for="sup_id" type="text" class="form-control" id="sup_id" placeholder="Enter Supervisor ID" readonly>
+        </div>
+        <div class="form-group">
+            <label asp-for="cosupname">Co-Supervisor (if applicable)</label>
+            <input asp-for="cosupname" type="text" class="form-control" id="cosupname" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label asp-for="areakw">Main subject Area/s (keywords/tags: not more than 5)</label>
+            <textarea asp-for="areakw" class="form-control" id="areakw" rows="3"></textarea>
+            <span asp-validation-for="areakw" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="desc">Brief Project Description inc. References (word limit approx. 300 words)</label>
+            <textarea asp-for="desc" class="form-control" id="desc" rows="3"></textarea>
+            <span asp-validation-for="desc" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="reqres">Resources Required (if student needs to buy them)</label>
+            <textarea asp-for="reqres" class="form-control" id="reqres" rows="3"></textarea>
+            <span asp-validation-for="reqres" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="reqpre">Recommended Prerequisites / Knowledge Required and supporting 3rd Year study-units</label>
+            <textarea asp-for="reqpre" class="form-control" id="reqpre" rows="3"></textarea>
+            <span asp-validation-for="reqpre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ethissues">Foreseeable Etichal Issues and How these will be tackled (if applicable)</label>
+            <textarea asp-for="ethissues" class="form-control" id="ethissues" rows="3"></textarea>
+            <span asp-validation-for="ethissues" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="quota">Area Quota(if applicable)</label>
+            <input asp-for="quota" type="number" class="form-control" id="quota" rows="3">
+            <span asp-validation-for="quota" class="text-danger"></span>
+        </div>
+        <div class="text-center position">
+            <button type="submit" class="btncustom">Save Changes</button>
+            <a asp-controller="Accounts" asp-action="StaffProfile" class="btncustom">Cancel</a>
+        </div>
+    </form>
+</body>
+</html>
+

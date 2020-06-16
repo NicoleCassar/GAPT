@@ -1,0 +1,53 @@
+﻿@model FYPAllocationTest.ViewModels.Imports
+
+@{
+    ViewData["Title"] = "Import Students and Supervisors";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <h1 class="align-content-center">Import Students</h1>
+    <p class="alert-danger">@ViewBag.failurestudent</p>
+    <form asp-action="Import_Student" method="post" role="form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="col-md-5">Please select a csv file to upload</label>
+            <div class="col-md-10">
+                <input type="file" asp-for="studentimport" class="form-control" />
+                <span class="text-danger">@ViewBag.studentimport</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-5">
+                <input type="submit" class="btncustom" value="Import Students" />
+            </div>
+        </div>
+
+    </form>
+    <h1 class="align-content-center">Import Supervisors</h1>
+    <p class="alert-danger">@ViewBag.failuresupervisor</p>
+    <form asp-action="Import_Supervisor" method="post" role="form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="col-md-5">Please select a csv file to upload</label>
+            <div class="col-md-10">
+                <input type="file" asp-for="supervisorimport" class="form-control" />
+                <span class="text-danger">@ViewBag.supervisorimport</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-5">
+                <input type="submit" class="btncustom" value="Import Supervisors" />
+            </div>
+        </div>
+
+    </form>
+
+
+</body>
+
+</html>
+

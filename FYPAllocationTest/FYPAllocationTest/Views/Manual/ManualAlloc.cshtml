@@ -1,0 +1,44 @@
+﻿@model FYPAllocationTest.ViewModels.AddAllocation
+
+@{
+    ViewData["Title"] = "Manual Allocation";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/js/Filter.js"></script>
+
+</head>
+
+<body>
+
+    <h1 class="align-content-center">Manual Allocation</h1>
+    <p>The below is a list of students who were not allocated, along with the supervisors still available:</p>
+    <form asp-action="Manual" method="post" role="form" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="student">Unassigned Student/s</label>
+            <select asp-for="student" class="form-control" id="sup1" asp-items="ViewBag.students">
+                <option value="">Student/s</option>
+            </select>
+            <span asp-validation-for="student" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="supervisor">Available Supervisor/s</label>
+            <select asp-for="supervisor" class="form-control" id="supervisor" asp-items="ViewBag.supervisors">
+                <option value="">Supervisor/s</option>
+            </select>
+            <span asp-validation-for="supervisor" class="text-danger"></span> 
+        </div>
+        <div class="text-center position">
+            <button type="submit" class="btncustom">Allocate</button>
+        </div>
+    </form>
+
+   
+</body>
+
+</html>
+

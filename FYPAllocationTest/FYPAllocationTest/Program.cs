@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using FYPAllocationTest.Models;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,26 +9,28 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace FYPAllocationTest
 {
-    public class Program
+    public class Program // This program deals with the building and executing of the application
     {
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
             using (var scope = host.Services.CreateScope())
             {
-                var services = scope.ServiceProvider;
+                var services = scope.ServiceProvider; // Call ServiceProvider
                 try
                 {
-                    var context = services.GetRequiredService<AppDbContext>();
-                    DbInitializer.Seed(context);
+                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                    DbInitializer.SeedRoles(roleManager); // Add roles on database creation
+                    DbInitializer.SeedUsers(userManager); // Add test users to system
                 }
-                catch (Exception ex)
+                catch (Exception ex) // Log any errors that may occur during the seeding stage 
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(ex, "An error occured at the seeding stage");
                 }
 
-                host.Run(); //The problem was here!!!!!!!!!!!!!!!
+                host.Run();
             }
         }
         public static IHostBuilder CreateHostBuilder(string[] args) =>

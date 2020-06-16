@@ -2,12 +2,52 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>2b915888-7517-4d5b-9605-6ed600beaa46</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200401131009_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200401131009_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518070939_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518070939_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518072309_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518072309_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518072528_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518072528_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518073955_MigrationA.cs" />
+    <Compile Remove="Migrations\20200518073955_MigrationA.Designer.cs" />
+    <Compile Remove="Migrations\20200518074419_A.cs" />
+    <Compile Remove="Migrations\20200518074419_A.Designer.cs" />
+    <Compile Remove="Migrations\20200518074549_A.cs" />
+    <Compile Remove="Migrations\20200518074549_A.Designer.cs" />
+    <Compile Remove="Migrations\20200518074844_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518074844_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518093525_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518093525_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518100011_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518100011_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518123652_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200518123652_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200518124021_Updates.cs" />
+    <Compile Remove="Migrations\20200518124021_Updates.Designer.cs" />
+    <Compile Remove="Migrations\20200522160735_NewMigration.cs" />
+    <Compile Remove="Migrations\20200522160735_NewMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200522161049_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200522161049_AllocationMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200522173604_AllocationMigration.cs" />
+    <Compile Remove="Migrations\20200522173604_AllocationMigration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\uom.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="4.4.1" />
     <PackageReference Include="IronPython" Version="2.7.9" />
     <PackageReference Include="IronPython.StdLib" Version="2.7.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
@@ -15,7 +55,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\csv\" />
+    <Folder Include="wwwroot\txt\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
 
